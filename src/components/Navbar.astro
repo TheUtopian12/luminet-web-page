@@ -11,8 +11,25 @@
     </div>
 
     <ul class="nav-links">
-      <li><a href="#">Luminet</a></li>
-      <li><a href="#">Soluciones</a></li>
+      <li><a href="/">Luminet</a></li>
+      <li class="dropdown">
+        <a href="#">Soluciones <span class="arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/conectividad/">Conectividad</a></li>
+          <li><a href="/internet-dedicado/">Internet Dedicado</a></li>
+          <li><a href="/internet-pyme/">Internet Pyme</a></li>
+          <li><a href="/internet-satelital/">Internet Satelital</a></li>
+          <li><a href="/internet-eventos/">Internet Eventos</a></li>
+          <li><a href="/alta-disponibilidad/">Alta Disponibilidad</a></li>
+          <li><a href="/servicios-administrados/">Servicios Administrados</a></li>
+          <li><a href="/comunicaciones-unificadas/">Comunicaciones Unificadas</a></li>
+          <li><a href="/red-wifi/">Red WiFi</a></li>
+          <li><a href="/ciberseguridad/">Ciberseguridad</a></li>
+          <li><a href="/sd-wan/">SD-WAN</a></li>
+          <li><a href="/video-vigilancia/">Video Vigilancia</a></li>
+          <li><a href="/site-map/">Site Map</a></li>
+        </ul>
+      </li>
       <li><a href="#">Comunidad</a></li>
       <li><a href="#">Soporte</a></li>
       <li class="divider"></li>
@@ -101,6 +118,62 @@
 
   .nav-links a:hover {
     color: var(--accent-blue);
+  }
+
+  /* Dropdown Styles */
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000829;
+    min-width: 200px;
+    padding: 1rem 0;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Invisible bridge to keep hover state active */
+  .dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 15px; /* Bridge the gap */
+  }
+
+  .dropdown-menu {
+    margin-top: 15px;
+  }
+
+  .dropdown-menu li {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    padding: 0.8rem 1.5rem;
+    display: block;
+    width: 100%;
+  }
+
+  .dropdown-menu li a:hover {
+    background: rgba(43, 89, 255, 0.1);
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .arrow {
+    font-size: 0.7rem;
+    margin-left: 0.3rem;
+    opacity: 0.7;
   }
 
   .divider {
