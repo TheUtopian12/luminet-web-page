@@ -1,0 +1,180 @@
+---
+const solutions = [
+  {
+    category: 'Conectividad',
+    title: 'Conectividad',
+    services: ['Internet Dedicado', 'Internet PyME', 'Internet Satelital'],
+    color: '#000829'
+  },
+  {
+    category: 'Servicios administrados',
+    title: 'Servicios Administrados',
+    services: ['Comunicaciones Unificadas', 'Red WiFi', 'Ciberseguridad'],
+    color: '#000829'
+  },
+  {
+    category: 'Ciberseguridad',
+    title: 'Ciberseguridad',
+    services: ['Ciberseguridad', 'Ciberseguridad', 'Ciberseguridad'],
+    color: '#000829'
+  },
+  {
+    category: 'Proyectos Especiales',
+    title: 'Proyectos Especiales',
+    services: ['Proyectos Especiales', 'Proyectos Especiales', 'Proyectos Especiales'],
+    color: '#000829'
+  }
+];
+---
+
+<section id="solutions" class="solutions-section">
+  <div class="container">
+    <h2 class="section-title">Soluciones</h2>
+    
+    <div class="solutions-list">
+      {solutions.map((sol) => (
+        <div class="solution-card">
+          <div class="solution-info">
+            <span class="sol-category">{sol.category}</span>
+            <h3 class="sol-title">{sol.title}</h3>
+            <div class="sol-divider"></div>
+            <div class="sol-services">
+              {sol.services.map((service) => (
+                <div class="sol-service-item">
+                  <div class="sol-icon"></div>
+                  <span>{service}</span>
+                </div>
+              ))}
+            </div>
+            <a href="#" class="btn-discover">DESCUBRE MAS</a>
+          </div>
+          <div class="solution-visual">
+            <div class="visual-circle"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .solutions-section {
+    padding: 8rem 0;
+    background: #f8f9fa;
+  }
+
+  .solutions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .solution-card {
+    background: #000839;
+    border-radius: 40px;
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+  }
+
+  .solution-info {
+    flex: 1;
+    z-index: 2;
+  }
+
+  .sol-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .sol-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sol-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+  }
+
+  .sol-services {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .sol-service-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .sol-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+
+  .btn-discover {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    border: 1px solid white;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .btn-discover:hover {
+    background: white;
+    color: #000839;
+  }
+
+  .solution-visual {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .visual-circle {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #2b59ff 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 992px) {
+    .solution-card {
+      flex-direction: column;
+      padding: 3rem;
+      text-align: center;
+    }
+    .sol-services {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .sol-divider {
+      display: none;
+    }
+    .solution-visual {
+      display: none;
+    }
+  }
+</style>

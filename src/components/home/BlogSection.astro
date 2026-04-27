@@ -1,0 +1,91 @@
+---
+---
+
+<section class="blog-section">
+  <div class="container">
+    <h2 class="section-title">Dale un Vistazo a nuestro Blog</h2>
+    
+    <div class="blog-featured-card">
+      <div class="blog-image">
+        <img src="/blog-events.png" alt="Eventos Masivos" />
+      </div>
+      <div class="blog-content">
+        <h3>Eventos Masivos</h3>
+        <p>
+          En los grandes festivales musicales como los que reúnen a decenas de miles de personas durante varios días la tecnología es el motor silencioso que permite que todo funcione. Detrás de los escenarios, la operación digital sostiene desde la venta de accesos y los sistemas de pago hasta las comunicaciones del staff, la vídeo vigilancia y la logística en tiempo real.
+        </p>
+        <a href="#" class="btn-read">Leer Articulo <span>↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-section {
+    padding: 8rem 0;
+    background: white;
+    color: #000829;
+  }
+
+  .blog-featured-card {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .blog-image {
+    flex: 1;
+  }
+
+  .blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .blog-content {
+    flex: 1;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .blog-content h3 {
+    font-size: 2rem;
+    color: #000bb3;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 2rem;
+  }
+
+  .btn-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #8edb00;
+    font-weight: 700;
+    border: 1px solid #8edb00;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    align-self: flex-start;
+  }
+
+  .btn-read:hover {
+    background: #8edb00;
+    color: white;
+  }
+
+  @media (max-width: 992px) {
+    .blog-featured-card {
+      flex-direction: column;
+    }
+  }
+</style>

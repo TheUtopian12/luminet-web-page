@@ -1,0 +1,77 @@
+---
+const partners = [
+  'RAISECOM', 'TRIOHMTEC', 'neutral networks', 'peplink', 'CISCO',
+  'PacketLight', 'MikroTik', 'odoo', 'sera4', 'MICROCHIP', 'Cambium Networks'
+];
+---
+
+<section class="partners-section">
+  <div class="container">
+    <div class="partners-header">
+      <span class="subtitle">Nuestros Socios</span>
+      <h2 class="section-title">Nuestros Socios</h2>
+    </div>
+
+    <div class="partners-grid">
+      {partners.map((partner) => (
+        <div class="partner-logo">
+          <span>{partner}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .partners-section {
+    padding: 6rem 0;
+    background: #f8f9fa;
+  }
+
+  .partners-header {
+    margin-bottom: 4rem;
+  }
+
+  .subtitle {
+    color: #2b59ff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .partners-section .section-title {
+    color: #000bb3;
+    margin-top: 0.5rem;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .partner-logo {
+    background: white;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .partner-logo:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transform: translateY(-5px);
+  }
+
+  .partner-logo span {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #cbd5e0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+</style>

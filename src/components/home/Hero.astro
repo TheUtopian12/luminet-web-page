@@ -1,0 +1,82 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-container container">
+    <div class="hero-content animate-fade-in">
+      <h1>Conectividad Inteligente para empresas que no pueden detenerse</h1>
+      <p>
+        Internet dedicado, alta disponibilidad y seguridad empresarial con monitoreo 24/7/365. 
+        Diseñamos tu red para que tu operación siga corriendo, pase lo que pase.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-outline">Contáctanos</a>
+        <a href="#solutions" class="btn btn-outline">Soluciones</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    height: 100vh;
+    min-height: 700px;
+    background: linear-gradient(rgba(0, 8, 41, 0.4), rgba(0, 8, 41, 0.4)), url('/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    border-radius: 0 0 50px 50px;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, var(--primary-bg), transparent);
+  }
+
+  .hero-container {
+    width: 100%;
+  }
+
+  .hero-content {
+    max-width: 600px;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .hero-btns .btn {
+    min-width: 160px;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  }
+</style>

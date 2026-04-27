@@ -1,0 +1,151 @@
+---
+---
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <a href="/">
+        <span class="logo-text">luminet</span>
+        <div class="logo-icon"></div>
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#">Luminet</a></li>
+      <li><a href="#">Soluciones</a></li>
+      <li><a href="#">Comunidad</a></li>
+      <li><a href="#">Soporte</a></li>
+      <li class="divider"></li>
+      <li><a href="#" class="intelligent-link">Conectividad Inteligente <span>↗</span></a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://wa.me/..." class="whatsapp-btn">
+        <span class="whatsapp-text">Whatsapp</span>
+        <div class="whatsapp-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.767 0 1.267.408 2.445 1.103 3.407l-.466 1.705 1.747-.458a5.744 5.744 0 003.383 1.078c3.181 0 5.767-2.586 5.767-5.767 0-3.181-2.586-5.767-5.767-5.767zm3.39 8.161c-.146.411-.734.755-1.012.798-.278.043-.615.068-1.026-.064-.251-.08-.57-.197-1.002-.384-1.84-.795-3.033-2.67-3.125-2.794-.092-.124-.755-.999-.755-1.998 0-.999.521-1.491.706-1.693.185-.202.404-.253.538-.253.135 0 .27 0 .387.006.124.006.29-.047.454.343.164.39.563 1.371.611 1.472.049.1.082.217.015.35-.067.133-.1.217-.199.333-.099.117-.208.261-.297.35-.1.1-.205.21-.088.411.117.201.521.859 1.116 1.389.768.685 1.413.896 1.613.996.202.1.32.083.438-.053.118-.135.505-.589.64-.79.135-.202.27-.168.455-.1.185.068 1.178.556 1.38.657.202.1.337.151.387.236.05.084.05.488-.096.899zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.659 1.438 5.162L2 22l4.981-1.311A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.477 0-2.866-.395-4.06-1.077l-.291-.166-3.012.793.807-2.953-.182-.29A7.957 7.957 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+          </svg>
+        </div>
+      </a>
+      <button class="menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 8, 41, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .logo-icon {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-blue);
+    position: relative;
+  }
+
+  .logo-icon::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-blue);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+  }
+
+  .nav-links a:hover {
+    color: var(--accent-blue);
+  }
+
+  .divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .intelligent-link {
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .whatsapp-btn {
+    background: var(--accent-green);
+    color: #000;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .whatsapp-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(142, 219, 0, 0.3);
+  }
+
+  .menu-btn {
+    color: white;
+  }
+
+  @media (max-width: 992px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>

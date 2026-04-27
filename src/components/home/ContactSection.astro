@@ -1,0 +1,171 @@
+---
+---
+
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <div class="contact-image">
+      <img src="/contact-woman.png" alt="Contact representative" />
+    </div>
+    
+    <div class="contact-form-container">
+      <div class="form-header">
+        <span class="subtitle">Solicita tu propuesta personalizada.</span>
+        <h2 class="section-title">Contáctenos</h2>
+        <p>Cuéntanos de tu empresa y te contactamos en &lt; 24 horas.</p>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre completo *</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Teléfono (10 dígitos) *</label>
+            <input type="tel" required />
+          </div>
+          <div class="form-group">
+            <label>¿Qué necesitas?</label>
+            <select>
+              <option>Selecciona una opción</option>
+              <option>Conectividad</option>
+              <option>Seguridad</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Compañía / Giro *</label>
+            <input type="text" required />
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" required />
+          </div>
+          <div class="form-group">
+            <label>Mensaje</label>
+            <input type="text" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-dark">Enviar y recibir propuesta</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    background: white;
+    color: #000829;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .contact-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .contact-image {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .contact-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .contact-form-container {
+    flex: 1.5;
+    padding: 6rem 4rem;
+  }
+
+  .form-header {
+    margin-bottom: 3rem;
+  }
+
+  .subtitle {
+    color: #2b59ff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-section .section-title {
+    color: #000bb3;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-header p {
+    color: #718096;
+    font-size: 1rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 2px solid #000bb3;
+    padding-bottom: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #000bb3;
+  }
+
+  .form-group input, .form-group select {
+    border: none;
+    outline: none;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    background: transparent;
+  }
+
+  .btn-outline-dark {
+    border: 1px solid #000bb3;
+    color: #000bb3;
+    align-self: flex-start;
+    padding: 1rem 2.5rem;
+  }
+
+  .btn-outline-dark:hover {
+    background: #000bb3;
+    color: white;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-container {
+      flex-direction: column;
+    }
+    .contact-image {
+      display: none;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
