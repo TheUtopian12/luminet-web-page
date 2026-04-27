@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Headphones, Settings, Wifi } from 'lucide-astro';
 
 const solutions = [
   { title: 'Comunicaciones Unificadas', desc: 'Contamos con conexiones directas a operadoras de Internet Tier 1.', link: '/comunicaciones-unificadas/' },
@@ -11,10 +12,10 @@ const solutions = [
 ];
 
 const reasons = [
-  { icon: '🎧', title: 'Operadoras Tier 1' },
-  { icon: '⚙️', title: 'Rápida Implementación' },
-  { icon: '25', title: 'Pioneros de la Industria' },
-  { icon: '📡', title: 'Velocidad Garantizada' },
+  { Icon: Headphones, title: 'Operadoras Tier 1' },
+  { Icon: Settings, title: 'Rápida Implementación' },
+  { text: '25', title: 'Pioneros de la Industria' },
+  { Icon: Wifi, title: 'Velocidad Garantizada' },
 ];
 ---
 
@@ -82,7 +83,7 @@ const reasons = [
       <div class="reasons-grid">
         {reasons.map((r) => (
           <div class="reason-item">
-            <div class="reason-icon">{r.icon}</div>
+            <div class="reason-icon">{r.Icon ? <r.Icon /> : r.text}</div>
             <h3>{r.title}</h3>
           </div>
         ))}

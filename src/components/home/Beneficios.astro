@@ -1,11 +1,12 @@
 ---
+import { Clock, Headphones, Settings, Shield, Wifi } from 'lucide-astro';
 const benefits = [
-  { icon: '🎧', title: 'Operadoras Tier 1' },
-  { icon: '⚙️', title: 'Rápida Implementación' },
-  { icon: '25', title: 'Pioneros de la Industria' },
-  { icon: '📡', title: 'Velocidad Garantizada' },
-  { icon: '⌚', title: 'Disponibilidad 24/07/365' },
-  { icon: '🛡️', title: 'Seguridad Empresarial' },
+  { Icon: Headphones, title: 'Operadoras Tier 1' },
+  { Icon: Settings, title: 'Rápida Implementación' },
+  { text: '25', title: 'Pioneros de la Industria' },
+  { Icon: Wifi, title: 'Velocidad Garantizada' },
+  { Icon: Clock, title: 'Disponibilidad 24/07/365' },
+  { Icon: Shield, title: 'Seguridad Empresarial' },
 ];
 ---
 
@@ -15,7 +16,7 @@ const benefits = [
     <div class="benefits-grid">
       {benefits.map((benefit) => (
         <div class="benefit-card">
-          <div class="benefit-icon">{benefit.icon}</div>
+          <div class="benefit-icon">{benefit.Icon ? <benefit.Icon /> : benefit.text}</div>
           <h3>{benefit.title}</h3>
         </div>
       ))}

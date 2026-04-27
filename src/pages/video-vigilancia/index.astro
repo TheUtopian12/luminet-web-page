@@ -1,12 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactSection from '../../components/home/ContactSection.astro';
+import { Search, Shield, Thermometer, User, Users, Video } from 'lucide-astro';
 
 const beneficios = [
-  { icon: '🌡️', title: 'Detección de temperatura' },
-  { icon: '👥', title: 'Conteo de personal' },
-  { icon: '👤', title: 'Reconocimiento facial' },
-  { icon: '📹', title: 'Monitoreo 24/7/365' },
+  { Icon: Thermometer, title: 'Detección de temperatura' },
+  { Icon: Users, title: 'Conteo de personal' },
+  { Icon: User, title: 'Reconocimiento facial' },
+  { Icon: Video, title: 'Monitoreo 24/7/365' },
 ];
 
 const faq = [
@@ -37,7 +38,7 @@ const faq = [
         <div class="steps-line"></div>
         {beneficios.map((ben) => (
           <div class="step-item">
-            <div class="step-icon">{ben.icon}</div>
+            <div class="step-icon"><ben.Icon /></div>
             <p>{ben.title}</p>
           </div>
         ))}
@@ -49,7 +50,7 @@ const faq = [
     <div class="container">
       <div class="diferenciadores-card">
         <div class="dif-visual">
-          <div class="visual-placeholder">🎥 🛡️ 🔍</div>
+          <div class="visual-placeholder"><Video /> <Shield /> <Search /></div>
         </div>
         <div class="dif-content">
           <h3>Diferenciadores Principales</h3>

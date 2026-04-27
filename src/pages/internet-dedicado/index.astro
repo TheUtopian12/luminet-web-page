@@ -1,12 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactSection from '../../components/home/ContactSection.astro';
+import { Clock, FileText, Headphones, Laptop, Wifi } from 'lucide-astro';
 
 const beneficios = [
-  { icon: '📡', title: 'Proceso de contratación fácil y rápido' },
-  { icon: '🕒', title: 'Implementación en - 6 horas.' },
-  { icon: '👨‍💻', title: 'Soporte técnico personalizado 24/7.' },
-  { icon: '📜', title: 'Garantía de servicio por contrato' },
+  { Icon: Wifi, title: 'Proceso de contratación fácil y rápido' },
+  { Icon: Clock, title: 'Implementación en - 6 horas.' },
+  { Icon: Laptop, title: 'Soporte técnico personalizado 24/7.' },
+  { Icon: FileText, title: 'Garantía de servicio por contrato' },
 ];
 
 const faq = [
@@ -38,7 +39,7 @@ const faq = [
         <div class="steps-line"></div>
         {beneficios.map((ben) => (
           <div class="step-item">
-            <div class="step-icon">{ben.icon}</div>
+            <div class="step-icon"><ben.Icon /></div>
             <p>{ben.title}</p>
           </div>
         ))}
@@ -114,7 +115,7 @@ const faq = [
     <div class="container">
       <div class="cta-bar">
         <div class="cta-left">
-          <div class="cta-icon">🎧</div>
+          <div class="cta-icon"><Headphones /></div>
           <p>Contáctenos para más información</p>
         </div>
         <div class="cta-right">

@@ -1,126 +1,324 @@
 ---
+import {
+  Menu,
+  ChevronDown,
+  MessageCircle,
+  X,
+  ChevronRight,
+} from "lucide-astro";
 ---
 
-<nav class="navbar">
-  <div class="container nav-container">
-    <div class="logo">
-      <a href="/">
-        <span class="logo-text">luminet</span>
-        <div class="logo-icon"></div>
+<header class="navbar-wrapper">
+  <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" />
+
+  <nav class="navbar">
+    <div class="navbar-container">
+      <!-- Logo -->
+      <div class="navbar-brand">
+        <a href="/" class="logo-link">
+          <span class="logo-text">luminet</span>
+          <img src="/logo-nav.png" alt="Logo" class="logo-img" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="navbar-menu desktop-only">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Luminet</a>
+          </li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle">
+              Soluciones <ChevronDown class="icon-small" />
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/conectividad/" class="dropdown-item">Conectividad</a>
+              </li>
+              <li>
+                <a href="/internet-dedicado/" class="dropdown-item"
+                  >Internet Dedicado</a
+                >
+              </li>
+              <li>
+                <a href="/internet-pyme/" class="dropdown-item">Internet Pyme</a
+                >
+              </li>
+              <li>
+                <a href="/internet-satelital/" class="dropdown-item"
+                  >Internet Satelital</a
+                >
+              </li>
+              <li>
+                <a href="/internet-eventos/" class="dropdown-item"
+                  >Internet Eventos</a
+                >
+              </li>
+              <li>
+                <a href="/alta-disponibilidad/" class="dropdown-item"
+                  >Alta Disponibilidad</a
+                >
+              </li>
+              <li>
+                <a href="/servicios-administrados/" class="dropdown-item"
+                  >Servicios Administrados</a
+                >
+              </li>
+              <li>
+                <a href="/comunicaciones-unificadas/" class="dropdown-item"
+                  >Comunicaciones Unificadas</a
+                >
+              </li>
+              <li><a href="/red-wifi/" class="dropdown-item">Red WiFi</a></li>
+              <li>
+                <a href="/ciberseguridad/" class="dropdown-item"
+                  >Ciberseguridad</a
+                >
+              </li>
+              <li><a href="/sd-wan/" class="dropdown-item">SD-WAN</a></li>
+              <li>
+                <a href="/video-vigilancia/" class="dropdown-item"
+                  >Video Vigilancia</a
+                >
+              </li>
+              <li><a href="/site-map/" class="dropdown-item">Site Map</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a href="#" class="nav-link">Comunidad</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Soporte</a></li>
+
+          <!-- Divider -->
+          <li class="nav-divider"></li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link highlight-link">
+              Conectividad Inteligente <ChevronRight class="icon-small" />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Actions -->
+      <div class="navbar-actions">
+        <a href="https://wa.me/..." class="btn-primary desktop-only">
+          <span>Whatsapp</span>
+          <MessageCircle class="icon-medium icon-light" />
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <label for="mobile-menu-toggle" class="mobile-menu-btn mobile-only">
+          <Menu class="icon-large" />
+        </label>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Overlay -->
+  <label for="mobile-menu-toggle" class="drawer-overlay"></label>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer">
+    <div class="drawer-header">
+      <a href="/" class="logo-link">
+        <img src="/logo-nav.png" alt="Logo" class="logo-img-small" />
+        <span class="logo-text-small">luminet</span>
       </a>
+      <label for="mobile-menu-toggle" class="drawer-close-btn">
+        <X class="icon-medium" />
+      </label>
     </div>
 
-    <ul class="nav-links">
-      <li><a href="/">Luminet</a></li>
-      <li class="dropdown">
-        <a href="#">Soluciones <span class="arrow">▾</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/conectividad/">Conectividad</a></li>
-          <li><a href="/internet-dedicado/">Internet Dedicado</a></li>
-          <li><a href="/internet-pyme/">Internet Pyme</a></li>
-          <li><a href="/internet-satelital/">Internet Satelital</a></li>
-          <li><a href="/internet-eventos/">Internet Eventos</a></li>
-          <li><a href="/alta-disponibilidad/">Alta Disponibilidad</a></li>
-          <li><a href="/servicios-administrados/">Servicios Administrados</a></li>
-          <li><a href="/comunicaciones-unificadas/">Comunicaciones Unificadas</a></li>
-          <li><a href="/red-wifi/">Red WiFi</a></li>
-          <li><a href="/ciberseguridad/">Ciberseguridad</a></li>
-          <li><a href="/sd-wan/">SD-WAN</a></li>
-          <li><a href="/video-vigilancia/">Video Vigilancia</a></li>
-          <li><a href="/site-map/">Site Map</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Comunidad</a></li>
-      <li><a href="#">Soporte</a></li>
-      <li class="divider"></li>
-      <li><a href="#" class="intelligent-link">Conectividad Inteligente <span>↗</span></a></li>
-    </ul>
+    <div class="drawer-content">
+      <ul class="drawer-nav">
+        <li><a href="/" class="drawer-link">Luminet</a></li>
 
-    <div class="nav-actions">
-      <a href="https://wa.me/..." class="whatsapp-btn">
-        <span class="whatsapp-text">Whatsapp</span>
-        <div class="whatsapp-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.767 0 1.267.408 2.445 1.103 3.407l-.466 1.705 1.747-.458a5.744 5.744 0 003.383 1.078c3.181 0 5.767-2.586 5.767-5.767 0-3.181-2.586-5.767-5.767-5.767zm3.39 8.161c-.146.411-.734.755-1.012.798-.278.043-.615.068-1.026-.064-.251-.08-.57-.197-1.002-.384-1.84-.795-3.033-2.67-3.125-2.794-.092-.124-.755-.999-.755-1.998 0-.999.521-1.491.706-1.693.185-.202.404-.253.538-.253.135 0 .27 0 .387.006.124.006.29-.047.454.343.164.39.563 1.371.611 1.472.049.1.082.217.015.35-.067.133-.1.217-.199.333-.099.117-.208.261-.297.35-.1.1-.205.21-.088.411.117.201.521.859 1.116 1.389.768.685 1.413.896 1.613.996.202.1.32.083.438-.053.118-.135.505-.589.64-.79.135-.202.27-.168.455-.1.185.068 1.178.556 1.38.657.202.1.337.151.387.236.05.084.05.488-.096.899zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.659 1.438 5.162L2 22l4.981-1.311A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.477 0-2.866-.395-4.06-1.077l-.291-.166-3.012.793.807-2.953-.182-.29A7.957 7.957 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
-          </svg>
-        </div>
+        <!-- Mobile Accordion for Soluciones -->
+        <li class="drawer-accordion">
+          <details>
+            <summary class="drawer-link drawer-accordion-summary">
+              Soluciones
+              <ChevronDown class="icon-medium accordion-icon" />
+            </summary>
+            <ul class="drawer-accordion-content">
+              <li>
+                <a href="/conectividad/" class="drawer-sublink">Conectividad</a>
+              </li>
+              <li>
+                <a href="/internet-dedicado/" class="drawer-sublink"
+                  >Internet Dedicado</a
+                >
+              </li>
+              <li>
+                <a href="/internet-pyme/" class="drawer-sublink"
+                  >Internet Pyme</a
+                >
+              </li>
+              <li>
+                <a href="/internet-satelital/" class="drawer-sublink"
+                  >Internet Satelital</a
+                >
+              </li>
+              <li>
+                <a href="/internet-eventos/" class="drawer-sublink"
+                  >Internet Eventos</a
+                >
+              </li>
+              <li>
+                <a href="/alta-disponibilidad/" class="drawer-sublink"
+                  >Alta Disponibilidad</a
+                >
+              </li>
+              <li>
+                <a href="/servicios-administrados/" class="drawer-sublink"
+                  >Servicios Administrados</a
+                >
+              </li>
+              <li>
+                <a href="/comunicaciones-unificadas/" class="drawer-sublink"
+                  >Comunicaciones Unificadas</a
+                >
+              </li>
+              <li><a href="/red-wifi/" class="drawer-sublink">Red WiFi</a></li>
+              <li>
+                <a href="/ciberseguridad/" class="drawer-sublink"
+                  >Ciberseguridad</a
+                >
+              </li>
+              <li><a href="/sd-wan/" class="drawer-sublink">SD-WAN</a></li>
+              <li>
+                <a href="/video-vigilancia/" class="drawer-sublink"
+                  >Video Vigilancia</a
+                >
+              </li>
+              <li><a href="/site-map/" class="drawer-sublink">Site Map</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li><a href="#" class="drawer-link">Comunidad</a></li>
+        <li><a href="#" class="drawer-link">Soporte</a></li>
+        <li>
+          <a href="#" class="drawer-link highlight-text"
+            >Conectividad Inteligente</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="https://wa.me/..." class="btn-primary w-full">
+        <span>Whatsapp</span>
+        <MessageCircle class="icon-medium icon-dark" />
       </a>
-      <button class="menu-btn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
     </div>
   </div>
-</nav>
+</header>
 
 <style>
-  .navbar {
-    position: fixed;
+  /* Base Reset & Variables mapping */
+  .navbar-wrapper {
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
     z-index: 1000;
-    background: rgba(0, 8, 41, 0.8);
-    backdrop-filter: blur(10px);
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  /* Navbar Styles */
+  .navbar {
+    width: 100%;
+    background-color: rgba(0, 8, 41, 0.8);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1rem 0;
   }
 
-  .nav-container {
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .logo a {
+  /* Brand / Logo */
+  .navbar-brand {
+    flex: none;
+  }
+
+  .logo-link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
   }
 
   .logo-text {
     font-size: 1.5rem;
     font-weight: 800;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.025em;
+    color: var(--text-light, #fff);
   }
 
-  .logo-icon {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--accent-blue);
-    position: relative;
+  .logo-img {
+    width: 3rem;
   }
 
-  .logo-icon::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    width: 8px;
-    height: 8px;
-    background: var(--accent-blue);
+  /* Desktop Menu */
+  .navbar-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .nav-links {
+  .nav-list {
     display: flex;
     align-items: center;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .nav-links a {
-    font-size: 0.9rem;
+  .nav-link {
+    font-size: 0.875rem;
     font-weight: 500;
-    color: var(--text-main);
+    color: var(--text-light, #fff);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
   }
 
-  .nav-links a:hover {
-    color: var(--accent-blue);
+  .nav-link:hover {
+    color: var(--primary, #2b59ff);
   }
 
-  /* Dropdown Styles */
+  .highlight-link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Dropdown */
   .dropdown {
     position: relative;
   }
@@ -128,96 +326,268 @@
   .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
-    background: #000829;
-    min-width: 200px;
-    padding: 1rem 0;
-    border-radius: 10px;
-    display: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: var(--bg-dark, #000829);
     border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  /* Invisible bridge to keep hover state active */
-  .dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 15px; /* Bridge the gap */
-  }
-
-  .dropdown-menu {
-    margin-top: 15px;
-  }
-
-  .dropdown-menu li {
-    display: block;
-  }
-
-  .dropdown-menu li a {
-    padding: 0.8rem 1.5rem;
-    display: block;
-    width: 100%;
-  }
-
-  .dropdown-menu li a:hover {
-    background: rgba(43, 89, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    width: 16rem;
+    margin-top: 1rem;
+    list-style: none;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10;
   }
 
   .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown-item {
     display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text-light, #fff);
+    text-decoration: none;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
   }
 
-  .arrow {
-    font-size: 0.7rem;
-    margin-left: 0.3rem;
-    opacity: 0.7;
+  .dropdown-item:hover {
+    background-color: rgba(43, 89, 255, 0.1);
   }
 
-  .divider {
-    width: 1px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  .intelligent-link {
-    color: var(--text-main);
+  /* Actions */
+  .navbar-actions {
+    flex: none;
     display: flex;
     align-items: center;
+    gap: 1rem;
+  }
+
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-  }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .whatsapp-btn {
-    background: var(--accent-green);
+    background-color: #9def00;
     color: #000;
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     font-weight: 700;
-    font-size: 0.9rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
   }
 
-  .whatsapp-btn:hover {
+  .btn-primary:hover {
+    background-color: #9def00;
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(142, 219, 0, 0.3);
   }
 
-  .menu-btn {
-    color: white;
+  .btn-primary.w-full {
+    width: 100%;
+    background-color: #9def00;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
   }
 
-  @media (max-width: 992px) {
-    .nav-links {
+  .mobile-menu-btn {
+    background: none;
+    border: none;
+    color: var(--text-light, #fff);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Icons */
+  .icon-small {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.7;
+  }
+  .icon-medium {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .icon-large {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .icon-dark {
+    fill: #000;
+    color: #000;
+  }
+
+  /* Mobile Drawer Overlay */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20rem;
+    background-color: var(--bg-dark, #000829);
+    color: var(--text-light, #fff);
+    z-index: 1002;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .logo-img-small {
+    width: 2.5rem;
+  }
+  .logo-text-small {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .drawer-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-light, #fff);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .drawer-content {
+    flex: 1;
+  }
+
+  .drawer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .drawer-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-light, #fff);
+    text-decoration: none;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .drawer-link:hover {
+    background-color: rgba(43, 89, 255, 0.2);
+  }
+
+  .highlight-text {
+    color: var(--primary, #2b59ff);
+  }
+
+  /* Mobile Accordion */
+  .drawer-accordion details > summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .drawer-accordion details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .drawer-accordion details[open] > summary .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .drawer-accordion-content {
+    list-style: none;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .drawer-sublink {
+    display: block;
+    padding: 0.5rem;
+    color: var(--text-light, #fff);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .drawer-sublink:hover {
+    background-color: rgba(43, 89, 255, 0.2);
+  }
+
+  .drawer-footer {
+    margin-top: auto;
+    padding-top: 2rem;
+  }
+
+  /* Toggle Logic */
+  .mobile-menu-toggle:checked ~ .drawer-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-toggle:checked ~ .mobile-drawer {
+    transform: translateX(0);
+  }
+
+  /* Media Queries */
+  @media (min-width: 1024px) {
+    .navbar-container {
+      padding: 0 2rem;
+    }
+    .mobile-only {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .desktop-only {
       display: none;
     }
   }

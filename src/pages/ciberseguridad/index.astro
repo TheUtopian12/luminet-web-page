@@ -1,12 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactSection from '../../components/home/ContactSection.astro';
+import { Laptop, Lock, Rocket, Search, Settings, Shield } from 'lucide-astro';
 
 const beneficios = [
-  { icon: '🚀', title: 'Rapida Implementación' },
-  { icon: '⚙️', title: 'Configuración a la medida' },
-  { icon: '🔍', title: 'Analisis de comportamiento para prevención de atques' },
-  { icon: '🛡️', title: 'Detección y Analisis de Tráfico' },
+  { Icon: Rocket, title: 'Rapida Implementación' },
+  { Icon: Settings, title: 'Configuración a la medida' },
+  { Icon: Search, title: 'Analisis de comportamiento para prevención de atques' },
+  { Icon: Shield, title: 'Detección y Analisis de Tráfico' },
 ];
 
 const faq = [
@@ -37,7 +38,7 @@ const faq = [
         <div class="steps-line"></div>
         {beneficios.map((ben) => (
           <div class="step-item">
-            <div class="step-icon">{ben.icon}</div>
+            <div class="step-icon"><ben.Icon /></div>
             <p>{ben.title}</p>
           </div>
         ))}
@@ -49,7 +50,7 @@ const faq = [
     <div class="container">
       <div class="diferenciadores-card">
         <div class="dif-visual">
-          <div class="visual-placeholder">🔒 🛡️ 💻</div>
+          <div class="visual-placeholder"><Lock /> <Shield /> <Laptop /></div>
         </div>
         <div class="dif-content">
           <h3>Diferenciadores Principales</h3>
