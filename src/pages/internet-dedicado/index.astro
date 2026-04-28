@@ -145,7 +145,7 @@ const faq = [
 
 <style>
   .internet-hero {
-    height: 400px;
+    min-height: 400px; padding: 4rem 0;
     background: linear-gradient(rgba(0, 8, 41, 0.7), rgba(0, 8, 41, 0.7)), url('/internet-hero.png');
     background-size: cover;
     background-position: center;
@@ -158,7 +158,7 @@ const faq = [
   }
 
   .internet-hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     font-weight: 800;
   }
 
@@ -174,7 +174,7 @@ const faq = [
 
   .section-title-center {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: #000bb3;
     margin-bottom: 4rem;
   }
@@ -186,7 +186,7 @@ const faq = [
 
   .steps-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     position: relative;
     text-align: center;
@@ -220,7 +220,7 @@ const faq = [
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   }
 
@@ -238,7 +238,7 @@ const faq = [
   .diferenciadores-card {
     background: #000bb3;
     border-radius: 30px;
-    padding: 4rem;
+    padding: clamp(2rem, 5vw, 4rem);
     display: flex;
     gap: 4rem;
     align-items: center;
@@ -290,7 +290,7 @@ const faq = [
 
   .cases-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
@@ -331,8 +331,8 @@ const faq = [
 
   .cta-bar {
     background: #000bb3;
-    padding: 2rem 4rem;
-    border-radius: 100px;
+    padding: 2rem clamp(1.5rem, 5vw, 4rem);
+    border-radius: clamp(30px, 10vw, 100px);
     display: flex;
     justify-content: space-between;
     align-items: center;

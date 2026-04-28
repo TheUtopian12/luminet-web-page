@@ -72,7 +72,7 @@ const solutions = [
   .solution-card {
     background: #000839;
     border-radius: 40px;
-    padding: 4rem;
+    padding: clamp(2rem, 5vw, 4rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,7 +97,7 @@ const solutions = [
   }
 
   .sol-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 2rem;
   }
 
@@ -110,7 +110,8 @@ const solutions = [
 
   .sol-services {
     display: flex;
-    gap: 3rem;
+    flex-wrap: wrap;
+    gap: clamp(1rem, 3vw, 3rem);
     margin-bottom: 3rem;
   }
 
@@ -163,12 +164,10 @@ const solutions = [
   @media (max-width: 992px) {
     .solution-card {
       flex-direction: column;
-      padding: 3rem;
       text-align: center;
     }
     .sol-services {
       justify-content: center;
-      flex-wrap: wrap;
     }
     .sol-divider {
       display: none;

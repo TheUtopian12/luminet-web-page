@@ -123,18 +123,18 @@ const faq = [
 
 <style>
   /* Same styles as Pyme */
-  .service-hero { height: 400px; background: linear-gradient(rgba(0, 8, 41, 0.7), rgba(0, 8, 41, 0.7)), url('/internet-hero.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: 80px; color: white; }
-  .service-hero h1 { font-size: 3.5rem; font-weight: 800; }
+  .service-hero { min-height: 400px; padding: 4rem 0; background: linear-gradient(rgba(0, 8, 41, 0.7), rgba(0, 8, 41, 0.7)), url('/internet-hero.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: 80px; color: white; }
+  .service-hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; }
   .service-subtitle { padding: 3rem 0; text-align: center; color: #2b59ff; font-weight: 600; font-size: 1.1rem; max-width: 900px; margin: 0 auto; }
-  .section-title-center { text-align: center; font-size: 2.5rem; color: #000bb3; margin-bottom: 4rem; }
+  .section-title-center { text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); color: #000bb3; margin-bottom: 4rem; }
   .beneficios-luminet { padding: 6rem 0; background: #f8f9fa; }
-  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; position: relative; text-align: center; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; position: relative; text-align: center; }
   .steps-line { position: absolute; top: 50px; left: 10%; right: 10%; height: 1px; background: #cbd5e0; z-index: 0; }
   .step-item { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-  .step-icon { width: 100px; height: 100px; background: white; border: 1px solid #cbd5e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+  .step-icon { width: 100px; height: 100px; background: white; border: 1px solid #cbd5e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(1.8rem, 5vw, 2.5rem); }
   .step-item p { font-weight: 700; color: #000829; font-size: 0.9rem; max-width: 150px; }
   .diferenciadores { padding: 6rem 0; }
-  .diferenciadores-card { background: #000bb3; border-radius: 30px; padding: 4rem; display: flex; gap: 4rem; align-items: center; color: white; }
+  .diferenciadores-card { background: #000bb3; border-radius: 30px; padding: clamp(2rem, 5vw, 4rem); display: flex; gap: 4rem; align-items: center; color: white; }
   .dif-visual { flex: 1; display: flex; justify-content: center; align-items: center; }
   .visual-placeholder { font-size: 5rem; }
   .dif-content { flex: 1; }
@@ -144,7 +144,7 @@ const faq = [
   .dif-item strong { font-size: 1.2rem; display: block; margin-bottom: 0.5rem; }
   .dif-item p { font-size: 0.9rem; opacity: 0.8; }
   .success-cases { padding: 8rem 0; }
-  .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
   .case-card { background: #f8f9fa; border-radius: 20px; overflow: hidden; }
   .case-img-placeholder { height: 250px; }
   .case-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }

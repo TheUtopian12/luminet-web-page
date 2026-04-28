@@ -29,9 +29,8 @@
   }
 
   .hero-card {
-    height: 50vh;
-    width: 120vh;
-    max-width: 100%;
+    min-height: 600px;
+    width: 100%;
     margin: 0 auto;
     background-color: #000829;
     background-image:
@@ -43,7 +42,7 @@
     border-radius: 40px;
     display: flex;
     align-items: center;
-    padding: 0 5rem;
+    padding: 4rem;
     position: relative;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -56,7 +55,7 @@
   }
 
   .hero-card h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.1;
     font-weight: 800;
     margin-bottom: 1.5rem;
@@ -64,7 +63,7 @@
   }
 
   .hero-card p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2.5rem;
     max-width: 500px;
@@ -73,22 +72,35 @@
 
   .hero-btns {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 
   .hero-btns .btn {
     min-width: 160px;
+    flex: 1;
+  }
+
+  @media (min-width: 640px) {
+    .hero-btns .btn {
+      flex: none;
+    }
   }
 
   @media (max-width: 768px) {
     .hero-card {
       padding: 3rem 2rem;
-      height: auto;
       min-height: 500px;
       border-radius: 20px;
+      text-align: center;
+      justify-content: center;
     }
-    .hero-card h1 {
-      font-size: 2.5rem;
+    .hero-card p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-btns {
+      justify-content: center;
     }
   }
 </style>
