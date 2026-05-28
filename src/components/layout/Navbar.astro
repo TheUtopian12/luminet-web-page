@@ -1,0 +1,169 @@
+---
+import { ChevronDown, ChevronRight, MessageCircle, Menu, X } from 'lucide-astro';
+---
+
+<nav id="main-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(15,46,101,0.85);backdrop-filter:blur(8px);transition:all 0.5s ease;">
+  <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:80px;">
+
+      <!-- Logo -->
+      <a href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;">
+        <span style="color:white;font-weight:700;font-size:1.5rem;letter-spacing:-0.025em;transition:color 0.3s;">luminet</span>
+        <img alt="" style="height:2.25rem;width:auto;object-contain;transition:transform 0.3s;" src="/assets/logo-hex.png">
+      </a>
+
+      <!-- Desktop menu -->
+      <div id="desktop-menu" style="display:none;align-items:center;gap:0.25rem;">
+
+        <a href="/" style="padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);text-decoration:none;transition:all 0.3s;">Luminet</a>
+
+        <!-- Soluciones dropdown -->
+        <div id="soluciones-wrapper" style="position:relative;">
+          <button id="soluciones-btn" style="display:flex;align-items:center;gap:0.25rem;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);background:none;border:none;cursor:pointer;transition:all 0.3s;">
+            Soluciones
+            <ChevronDown id="sol-chevron" style="width:1rem;height:1rem;transition:transform 0.3s;" />
+          </button>
+          <div id="soluciones-dropdown" style="display:none;position:absolute;top:100%;left:0;margin-top:0.25rem;width:440px;background:#0F2E65;border:1px solid rgba(255,255,255,0.12);border-radius:0.75rem;box-shadow:0 20px 40px rgba(0,0,0,0.4);padding:1rem;z-index:100;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+              <a href="/alta-disponibilidad" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Alta Disponibilidad</a>
+              <a href="/ciberseguridad" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Ciberseguridad</a>
+              <a href="/comunicaciones-unificadas" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Comunicaciones Unificadas</a>
+              <a href="/conectividad" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Conectividad</a>
+              <a href="/internet-dedicado" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Internet Dedicado</a>
+              <a href="/internet-eventos" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Internet para Eventos</a>
+              <a href="/internet-pyme" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Internet PyME</a>
+              <a href="/internet-satelital" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Internet Satelital</a>
+              <a href="/red-wifi" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Red WiFi</a>
+              <a href="/sd-wan" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">SD-WAN</a>
+              <a href="/servicios-administrados" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Servicios Administrados</a>
+              <a href="/video-vigilancia" style="padding:0.5rem 0.75rem;font-size:0.875rem;color:rgba(209,213,219,1);border-radius:0.5rem;text-decoration:none;transition:all 0.2s;" class="sol-link">Video Vigilancia</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" style="padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);text-decoration:none;transition:all 0.3s;">Comunidad</a>
+        <a href="#" style="padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);text-decoration:none;transition:all 0.3s;">Soporte</a>
+
+        <div style="width:1px;height:1.25rem;background:rgba(255,255,255,0.15);margin:0 0.5rem;"></div>
+
+        <a href="/#contacto" style="display:flex;align-items:center;gap:0.25rem;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);text-decoration:none;transition:all 0.3s;">
+          Conectividad Inteligente
+          <ChevronRight style="width:1rem;height:1rem;" />
+        </a>
+      </div>
+
+      <!-- Whatsapp button (desktop) -->
+      <div id="desktop-cta" style="display:none;align-items:center;gap:1rem;">
+        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:0.5rem;background:#78BE20;color:#0F2E65;padding:0.625rem 1.25rem;border-radius:9999px;font-size:0.875rem;font-weight:700;text-decoration:none;transition:all 0.3s;">
+          <MessageCircle style="width:1rem;height:1rem;" />
+          Whatsapp
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="mobile-toggle" style="display:flex;padding:0.5rem;border-radius:0.5rem;color:white;background:none;border:none;cursor:pointer;">
+        <Menu id="menu-icon" style="width:1.5rem;height:1.5rem;" />
+        <X id="close-icon" style="width:1.5rem;height:1.5rem;display:none;" />
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" style="display:none;border-top:1px solid rgba(255,255,255,0.1);background:rgba(15,46,101,0.98);backdrop-filter:blur(16px);">
+    <div style="padding:1rem 1.5rem 1.5rem;display:flex;flex-direction:column;gap:0.25rem;">
+      <a href="/" style="display:block;padding:0.75rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);text-decoration:none;">Luminet</a>
+
+      <!-- Mobile Soluciones section -->
+      <button id="mob-sol-btn" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:0.75rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);background:none;border:none;cursor:pointer;text-align:left;">
+        Soluciones
+        <ChevronDown id="mob-sol-chevron" style="width:1rem;height:1rem;transition:transform 0.3s;" />
+      </button>
+      <div id="mob-sol-dropdown" style="display:none;padding:0.5rem 0 0.5rem 1rem;border-left:2px solid rgba(120,190,32,0.4);margin-left:1rem;">
+        <span style="display:block;padding:0.25rem 1rem;font-size:0.7rem;font-weight:700;color:rgba(156,163,175,1);text-transform:uppercase;letter-spacing:0.1em;">Nuestros Servicios</span>
+        <a href="/alta-disponibilidad" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Alta Disponibilidad</a>
+        <a href="/ciberseguridad" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Ciberseguridad</a>
+        <a href="/comunicaciones-unificadas" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Comunicaciones Unificadas</a>
+        <a href="/conectividad" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Conectividad</a>
+        <a href="/internet-dedicado" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Internet Dedicado</a>
+        <a href="/internet-eventos" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Internet para Eventos</a>
+        <a href="/internet-pyme" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Internet PyME</a>
+        <a href="/internet-satelital" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Internet Satelital</a>
+        <a href="/red-wifi" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Red WiFi</a>
+        <a href="/sd-wan" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">SD-WAN</a>
+        <a href="/servicios-administrados" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Servicios Administrados</a>
+        <a href="/video-vigilancia" style="display:block;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.875rem;color:rgba(209,213,219,1);text-decoration:none;" class="mob-sol-link">Video Vigilancia</a>
+      </div>
+
+      <a href="#" style="display:block;padding:0.75rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);text-decoration:none;">Comunidad</a>
+      <a href="#" style="display:block;padding:0.75rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);text-decoration:none;">Soporte</a>
+      <a href="/#contacto" style="display:block;padding:0.75rem 1rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:rgba(209,213,219,1);text-decoration:none;">Conectividad Inteligente</a>
+      <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;background:#78BE20;color:#0F2E65;padding:0.75rem 1.25rem;border-radius:9999px;font-size:0.875rem;font-weight:700;text-decoration:none;margin-top:1rem;">
+        <MessageCircle style="width:1rem;height:1rem;" />
+        Whatsapp
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .sol-link:hover, .mob-sol-link:hover {
+    background: rgba(255,255,255,0.08) !important;
+    color: white !important;
+  }
+  @media (min-width: 768px) {
+    #desktop-menu { display: flex !important; }
+    #desktop-cta { display: flex !important; }
+    #mobile-toggle { display: none !important; }
+  }
+</style>
+
+<script>
+  // Desktop Soluciones dropdown
+  const solBtn = document.getElementById('soluciones-btn');
+  const solDropdown = document.getElementById('soluciones-dropdown');
+  const solChevron = document.getElementById('sol-chevron');
+  let solOpen = false;
+
+  solBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    solOpen = !solOpen;
+    solDropdown!.style.display = solOpen ? 'block' : 'none';
+    (solChevron as HTMLElement).style.transform = solOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+  });
+
+  document.addEventListener('click', (e) => {
+    const wrapper = document.getElementById('soluciones-wrapper');
+    if (wrapper && !wrapper.contains(e.target as Node)) {
+      solOpen = false;
+      solDropdown!.style.display = 'none';
+      (solChevron as HTMLElement).style.transform = 'rotate(0deg)';
+    }
+  });
+
+  // Mobile menu toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  let mobileOpen = false;
+
+  mobileToggle?.addEventListener('click', () => {
+    mobileOpen = !mobileOpen;
+    mobileMenu!.style.display = mobileOpen ? 'block' : 'none';
+    menuIcon!.style.display = mobileOpen ? 'none' : 'block';
+    closeIcon!.style.display = mobileOpen ? 'block' : 'none';
+  });
+
+  // Mobile Soluciones toggle
+  const mobSolBtn = document.getElementById('mob-sol-btn');
+  const mobSolDropdown = document.getElementById('mob-sol-dropdown');
+  const mobSolChevron = document.getElementById('mob-sol-chevron');
+  let mobSolOpen = false;
+
+  mobSolBtn?.addEventListener('click', () => {
+    mobSolOpen = !mobSolOpen;
+    mobSolDropdown!.style.display = mobSolOpen ? 'block' : 'none';
+    (mobSolChevron as HTMLElement).style.transform = mobSolOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+  });
+</script>

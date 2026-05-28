@@ -20,19 +20,19 @@ const faq = [
 
 <Layout title="Internet Satelital - Luminet">
   <section class="service-hero">
-    <div class="container hero-container">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hero-container">
       <h1 class="animate-fade-in">Internet Satelital</h1>
     </div>
   </section>
 
   <section class="service-subtitle">
-    <div class="container">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <p>Nuestro servicio de Internet Satelital ofrece una solución de conectividad robusta y de alto rendimiento, aprovechando la innovadora constelación de satélites de órbita baja. Ideal para empresas, organizaciones y usuarios que requieren una conexión confiable, principal o de respaldo, de alta velocidad en ubicaciones remotas o con infraestructura terrestre limitada.</p>
     </div>
   </section>
 
   <section class="beneficios-luminet">
-    <div class="container">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title-center">Beneficios de Luminet</h2>
       <div class="steps-grid">
         <div class="steps-line"></div>
@@ -47,7 +47,7 @@ const faq = [
   </section>
 
   <section class="diferenciadores">
-    <div class="container">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="diferenciadores-card">
         <div class="dif-visual">
           <div class="visual-placeholder"><Globe /> <Wifi /> <Cloud /></div>
@@ -79,7 +79,7 @@ const faq = [
   <ContactSection />
 
   <section class="success-cases">
-    <div class="container">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title-center">Casos de Éxito</h2>
       <div class="cases-grid">
         <div class="case-card">
@@ -105,7 +105,7 @@ const faq = [
   </section>
 
   <section class="faq-section">
-    <div class="container">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title-center">Preguntas Frecuentes</h2>
       <div class="faq-list">
         {faq.map((item) => (
@@ -125,7 +125,7 @@ const faq = [
   /* Same styles as Pyme */
   .service-hero {
     min-height: 400px; padding: 4rem 0;
-    background: linear-gradient(rgba(0, 8, 41, 0.7), rgba(0, 8, 41, 0.7)), url('/internet-hero.png');
+    background: linear-gradient(rgba(15, 46, 101, 0.7), rgba(15, 46, 101, 0.7)), url('/internet-hero.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -135,16 +135,16 @@ const faq = [
     color: white;
   }
   .service-hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; }
-  .service-subtitle { padding: 3rem 0; text-align: center; color: #2b59ff; font-weight: 600; font-size: 1.1rem; max-width: 900px; margin: 0 auto; }
-  .section-title-center { text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); color: #000bb3; margin-bottom: 4rem; }
+  .service-subtitle { padding: 3rem 0; text-align: center; color: #78BE20; font-weight: 600; font-size: 1.1rem; max-width: 900px; margin: 0 auto; }
+  .section-title-center { text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); color: #0F2E65; margin-bottom: 4rem; }
   .beneficios-luminet { padding: 6rem 0; background: #f8f9fa; }
   .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; position: relative; text-align: center; }
   .steps-line { position: absolute; top: 50px; left: 10%; right: 10%; height: 1px; background: #cbd5e0; z-index: 0; }
   .step-item { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
   .step-icon { width: 100px; height: 100px; background: white; border: 1px solid #cbd5e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(1.8rem, 5vw, 2.5rem); }
-  .step-item p { font-weight: 700; color: #000829; font-size: 0.9rem; max-width: 150px; }
+  .step-item p { font-weight: 700; color: #0F2E65; font-size: 0.9rem; max-width: 150px; }
   .diferenciadores { padding: 6rem 0; }
-  .diferenciadores-card { background: #000bb3; border-radius: 30px; padding: clamp(2rem, 5vw, 4rem); display: flex; gap: 4rem; align-items: center; color: white; }
+  .diferenciadores-card { background: #0F2E65; border-radius: 30px; padding: clamp(2rem, 5vw, 4rem); display: flex; gap: 4rem; align-items: center; color: white; }
   .dif-visual { flex: 1; display: flex; justify-content: center; align-items: center; }
   .visual-placeholder { font-size: 5rem; }
   .dif-content { flex: 1; }
@@ -159,12 +159,12 @@ const faq = [
   .case-img-placeholder { height: 250px; }
   .case-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
   .case-body { padding: 2.5rem; }
-  .case-body h3 { color: #000bb3; margin-bottom: 1rem; }
+  .case-body h3 { color: #0F2E65; margin-bottom: 1rem; }
   .case-body p { font-size: 0.9rem; color: #4a5568; line-height: 1.6; }
   .faq-section { padding: 8rem 0; }
   .faq-list { max-width: 900px; margin: 0 auto; }
   .faq-item { border-bottom: 1px solid #e2e8f0; padding: 1.5rem 0; }
-  .faq-item summary { list-style: none; font-weight: 700; color: #000bb3; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  .faq-item summary { list-style: none; font-weight: 700; color: #0F2E65; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
   .faq-answer { padding-top: 1rem; color: #4a5568; }
   @media (max-width: 992px) {
     .steps-grid, .cases-grid, .diferenciadores-card { grid-template-columns: 1fr; flex-direction: column; }
