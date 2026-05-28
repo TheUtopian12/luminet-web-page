@@ -1,5 +1,122 @@
 ---
-import { Globe, Wifi, Satellite, ArrowRight, Headphones, Shield, Lock, Monitor, Rocket, Server, Radio } from 'lucide-astro';
+import { ArrowRight, Check } from 'lucide-astro';
 
+const especialidades = [
+  {
+    eyebrow: 'CONECTIVIDAD',
+    title: 'Conectividad',
+    image: '/especialidades/conectividad.webp',
+    items: [
+      'Enlaces de Internet de alta capacidad y disponibilidad',
+      'Enlaces de interconexión de puntos',
+      'Redes WiFi públicas y privadas en interiores y exteriores soportadas por la última tecnología disponible',
+      'Servicios de equipamiento y administración de redes y servicios',
+      'Soporte remoto y en sitio con cuadrillas e ingeniería especializada'
+    ]
+  },
+  {
+    eyebrow: 'INTEGRACIÓN DE PROYECTOS',
+    title: 'Integración de Proyectos',
+    image: '/especialidades/integracion.webp',
+    items: [
+      'Integración de proyectos de modernización, digitalización y construcciones inteligentes',
+      'IoT, monitoreo, CCTV, control de acceso',
+      'Sistemas de intrusión y sistemas de prevención de incendios',
+      'Automatización y digitalización de procesos'
+    ]
+  },
+  {
+    eyebrow: 'PLATAFORMA INTEGRAL',
+    title: 'Plataforma Integral de Almacenamiento',
+    image: '/especialidades/plataforma.webp',
+    items: [
+      'Equipamiento de redes y herramientas para usuarios',
+      'Mesas de ayuda con niveles 1 y 2',
+      'Pólizas preventivas y de soporte de diferentes marcas del mercado',
+      'Administración de RMAs'
+    ]
+  },
+  {
+    eyebrow: 'VIDEO VIGILANCIA URBANA',
+    title: 'Soluciones de Video Vigilancia Urbana',
+    image: '/especialidades/Soluciones.webp',
+    items: [
+      'Construcción y equipamiento de centros de monitoreo',
+      'Redes de comunicación en zonas urbanas, rurales y unidades móviles',
+      'Puntos de monitoreo inteligente, incluyendo materiales, equipamiento, obras civiles y pólizas de soporte'
+    ]
+  },
+  {
+    eyebrow: 'FÁBRICA DE SOFTWARE',
+    title: 'Fábrica de Software',
+    image: '/especialidades/fabricaSoftware.webp',
+    items: [
+      'Desarrollo de aplicativos móviles y de escritorio',
+      'Administración de bases de datos',
+      'Análisis y protección de datos',
+      'Migración de ambientes on-premise a cloud y viceversa',
+      'Administración de recursos especializados en plataformas'
+    ]
+  }
+];
 ---
-<section id="soluciones" class="bg-[#F5F7FA] py-20 px-4 sm:px-6 lg:px-8"><div class="max-w-7xl mx-auto"><div class="mb-14"><p class="text-[#78BE20] text-xs font-semibold uppercase tracking-[0.15em] mb-2">Nuestros servicios</p><h2 class="text-[#0F2E65] text-3xl md:text-4xl font-bold tracking-tight">Soluciones</h2><div class="w-14 h-1 bg-[#78BE20] mt-4 rounded-full"></div></div><div class="relative space-y-6"><div class="group relative rounded-[2rem] bg-[#0F2E65] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500" style="z-index: 10;"><div class="absolute top-0 left-0 right-0 h-1 bg-[#78BE20] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="flex flex-col lg:flex-row items-stretch"><div class="flex-1 p-8 md:p-10 lg:p-12"><span class="inline-block text-[#78BE20] text-[11px] font-bold uppercase tracking-[0.12em] mb-3">CONECTIVIDAD</span><h3 class="text-white text-2xl md:text-3xl font-semibold mb-4 tracking-tight">Conectividad</h3><p class="text-white/70 text-sm leading-relaxed mb-6 max-w-lg">Soluciones de enlace de alta disponibilidad y baja latencia. Optimizamos la comunicación de tu empresa con infraestructura de vanguardia que garantiza la continuidad de tu negocio en todo momento.</p><div class="w-full h-px bg-white/10 mb-6"></div><div class="grid grid-cols-3 gap-4 mb-8"><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Globe class="lucide lucide-globe w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Internet Dedicado</span></div><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Wifi class="lucide lucide-wifi w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Internet PyME</span></div><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Satellite class="lucide lucide-satellite w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Internet Satelital</span></div></div><button class="inline-flex items-center gap-2 bg-[#78BE20] text-[#0F2E65] px-6 py-3 rounded-full text-sm font-bold hover:bg-[#6aad1a] hover:shadow-lg hover:shadow-[#78BE20]/25 transition-all duration-300 group/btn">DESCUBRE MAS<ArrowRight class="lucide lucide-arrow-right w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" /></button></div><div class="lg:w-[340px] xl:w-[400px] flex-shrink-0 relative flex items-center justify-center p-6 lg:p-8 bg-[#0a1f45]/50"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#4169E1]/20 rounded-full blur-[60px] pointer-events-none"></div><img alt="Conectividad" class="relative z-10 w-full max-w-[260px] h-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500" src="/assets/sol-conectividad.png"></div></div></div><div class="group relative rounded-[2rem] bg-[#0F2E65] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500" style="z-index: 11;"><div class="absolute top-0 left-0 right-0 h-1 bg-[#78BE20] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="flex flex-col lg:flex-row items-stretch"><div class="flex-1 p-8 md:p-10 lg:p-12"><span class="inline-block text-[#78BE20] text-[11px] font-bold uppercase tracking-[0.12em] mb-3">SERVICIOS ADMINISTRADOS</span><h3 class="text-white text-2xl md:text-3xl font-semibold mb-4 tracking-tight">Servicios Administrados</h3><p class="text-white/70 text-sm leading-relaxed mb-6 max-w-lg">Delegue la operatividad técnica a expertos. Monitoreo proactivo, soporte especializado y gestión integral de su infraestructura tecnológica para que su equipo se enfoque en lo que realmente importa: crecer.</p><div class="w-full h-px bg-white/10 mb-6"></div><div class="grid grid-cols-3 gap-4 mb-8"><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Headphones class="lucide lucide-headphones w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Comunicaciones Unificadas</span></div><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Wifi class="lucide lucide-wifi w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Red WiFi</span></div><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Shield class="lucide lucide-shield w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Ciberseguridad</span></div></div><button class="inline-flex items-center gap-2 bg-[#78BE20] text-[#0F2E65] px-6 py-3 rounded-full text-sm font-bold hover:bg-[#6aad1a] hover:shadow-lg hover:shadow-[#78BE20]/25 transition-all duration-300 group/btn">DESCUBRE MAS<ArrowRight class="lucide lucide-arrow-right w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" /></button></div><div class="lg:w-[340px] xl:w-[400px] flex-shrink-0 relative flex items-center justify-center p-6 lg:p-8 bg-[#0a1f45]/50"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#4169E1]/20 rounded-full blur-[60px] pointer-events-none"></div><img alt="Servicios Administrados" class="relative z-10 w-full max-w-[260px] h-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500" src="/assets/sol-servicios.png"></div></div></div><div class="group relative rounded-[2rem] bg-[#0F2E65] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500" style="z-index: 12;"><div class="absolute top-0 left-0 right-0 h-1 bg-[#78BE20] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="flex flex-col lg:flex-row items-stretch"><div class="flex-1 p-8 md:p-10 lg:p-12"><span class="inline-block text-[#78BE20] text-[11px] font-bold uppercase tracking-[0.12em] mb-3">CIBERSEGURIDAD</span><h3 class="text-white text-2xl md:text-3xl font-semibold mb-4 tracking-tight">Ciberseguridad</h3><p class="text-white/70 text-sm leading-relaxed mb-6 max-w-lg">Protección multicapa contra amenazas avanzadas. Implementamos estrategias de defensa, detección y respuesta rápida para blindar sus activos digitales y asegurar la integridad de su información más valiosa.</p><div class="w-full h-px bg-white/10 mb-6"></div><div class="grid grid-cols-3 gap-4 mb-8"><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Lock class="lucide lucide-lock w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Firewall Avanzado</span></div><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Shield class="lucide lucide-shield w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Endpoint Security</span></div><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Monitor class="lucide lucide-monitor w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">SOC 24/7</span></div></div><button class="inline-flex items-center gap-2 bg-[#78BE20] text-[#0F2E65] px-6 py-3 rounded-full text-sm font-bold hover:bg-[#6aad1a] hover:shadow-lg hover:shadow-[#78BE20]/25 transition-all duration-300 group/btn">DESCUBRE MAS<ArrowRight class="lucide lucide-arrow-right w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" /></button></div><div class="lg:w-[340px] xl:w-[400px] flex-shrink-0 relative flex items-center justify-center p-6 lg:p-8 bg-[#0a1f45]/50"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#4169E1]/20 rounded-full blur-[60px] pointer-events-none"></div><img alt="Ciberseguridad" class="relative z-10 w-full max-w-[260px] h-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500" src="/assets/sol-ciberseguridad.png"></div></div></div><div class="group relative rounded-[2rem] bg-[#0F2E65] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500" style="z-index: 13;"><div class="absolute top-0 left-0 right-0 h-1 bg-[#78BE20] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="flex flex-col lg:flex-row items-stretch"><div class="flex-1 p-8 md:p-10 lg:p-12"><span class="inline-block text-[#78BE20] text-[11px] font-bold uppercase tracking-[0.12em] mb-3">PROYECTOS ESPECIALES</span><h3 class="text-white text-2xl md:text-3xl font-semibold mb-4 tracking-tight">Proyectos Especiales</h3><p class="text-white/70 text-sm leading-relaxed mb-6 max-w-lg">Innovación a la medida de sus desafíos. Diseño y ejecución de soluciones tecnológicas personalizadas que rompen el molde, integrando hardware y software para resolver necesidades únicas de alta complejidad.</p><div class="w-full h-px bg-white/10 mb-6"></div><div class="grid grid-cols-3 gap-4 mb-8"><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Rocket class="lucide lucide-rocket w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">IoT Industrial</span></div><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Server class="lucide lucide-server w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Smart Cities</span></div><div class="group/item flex flex-col items-start gap-2.5"><div class="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group-hover/item:bg-[#78BE20]/10 group-hover/item:border-[#78BE20]/30 transition-all duration-300"><Radio class="lucide lucide-radio w-5 h-5 text-white/50 group-hover/item:text-[#78BE20] transition-colors duration-300" /></div><span class="text-white/80 text-xs font-medium leading-tight">Consultoría Técnica</span></div></div><button class="inline-flex items-center gap-2 bg-[#78BE20] text-[#0F2E65] px-6 py-3 rounded-full text-sm font-bold hover:bg-[#6aad1a] hover:shadow-lg hover:shadow-[#78BE20]/25 transition-all duration-300 group/btn">DESCUBRE MAS<ArrowRight class="lucide lucide-arrow-right w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" /></button></div><div class="lg:w-[340px] xl:w-[400px] flex-shrink-0 relative flex items-center justify-center p-6 lg:p-8 bg-[#0a1f45]/50"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#4169E1]/20 rounded-full blur-[60px] pointer-events-none"></div><img alt="Proyectos Especiales" class="relative z-10 w-full max-w-[260px] h-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500" src="/assets/sol-proyectos.png"></div></div></div></div></div></section>
+
+<section id="especialidades" class="bg-[#F5F7FA] py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-14">
+      <p class="text-[#78BE20] text-xs font-semibold uppercase tracking-[0.15em] mb-2">Lo que hacemos</p>
+      <h2 class="text-[#0F2E65] text-3xl md:text-4xl font-bold tracking-tight">Especialidades</h2>
+      <div class="w-14 h-1 bg-[#78BE20] mt-4 rounded-full"></div>
+    </div>
+
+    <div class="relative space-y-6">
+      {especialidades.map((esp, i) => (
+        <div
+          class="group relative rounded-[2rem] bg-[#0F2E65] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+          style={`z-index: ${10 + i};`}
+        >
+          <div class="absolute top-0 left-0 right-0 h-1 bg-[#78BE20] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <div class="flex flex-col lg:flex-row items-stretch">
+            <div class="flex-1 p-8 md:p-10 lg:p-12">
+              <span class="inline-block text-[#78BE20] text-[11px] font-bold uppercase tracking-[0.12em] mb-3">
+                {esp.eyebrow}
+              </span>
+              <h3 class="text-white text-2xl md:text-3xl font-semibold mb-5 tracking-tight">
+                {esp.title}
+              </h3>
+
+              <div class="w-full h-px bg-white/10 mb-6"></div>
+
+              <ul class="space-y-3 mb-8 max-w-2xl">
+                {esp.items.map((item) => (
+                  <li class="flex items-start gap-3 text-white/80 text-sm leading-relaxed">
+                    <span class="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#78BE20]/15 border border-[#78BE20]/40 flex items-center justify-center">
+                      <Check class="w-3 h-3 text-[#78BE20]" />
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <button class="inline-flex items-center gap-2 bg-[#78BE20] text-[#0F2E65] px-6 py-3 rounded-full text-sm font-bold hover:bg-[#6aad1a] hover:shadow-lg hover:shadow-[#78BE20]/25 transition-all duration-300 group/btn">
+                DESCUBRE MAS
+                <ArrowRight class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+              </button>
+            </div>
+
+            <div class="lg:w-[340px] xl:w-[400px] flex-shrink-0 relative flex items-center justify-center p-6 lg:p-8 bg-[#0a1f45]/50">
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#4169E1]/20 rounded-full blur-[60px] pointer-events-none"></div>
+              <img
+                alt={esp.title}
+                class="relative z-10 w-full max-w-[260px] h-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                src={esp.image}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
