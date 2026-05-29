@@ -53,15 +53,7 @@ const especialidades = [
           </div>
 
           <div class="map-stage">
-            <div class="map-glow"></div>
-            <div class="map-grid-pattern"></div>
-            <span class="map-pin pin-1"></span>
-            <span class="map-pin pin-2"></span>
-            <span class="map-pin pin-3"></span>
-            <span class="map-pin pin-4"></span>
-            <span class="map-pin pin-5"></span>
-            <span class="map-pin pin-6"></span>
-            <span class="map-pin pin-7"></span>
+            <img class="map-image" src="/mapa.webp" alt="Mapa de México con presencia de Luminet a nivel nacional" loading="lazy" decoding="async" />
             <div class="map-tag">
               <span class="map-tag-dot"></span>
               Concesionarios Federales de Comunicaciones
@@ -328,6 +320,21 @@ const especialidades = [
     align-items: flex-end;
     justify-content: center;
     padding: 1.25rem;
+  }
+
+  .map-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    z-index: 1;
+    pointer-events: none;
+    image-rendering: auto;
+    image-rendering: -webkit-optimize-contrast;
+    filter: contrast(1.05) saturate(1.1);
   }
 
   .map-glow {
