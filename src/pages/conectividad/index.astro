@@ -3,11 +3,11 @@ import Layout from '../../layouts/Layout.astro';
 import { Headphones, Settings, Wifi } from 'lucide-astro';
 
 const solutions = [
-  { title: 'Internet Dedicado', desc: 'Contamos con conexiones directas a operadoras de Internet Tier 1.', link: '/internet-dedicado/' },
-  { title: 'Internet Asimétrico', desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.', link: '/internet-pyme/' },
-  { title: 'Servicios TIC', desc: 'Somos eficientes en la implementación de su servicio.', link: '/internet-satelital/' },
-  { title: 'Comunicaciones Unificadas', desc: 'Contamos con mas de 25 años de experiencia.', link: '/internet-eventos/' },
-  { title: 'Red WiFi Administrada', desc: 'Conexión simétrica, estable y dedicada.', link: '/alta-disponibilidad/' },
+  { title: 'Internet Dedicado', desc: 'Contamos con conexiones directas a operadoras de Internet Tier 1.', link: '/internet-dedicado/', img: '/conectividad/1.webp' },
+  { title: 'Internet Asimétrico', desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.', link: '/internet-pyme/', img: '/conectividad/2.webp' },
+  { title: 'Servicios TIC', desc: 'Somos eficientes en la implementación de su servicio.', link: '/internet-satelital/', img: '/conectividad/3.webp' },
+  { title: 'Comunicaciones Unificadas', desc: 'Contamos con mas de 25 años de experiencia.', link: '/internet-eventos/', img: '/conectividad/4.webp' },
+  { title: 'Red WiFi Administrada', desc: 'Conexión simétrica, estable y dedicada.', link: '/alta-disponibilidad/', img: '/conectividad/5.webp' },
 ];
 
 const reasons = [
@@ -38,7 +38,9 @@ const reasons = [
       <div class="solutions-grid">
         {solutions.map((sol) => (
           <div class="sol-card">
-            <div class="sol-card-visual"></div>
+            <div class="sol-card-visual">
+              <img src={sol.img} alt={sol.title} width="320" height="200" loading="lazy" decoding="async" />
+            </div>
             <div class="sol-card-content">
               <h3>{sol.title}</h3>
               <p>{sol.desc}</p>
@@ -366,10 +368,25 @@ const reasons = [
   }
 
   .sol-card-visual {
-    height: 120px;
-    background: rgba(0, 0, 0, 0.05);
+    height: 200px;
+    background: transparent;
     border-radius: 10px;
     margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .sol-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+  }
+
+  .sol-card:hover .sol-card-visual img {
+    transform: scale(1.05);
   }
 
   .sol-card h3 {
