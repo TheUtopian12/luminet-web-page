@@ -32,3 +32,19 @@ body {
   .clientes-rtl,
   .clientes-ltr { animation-duration: 45s; }
 }
+
+/* Carrusel de alianzas (reusa los mismos keyframes) */
+.alianzas-track { will-change: transform; }
+.alianzas-rtl { animation: clientes-scroll-rtl 50s linear infinite; }
+.alianzas-ltr { animation: clientes-scroll-ltr 50s linear infinite; }
+.alianzas-rtl:hover,
+.alianzas-ltr:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .alianzas-rtl,
+  .alianzas-ltr { animation: none !important; }
+}
+@media (max-width: 640px) {
+  .alianzas-rtl,
+  .alianzas-ltr { animation-duration: 38s; }
+}

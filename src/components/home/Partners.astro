@@ -1,83 +1,38 @@
 ---
-const partners = [
-  'RAISECOM', 'TRIOHMTEC', 'neutral networks', 'peplink', 'CISCO',
-  'PacketLight', 'MikroTik', 'odoo', 'sera4', 'MICROCHIP', 'Cambium Networks'
-];
+const topRow = Array.from({ length: 10 }, (_, i) => i + 1);
+const bottomRow = Array.from({ length: 10 }, (_, i) => i + 11);
+const fadeMask = "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)";
 ---
 
-<section class="partners-section">
-  <div class="container">
-    <div class="partners-header">
-      <span class="subtitle">Nuestras Alianzas</span>
-      <h2 class="section-title">Nuestras Alianzas</h2>
-    </div>
+<section class="bg-[#f8f9fa] py-24 overflow-hidden" aria-label="Nuestras alianzas">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
+    <span class="text-[#2b59ff] text-xs font-bold uppercase tracking-[0.15em]">Nuestras Alianzas</span>
+    <h2 class="text-[#000bb3] text-3xl md:text-4xl font-bold mt-2">Nuestras Alianzas</h2>
+  </div>
 
-    <div class="partners-grid">
-      {partners.map((partner) => (
-        <div class="partner-logo">
-          <span>{partner}</span>
+  <!-- Fila 1: izquierda → derecha -->
+  <div class="overflow-hidden py-3" style={`-webkit-mask-image:${fadeMask};mask-image:${fadeMask};`} aria-hidden="true">
+    <div class="alianzas-track alianzas-rtl flex flex-row flex-nowrap w-max gap-6">
+      {[...topRow, ...topRow].map((n) => (
+        <div class="flex-none w-[220px] h-[150px] bg-white flex items-center justify-center rounded-[15px] border border-[#e2e8f0] p-4 transition-shadow duration-300 hover:shadow-lg">
+          <img src={`/nuestrasAlianzas/${n}.webp`} alt={`Alianza ${n}`} loading="lazy" decoding="async" class="w-full h-full object-contain" />
         </div>
       ))}
     </div>
   </div>
+
+  <!-- Fila 2: derecha → izquierda -->
+  <div class="overflow-hidden py-3 mt-4" style={`-webkit-mask-image:${fadeMask};mask-image:${fadeMask};`} aria-hidden="true">
+    <div class="alianzas-track alianzas-ltr flex flex-row flex-nowrap w-max gap-6">
+      {[...bottomRow, ...bottomRow].map((n) => (
+        <div class="flex-none w-[220px] h-[150px] bg-white flex items-center justify-center rounded-[15px] border border-[#e2e8f0] p-4 transition-shadow duration-300 hover:shadow-lg">
+          <img src={`/nuestrasAlianzas/${n}.webp`} alt={`Alianza ${n}`} loading="lazy" decoding="async" class="w-full h-full object-contain" />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <ul class="sr-only">
+    {[...topRow, ...bottomRow].map((n) => (<li>Alianza {n}</li>))}
+  </ul>
 </section>
-
-<style>
-  .partners-section {
-    padding: 6rem 0;
-    background: #f8f9fa;
-  }
-
-  .partners-section .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .partners-header {
-    margin-bottom: 4rem;
-  }
-
-  .subtitle {
-    color: #2b59ff;
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-  }
-
-  .partners-section .section-title {
-    color: #000bb3;
-    margin-top: 0.5rem;
-  }
-
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .partner-logo {
-    background: white;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    border: 1px solid #e2e8f0;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-  }
-
-  .partner-logo:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transform: translateY(-5px);
-  }
-
-  .partner-logo span {
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: #cbd5e0;
-    text-align: center;
-    text-transform: uppercase;
-  }
-</style>
