@@ -1,62 +1,42 @@
 ---
-import { ArrowRight, Check } from 'lucide-astro';
+import { ArrowRight } from 'lucide-astro';
 
 const especialidades = [
   {
-    eyebrow: 'CONECTIVIDAD',
-    title: 'Conectividad',
-    image: '/especialidades/conectividad.webp',
-    items: [
-      'Enlaces de Internet de alta capacidad y disponibilidad',
-      'Enlaces de interconexión de puntos',
-      'Redes WiFi públicas y privadas en interiores y exteriores soportadas por la última tecnología disponible',
-      'Servicios de equipamiento y administración de redes y servicios',
-      'Soporte remoto y en sitio con cuadrillas e ingeniería especializada'
-    ]
-  },
-  {
-    eyebrow: 'INTEGRACIÓN DE PROYECTOS',
-    title: 'Integración de Proyectos',
+    eyebrow: 'PLANTA EXTERNA Y ÚLTIMA MILLA',
+    title: 'Planta Externa y Última Milla',
     image: '/especialidades/integracion.webp',
-    items: [
-      'Integración de proyectos de modernización, digitalización y construcciones inteligentes',
-      'IoT, monitoreo, CCTV, control de acceso',
-      'Sistemas de intrusión y sistemas de prevención de incendios',
-      'Automatización y digitalización de procesos'
-    ]
+    description: 'Despliegue de infraestructura de red en zonas urbanas, rurales y de difícil acceso. Donde la fibra no llega, llegamos nosotros mediante radioenlace de microondas.'
   },
   {
-    eyebrow: 'PLATAFORMA INTEGRAL',
-    title: 'Plataforma Integral de Almacenamiento',
+    eyebrow: 'CENTROS DE MANDO Y CONTROL',
+    title: 'Construcción y Mantenimiento de C5, C4 y C2',
     image: '/especialidades/plataforma.webp',
-    items: [
-      'Equipamiento de redes y herramientas para usuarios',
-      'Mesas de ayuda con niveles 1 y 2',
-      'Pólizas preventivas y de soporte de diferentes marcas del mercado',
-      'Administración de RMAs'
-    ]
+    description: 'Diseño, equipamiento y operación de centros de mando y control para coordinación de seguridad pública. Solución llave en mano con soporte continuo.'
   },
   {
     eyebrow: 'VIDEO VIGILANCIA URBANA',
-    title: 'Soluciones de Video Vigilancia Urbana',
+    title: 'Video Vigilancia Urbana',
     image: '/especialidades/Soluciones.webp',
-    items: [
-      'Construcción y equipamiento de centros de monitoreo',
-      'Redes de comunicación en zonas urbanas, rurales y unidades móviles',
-      'Puntos de monitoreo inteligente, incluyendo materiales, equipamiento, obras civiles y pólizas de soporte'
-    ]
+    description: 'Construcción de redes de monitoreo inteligente para espacios públicos: cámaras, obra civil, equipamiento y pólizas de soporte. Reconocimiento de placas, conteo de personas y detección de conductas.'
   },
   {
-    eyebrow: 'FÁBRICA DE SOFTWARE',
-    title: 'Fábrica de Software',
+    eyebrow: 'CIBERSEGURIDAD Y CONTRAINTELIGENCIA',
+    title: 'Ciberseguridad y Contrainteligencia',
+    image: '/especialidades/integracion.webp',
+    description: 'Protección de redes gubernamentales contra amenazas externas. Monitoreo SOC 24/7 y protocolos de seguridad por capas para resguardar información crítica del Estado.'
+  },
+  {
+    eyebrow: 'CONECTIVIDAD DEDICADA',
+    title: 'Conectividad Dedicada para Dependencias',
+    image: '/especialidades/conectividad.webp',
+    description: 'Internet simétrico y dedicado con SLA garantizado para operaciones de misión crítica: sistemas de emergencia, plataformas ciudadanas y comunicaciones interinstitucionales.'
+  },
+  {
+    eyebrow: 'SOFTWARE PROPIO',
+    title: 'Software Propio de Gestión de Incidencias',
     image: '/especialidades/fabricaSoftware.webp',
-    items: [
-      'Desarrollo de aplicativos móviles y de escritorio',
-      'Administración de bases de datos',
-      'Análisis y protección de datos',
-      'Migración de ambientes on-premise a cloud y viceversa',
-      'Administración de recursos especializados en plataformas'
-    ]
+    description: 'Plataforma desarrollada internamente para administrar reportes ciudadanos, incidencias de red y dashboards operativos. Sin dependencia de terceros.'
   }
 ];
 ---
@@ -88,16 +68,9 @@ const especialidades = [
 
               <div class="w-full h-px bg-white/10 mb-6"></div>
 
-              <ul class="space-y-3 mb-8 max-w-2xl">
-                {esp.items.map((item) => (
-                  <li class="flex items-start gap-3 text-white/80 text-sm leading-relaxed">
-                    <span class="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#78BE20]/15 border border-[#78BE20]/40 flex items-center justify-center">
-                      <Check class="w-3 h-3 text-[#78BE20]" />
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <p class="text-white/80 text-sm md:text-base leading-relaxed mb-8 max-w-2xl">
+                {esp.description}
+              </p>
 
               <button class="inline-flex items-center gap-2 bg-[#78BE20] text-[#0F2E65] px-6 py-3 rounded-full text-sm font-bold hover:bg-[#6aad1a] hover:shadow-lg hover:shadow-[#78BE20]/25 transition-all duration-300 group/btn">
                 DESCUBRE MAS
