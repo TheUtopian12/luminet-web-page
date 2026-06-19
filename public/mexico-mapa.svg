@@ -1,5 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 150 1024 724" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mapa de México">
-  <g transform="translate(0,1024) scale(0.1,-0.1)" fill="#DBE4F1" stroke="#0F2E65" stroke-width="6" stroke-opacity="0.18">
+  <defs>
+    <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a4a8f" />
+      <stop offset="55%" stop-color="#0F2E65" />
+      <stop offset="100%" stop-color="#0a1f45" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(0,1024) scale(0.1,-0.1)" fill="url(#mapGrad)" stroke="#ffffff" stroke-width="8" stroke-opacity="0.55">
     <path d="M0 8673 c0 -26 71 -206 93 -234 26 -33 26 -59 0 -59 -11 0 -13 -6 -8
 -22 4 -13 9 -41 12 -63 3 -22 11 -47 18 -55 24 -27 55 -111 55 -149 0 -27 10
 -50 41 -91 29 -39 39 -60 34 -74 -4 -12 -9 -43 -12 -70 -5 -45 -5 -48 15 -42
