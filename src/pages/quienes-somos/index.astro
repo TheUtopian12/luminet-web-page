@@ -25,12 +25,7 @@ const especialidades = [
       <div class="intro-cards">
         <div class="intro-card">
           <p>
-            En <strong>LUMINET GOBIERNO</strong> nos enfocamos en el <strong>sector público</strong>, ofreciendo soluciones integrales para mejorar la conectividad de las instalaciones gubernamentales, consolidándonos así como una empresa <strong>TechCo</strong> referente.
-          </p>
-        </div>
-        <div class="intro-card">
-          <p>
-            Aprovechamos el potencial de la <u>conectividad inteligente</u> para diseñar y desarrollar ecosistemas digitales que combinan software, infraestructura y servicios especializados, orientados a resolver problemas complejos y maximizar la eficiencia operativa.
+            En <strong>Luminet Gobierno</strong> nos especializamos en el <strong>sector público</strong>, ofreciendo soluciones integrales de conectividad e infraestructura TI para dependencias, secretarías, municipios y organismos gubernamentales. Somos <strong>Concesionarios Federales de Comunicaciones, regulados por el IFT</strong>, con <u>operaciones en toda la República Mexicana</u>.
           </p>
         </div>
       </div>
@@ -45,50 +40,62 @@ const especialidades = [
         <p>Operamos a nivel nacional con soluciones especializadas para el sector público.</p>
       </div>
 
-      <div class="ops-grid">
-        <div class="ops-card map-card">
-          <div class="ops-card-header">
-            <h3>Operaciones a nivel nacional</h3>
-            <span class="ops-pill">México</span>
-          </div>
-
-          <div class="map-stage">
-            <img class="map-image" src="/mapa.webp" alt="Mapa de México con presencia de Luminet a nivel nacional" loading="lazy" decoding="async" />
-            <div class="map-tag">
-              <span class="map-tag-dot"></span>
-              Concesionarios Federales de Comunicaciones
-            </div>
-          </div>
-
-          <div class="map-footer">
-            <div class="ift-badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <div>
-                <strong>Empresa regulada</strong>
-                <span>Concesionada por el IFT</span>
-              </div>
-            </div>
-            <div class="ift-stats">
-              <strong>32</strong>
-              <span>estados con cobertura</span>
-            </div>
-          </div>
+      <div class="ops-card map-card">
+        <div class="ops-card-header">
+          <h3>Operaciones a nivel nacional</h3>
+          <span class="ops-pill">México</span>
         </div>
 
-        <div class="ops-card esp-card">
-          <div class="ops-card-header">
-            <h3>Especialidades</h3>
-            <span class="ops-pill green">5 áreas clave</span>
-          </div>
+        <div class="map-stage">
+          <img class="map-image" src="/mexico-mapa.svg" alt="Mapa de México con presencia de Luminet a nivel nacional" loading="lazy" decoding="async" />
+        </div>
 
-          <ul class="esp-list">
+        <div class="map-footer">
+          <div class="ift-badge">
+            <div class="ift-badge-text">
+              <strong>Empresa regulada y</strong>
+              <span>concesionada por el IFT</span>
+            </div>
+            <img class="ift-logo" src="/ift.webp" alt="Instituto Federal de Telecomunicaciones" width="120" height="120" loading="lazy" decoding="async" />
+          </div>
+          <div class="ift-stats">
+            <strong>32</strong>
+            <span>estados con cobertura</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ops-card esp-card">
+        <div class="ops-card-header">
+          <h3>Especialidades</h3>
+          <span class="ops-pill green">5 áreas clave</span>
+        </div>
+
+        <div class="esp-carousel" data-esp-carousel>
+          <div class="esp-slides">
             {especialidades.map((item, i) => (
-              <li class="esp-item">
+              <article class={`esp-slide${i === 0 ? ' is-active' : ''}`} data-esp-slide={i}>
                 <span class="esp-num">{String(i + 1).padStart(2, '0')}</span>
                 <p class="esp-text">{item}</p>
-              </li>
+              </article>
             ))}
-          </ul>
+          </div>
+
+          <div class="esp-controls">
+            <button class="esp-arrow" data-esp-prev type="button" aria-label="Especialidad anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <div class="esp-dots">
+              {especialidades.map((_, i) => (
+                <button class={`esp-dot${i === 0 ? ' is-active' : ''}`} data-esp-dot={i} type="button" aria-label={`Ver especialidad ${i + 1}`}></button>
+              ))}
+            </div>
+
+            <button class="esp-arrow" data-esp-next type="button" aria-label="Siguiente especialidad">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -96,6 +103,54 @@ const especialidades = [
 
   <Partners />
 </Layout>
+
+<script>
+  function initEspCarousel() {
+    const carousel = document.querySelector('[data-esp-carousel]');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('[data-esp-slide]'));
+    const dots = Array.from(carousel.querySelectorAll('[data-esp-dot]'));
+    const prevBtn = carousel.querySelector('[data-esp-prev]');
+    const nextBtn = carousel.querySelector('[data-esp-next]');
+    if (slides.length === 0) return;
+
+    let current = 0;
+    let timer = 0;
+    const INTERVAL = 5000;
+
+    function show(index: number) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+    }
+
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+
+    function start() {
+      stop();
+      timer = window.setInterval(next, INTERVAL);
+    }
+    function stop() {
+      if (timer) window.clearInterval(timer);
+    }
+    function restart() { start(); }
+
+    nextBtn?.addEventListener('click', () => { next(); restart(); });
+    prevBtn?.addEventListener('click', () => { prev(); restart(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); restart(); }));
+
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+
+    show(0);
+    start();
+  }
+
+  initEspCarousel();
+  document.addEventListener('astro:page-load', initEspCarousel);
+</script>
 
 <style is:global>
   .quienes-hero .container,
@@ -169,10 +224,13 @@ const especialidades = [
 
   .intro-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     text-align: left;
     margin-top: 1rem;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .intro-card {
@@ -253,13 +311,6 @@ const especialidades = [
     margin: 0;
   }
 
-  .ops-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 2rem;
-    align-items: stretch;
-  }
-
   .ops-card {
     background: #ffffff;
     border: 1px solid #e6e9f2;
@@ -269,6 +320,10 @@ const especialidades = [
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .map-card {
+    margin-bottom: 2rem;
   }
 
   .ops-card:hover {
@@ -291,8 +346,8 @@ const especialidades = [
   }
 
   .ops-pill {
-    background: rgba(43, 89, 255, 0.08);
-    color: #2b59ff;
+    background: rgba(15, 46, 101, 0.08);
+    color: #0F2E65;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -302,24 +357,40 @@ const especialidades = [
   }
 
   .ops-pill.green {
-    background: rgba(164, 210, 51, 0.15);
-    color: #6b9410;
+    background: rgba(120, 190, 32, 0.15);
+    color: #5a8f18;
   }
 
   /* MAP CARD */
   .map-stage {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 11;
+    aspect-ratio: 16 / 9;
+    min-height: 420px;
     background:
-      radial-gradient(circle at 50% 55%, rgba(43, 89, 255, 0.35), transparent 60%),
-      linear-gradient(135deg, #0a1f5c 0%, #00104a 50%, #0a2a6b 100%);
-    border-radius: 14px;
+      radial-gradient(circle at 50% 45%, rgba(15, 46, 101, 0.08), transparent 60%),
+      linear-gradient(160deg, #ffffff 0%, #eef2fb 55%, #e3eaf8 100%);
+    background-color: #f4f7fd;
+    border-radius: 16px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding: 1.25rem;
+    padding: 1.75rem;
+    box-shadow: inset 0 0 0 1px rgba(15, 46, 101, 0.12);
+  }
+
+  .map-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(15, 46, 101, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 46, 101, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 78%);
+    pointer-events: none;
   }
 
   .map-image {
@@ -332,9 +403,8 @@ const especialidades = [
     object-position: center;
     z-index: 1;
     pointer-events: none;
-    image-rendering: auto;
-    image-rendering: -webkit-optimize-contrast;
-    filter: contrast(1.05) saturate(1.1);
+    padding: 1.5rem;
+    filter: drop-shadow(0 18px 32px rgba(15, 46, 101, 0.30));
   }
 
   .map-glow {
@@ -382,32 +452,6 @@ const especialidades = [
     50% { transform: scale(1.35); opacity: 0.65; }
   }
 
-  .map-tag {
-    position: relative;
-    z-index: 1;
-    background: rgba(0, 8, 41, 0.85);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
-    padding: 0.6rem 1rem;
-    border-radius: 10px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    text-align: center;
-    max-width: 260px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .map-tag-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #a4d233;
-    box-shadow: 0 0 8px rgba(164, 210, 51, 0.8);
-  }
-
   .map-footer {
     margin-top: 1.5rem;
     display: grid;
@@ -422,8 +466,13 @@ const especialidades = [
     padding: 0.85rem 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.75rem;
     color: #2b59ff;
+  }
+
+  .ift-badge-text {
+    text-align: left;
   }
 
   .ift-badge strong {
@@ -439,8 +488,15 @@ const especialidades = [
     color: #5a6478;
   }
 
+  .ift-logo {
+    width: 84px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
   .ift-stats {
-    background: linear-gradient(135deg, #000bb3 0%, #2b59ff 100%);
+    background: linear-gradient(135deg, #0F2E65 0%, #1a4a8f 100%);
     color: white;
     border-radius: 12px;
     padding: 0.85rem 1rem;
@@ -462,56 +518,123 @@ const especialidades = [
     margin-top: 0.25rem;
   }
 
-  /* ESPECIALIDADES CARD */
-  .esp-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  /* ESPECIALIDADES CARROUSEL */
+  .esp-carousel {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 1.75rem;
   }
 
-  .esp-item {
+  .esp-slides {
+    position: relative;
     display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 1rem;
-    align-items: center;
-    padding: 0.9rem 1rem;
-    border-radius: 12px;
-    background: #f8f9fc;
-    border: 1px solid transparent;
-    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    min-height: 200px;
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at 12% 20%, rgba(120, 190, 32, 0.12), transparent 55%),
+      linear-gradient(135deg, #f5f7fb 0%, #ffffff 100%);
+    border: 1px solid #e6e9f2;
+    overflow: hidden;
   }
 
-  .esp-item:hover {
-    background: #ffffff;
-    border-color: rgba(164, 210, 51, 0.5);
-    transform: translateX(4px);
+  .esp-slide {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 2.5rem 2.75rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+    pointer-events: none;
+  }
+
+  .esp-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .esp-num {
-    font-size: 1.4rem;
+    font-size: clamp(2.75rem, 6vw, 4rem);
     font-weight: 800;
-    color: #a4d233;
-    line-height: 1;
-    text-align: center;
+    color: #78BE20;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
   }
 
   .esp-text {
-    color: #2d3748;
-    font-size: 0.92rem;
+    color: #1a202c;
+    font-size: clamp(1.05rem, 2vw, 1.4rem);
+    font-weight: 600;
     line-height: 1.5;
     margin: 0;
+    max-width: 720px;
+  }
+
+  .esp-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .esp-arrow {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #e6e9f2;
+    background: #ffffff;
+    color: #0F2E65;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .esp-arrow:hover {
+    background: #0F2E65;
+    border-color: #0F2E65;
+    color: #ffffff;
+    transform: scale(1.08);
+  }
+
+  .esp-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .esp-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: #cdd5e6;
+    cursor: pointer;
+    transition: width 0.3s ease, background 0.3s ease;
+  }
+
+  .esp-dot.is-active {
+    width: 30px;
+    background: #78BE20;
   }
 
   @media (max-width: 900px) {
-    .ops-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
     .map-footer {
       grid-template-columns: 1fr;
+    }
+    .map-stage {
+      min-height: 300px;
+    }
+    .esp-slide {
+      padding: 2rem 1.5rem;
     }
   }
 </style>

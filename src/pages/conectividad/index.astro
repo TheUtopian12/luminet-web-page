@@ -1,6 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Headphones, Settings, Wifi } from 'lucide-astro';
+import { Headphones, Plus, ShieldCheck, RadioTower, Award, MapPin, Building2, Code2 } from 'lucide-astro';
+
+const diferenciadores = [
+  { Icon: ShieldCheck, text: 'Empresa concesionada y regulada por el IFT' },
+  { Icon: RadioTower, text: 'Operador de enlaces en microondas más grande de México' },
+  { Icon: Award, text: 'Certificaciones en instalación y operación de Fibra Óptica' },
+  { Icon: MapPin, text: 'Red propia en 12 estados claves de la República' },
+  { Icon: Building2, text: '26+ años de experiencia en sector público' },
+  { Icon: Code2, text: 'Software propio — no dependemos de plataformas de terceros' },
+];
 
 const solutions = [
   { title: 'Internet Dedicado', desc: 'Contamos con conexiones directas a operadoras de Internet Tier 1.', link: '/internet-dedicado/', img: '/conectividad/1.webp' },
@@ -10,11 +19,59 @@ const solutions = [
   { title: 'Red WiFi Administrada', desc: 'Conexión simétrica, estable y dedicada.', link: '/alta-disponibilidad/', img: '/conectividad/5.webp' },
 ];
 
-const reasons = [
-  { Icon: Headphones, title: 'Operadoras Tier 1' },
-  { Icon: Settings, title: 'Rápida Implementación' },
-  { text: '25', title: 'Pioneros de la Industria' },
-  { Icon: Wifi, title: 'Velocidad Garantizada' },
+// Casos de éxito sobre el mapa interactivo de México.
+// left/top: posición del pin en % del lienzo (viewBox 0 150 1024 724 → left = x/1024, top = (y-150)/724).
+const casos = [
+  {
+    id: 'coahuila',
+    estado: 'Coahuila',
+    title: 'Gobierno del Estado de Coahuila de Zaragoza',
+    logo: '/casosExito/gob_coahuila.webp',
+    img: '/casosExito/imgGobCoa.webp',
+    left: 38.6, top: 24.9,
+    tagline: 'Caso más completo — múltiples servicios',
+    desc: 'Telemedicina en 133 centros, sistema de gestión notarial y catastral, y migración de Pago Fácil a la nube.',
+  },
+  {
+    id: 'monterrey',
+    estado: 'Nuevo León',
+    title: 'Gobierno de Monterrey',
+    logo: '/casosExito/gob_mty.webp',
+    img: '/casosExito/imgGobMTY.webp',
+    left: 49.8, top: 29.7,
+    tagline: 'Infraestructura urbana',
+    desc: 'Circuito cerrado de televisión (CCTV) y desarrollo de red de Fibra Óptica y GPON.',
+  },
+  {
+    id: 'quintana-roo',
+    estado: 'Quintana Roo',
+    title: 'Quintana Roo',
+    logo: '/casosExito/gob_quintana.webp',
+    img: '/casosExito/imgGobRoo.webp',
+    left: 93.6, top: 67.7,
+    tagline: 'Seguridad pública especializada',
+    desc: 'CCTV en centros penitenciarios, sistemas de inspección por Rayos X y terminales de seguridad pública.',
+  },
+  {
+    id: 'oaxaca',
+    estado: 'Oaxaca',
+    title: 'Gobierno del Estado de Oaxaca',
+    logo: '/casosExito/gob_oaxaca.webp',
+    img: '/casosExito/imgGobOax.webp',
+    left: 61.0, top: 90.0,
+    tagline: 'Radiocomunicación policial',
+    desc: 'Red P25 para la Secretaría de Seguridad Pública.',
+  },
+  {
+    id: 'uadec',
+    estado: 'Coahuila',
+    title: 'Universidad Autónoma de Coahuila',
+    logo: '/casosExito/uni_coahuila.webp',
+    img: '/casosExito/imgUniCoa.webp',
+    left: 42.0, top: 31.8,
+    tagline: 'Infraestructura TI institucional',
+    desc: 'Servidores y almacenamiento de alta capacidad.',
+  },
 ];
 ---
 
@@ -64,141 +121,34 @@ const reasons = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title-center">Casos de Éxito</h2>
 
-      <div class="cases-layout" id="casos-exito" data-paused>
-        <div class="cases-selector" role="tablist" aria-label="Selector de casos de éxito">
-          <div class="cases-orbit cases-orbit-1" aria-hidden="true"></div>
-          <div class="cases-orbit cases-orbit-2" aria-hidden="true"></div>
+      <div class="cases-grid" id="casos-exito">
+        {casos.map((c) => (
+          <article
+            class="case-tile"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-label={`Caso de éxito: ${c.title}`}
+          >
+            <img class="case-tile-img" src={c.img} alt={c.title} width="560" height="420" loading="lazy" decoding="async" />
+            <span class="case-tile-scrim" aria-hidden="true"></span>
+            <span class="case-tile-tag">{c.estado}</span>
 
-          <svg class="cases-star-lines" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
-            <defs>
-              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#78BE20" stop-opacity="0.7"/>
-                <stop offset="100%" stop-color="#0F2E65" stop-opacity="0.5"/>
-              </linearGradient>
-              <radialGradient id="centerHalo" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#78BE20" stop-opacity="0.22"/>
-                <stop offset="60%" stop-color="#78BE20" stop-opacity="0.06"/>
-                <stop offset="100%" stop-color="#78BE20" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
+            <div class="case-tile-head">
+              <span class="case-tile-cat">{c.tagline}</span>
+              <h3 class="case-tile-title">{c.title}</h3>
+              <span class="case-tile-more">
+                Ver detalle <Plus class="case-tile-icon" />
+              </span>
+            </div>
 
-            <circle cx="150" cy="155" r="105" fill="url(#centerHalo)"/>
-
-            <path d="M 150 40 Q 220 60 265 123" fill="none" stroke="url(#lineGrad)" stroke-width="1.3" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.7"/>
-            <path d="M 265 123 Q 270 200 221 260" fill="none" stroke="url(#lineGrad)" stroke-width="1.3" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.7"/>
-            <path d="M 221 260 Q 150 280 79 260" fill="none" stroke="url(#lineGrad)" stroke-width="1.3" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.7"/>
-            <path d="M 79 260 Q 30 200 35 123" fill="none" stroke="url(#lineGrad)" stroke-width="1.3" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.7"/>
-            <path d="M 35 123 Q 80 60 150 40" fill="none" stroke="url(#lineGrad)" stroke-width="1.3" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.7"/>
-
-            <circle cx="150" cy="155" r="22" fill="#ffffff" stroke="rgba(15,46,101,0.15)" stroke-width="1"/>
-            <circle cx="150" cy="155" r="14" fill="none" stroke="#78BE20" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="2 3"/>
-            <circle cx="150" cy="155" r="8" fill="#78BE20" fill-opacity="0.15"/>
-            <circle cx="150" cy="155" r="5" fill="#78BE20"/>
-          </svg>
-
-          <button class="case-circle pos-top active" data-case="coahuila"
-            role="tab" id="tab-coahuila" aria-controls="panel-coahuila" aria-selected="true" tabindex="0">
-            <img class="case-circle-img" src="/casosExito/gob_coahuila.webp" alt="" width="100" height="100" decoding="async" />
-            <span class="sr-only">Gobierno de Coahuila</span>
-            <span class="case-pulse" aria-hidden="true"></span>
-          </button>
-          <button class="case-circle pos-upper-right" data-case="monterrey"
-            role="tab" id="tab-monterrey" aria-controls="panel-monterrey" aria-selected="false" tabindex="-1">
-            <img class="case-circle-img" src="/casosExito/gob_mty.webp" alt="" width="100" height="100" loading="lazy" decoding="async" />
-            <span class="sr-only">Gobierno de Monterrey</span>
-            <span class="case-pulse" aria-hidden="true"></span>
-          </button>
-          <button class="case-circle pos-lower-right" data-case="quintana-roo"
-            role="tab" id="tab-quintana-roo" aria-controls="panel-quintana-roo" aria-selected="false" tabindex="-1">
-            <img class="case-circle-img" src="/casosExito/gob_quintana.webp" alt="" width="100" height="100" loading="lazy" decoding="async" />
-            <span class="sr-only">Quintana Roo</span>
-            <span class="case-pulse" aria-hidden="true"></span>
-          </button>
-          <button class="case-circle pos-lower-left" data-case="oaxaca"
-            role="tab" id="tab-oaxaca" aria-controls="panel-oaxaca" aria-selected="false" tabindex="-1">
-            <img class="case-circle-img" src="/casosExito/gob_oaxaca.webp" alt="" width="100" height="100" loading="lazy" decoding="async" />
-            <span class="sr-only">Gobierno de Oaxaca</span>
-            <span class="case-pulse" aria-hidden="true"></span>
-          </button>
-          <button class="case-circle pos-upper-left" data-case="uadec"
-            role="tab" id="tab-uadec" aria-controls="panel-uadec" aria-selected="false" tabindex="-1">
-            <img class="case-circle-img" src="/casosExito/uni_coahuila.webp" alt="" width="100" height="100" loading="lazy" decoding="async" />
-            <span class="sr-only">Universidad Autónoma de Coahuila</span>
-            <span class="case-pulse" aria-hidden="true"></span>
-          </button>
-        </div>
-
-        <div class="case-detail">
-          <div class="case-detail-card" data-case-detail="coahuila" id="panel-coahuila" role="tabpanel" aria-labelledby="tab-coahuila">
-            <div class="case-detail-img">
-              <img src="/success-office.png" alt="Gobierno de Coahuila" width="560" height="420" loading="lazy" decoding="async" />
+            <div class="case-tile-detail">
+              <span class="case-detail-eyebrow">{c.tagline}</span>
+              <h3>{c.title}</h3>
+              <p class="case-tile-desc">{c.desc}</p>
             </div>
-            <div class="case-detail-body">
-              <span class="case-detail-eyebrow">Caso de éxito</span>
-              <h3>Gobierno del Estado de Coahuila de Zaragoza</h3>
-              <ul>
-                <li>Servicios especializados de salud mediante videollamada en 133 centros.</li>
-                <li>Sistema de gestión (documentación y trámite) para los Notarios y el Instituto Catastral. Rediseño del sistema, se desarrolló el código y se entregó una herramienta de escritorio y plataforma móvil.</li>
-                <li>Migración de plataforma (Pago Fácil) de administración de pagos de servidores en físico a la Nube. Análisis y diseño de nuevas capacidades para su implementación.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case-detail-card" data-case-detail="monterrey" id="panel-monterrey" role="tabpanel" aria-labelledby="tab-monterrey" hidden>
-            <div class="case-detail-img">
-              <img src="/success-office.png" alt="Gobierno de Monterrey" width="560" height="420" loading="lazy" decoding="async" />
-            </div>
-            <div class="case-detail-body">
-              <span class="case-detail-eyebrow">Caso de éxito</span>
-              <h3>Gobierno de Monterrey</h3>
-              <ul>
-                <li>Mantenimiento de circuito cerrado de televisión (CCTV).</li>
-                <li>Desarrollo de red Fibra Óptica y red GPON.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case-detail-card" data-case-detail="quintana-roo" id="panel-quintana-roo" role="tabpanel" aria-labelledby="tab-quintana-roo" hidden>
-            <div class="case-detail-img">
-              <img src="/success-office.png" alt="Quintana Roo" width="560" height="420" loading="lazy" decoding="async" />
-            </div>
-            <div class="case-detail-body">
-              <span class="case-detail-eyebrow">Caso de éxito</span>
-              <h3>Quintana Roo</h3>
-              <ul>
-                <li>Mantenimiento de circuito cerrado de televisión (CCTV) en centros penitenciarios.</li>
-                <li>Sistemas de inspección por Rayos X.</li>
-                <li>Terminales digitales portátiles; soluciones de extremo a extremo para seguridad pública.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case-detail-card" data-case-detail="oaxaca" id="panel-oaxaca" role="tabpanel" aria-labelledby="tab-oaxaca" hidden>
-            <div class="case-detail-img">
-              <img src="/success-office.png" alt="Oaxaca" width="560" height="420" loading="lazy" decoding="async" />
-            </div>
-            <div class="case-detail-body">
-              <span class="case-detail-eyebrow">Caso de éxito</span>
-              <h3>Gobierno del Estado de Oaxaca</h3>
-              <ul>
-                <li>Diseño de red P25 para la Secretaría de Seguridad Pública.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case-detail-card" data-case-detail="uadec" id="panel-uadec" role="tabpanel" aria-labelledby="tab-uadec" hidden>
-            <div class="case-detail-img">
-              <img src="/success-office.png" alt="Universidad Autónoma de Coahuila" width="560" height="420" loading="lazy" decoding="async" />
-            </div>
-            <div class="case-detail-body">
-              <span class="case-detail-eyebrow">Caso de éxito</span>
-              <h3>Universidad Autónoma de Coahuila</h3>
-              <ul>
-                <li>Potentes equipos de respaldo, junto con servidores de almacenamiento de alta capacidad.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -208,107 +158,49 @@ const reasons = [
       const root = document.getElementById('casos-exito');
       if (!root) return;
 
-      const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
-      const panels = Array.from(root.querySelectorAll('[role="tabpanel"]'));
-      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let isAnimating = false;
+      const tiles = Array.from(root.querySelectorAll('.case-tile'));
 
-      const panelByCase = new Map(
-        panels.map((p) => [p.dataset.caseDetail, p])
-      );
-
-      function selectTab(nextTab, focusTab = false) {
-        if (isAnimating) return;
-        if (nextTab.getAttribute('aria-selected') === 'true') {
-          if (focusTab) nextTab.focus();
-          return;
-        }
-
-        const target = nextTab.dataset.case;
-        const current = panels.find((p) => !p.hidden);
-        const next = panelByCase.get(target);
-        if (!next) return;
-
-        tabs.forEach((t) => {
-          const selected = t === nextTab;
-          t.setAttribute('aria-selected', selected ? 'true' : 'false');
-          t.tabIndex = selected ? 0 : -1;
-          t.classList.toggle('active', selected);
-        });
-
-        if (focusTab) nextTab.focus();
-
-        if (!current || current === next || prefersReduced) {
-          panels.forEach((p) => { p.hidden = p !== next; });
-          return;
-        }
-
-        isAnimating = true;
-        current.classList.add('is-leaving');
-        current.addEventListener('animationend', function onLeave() {
-          current.removeEventListener('animationend', onLeave);
-          current.classList.remove('is-leaving');
-          current.hidden = true;
-          next.hidden = false;
-          next.classList.add('is-entering');
-          next.addEventListener('animationend', function onEnter() {
-            next.removeEventListener('animationend', onEnter);
-            next.classList.remove('is-entering');
-            isAnimating = false;
-          });
-        });
+      function setOpen(tile, open) {
+        tile.classList.toggle('is-open', open);
+        tile.setAttribute('aria-expanded', open ? 'true' : 'false');
       }
 
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', () => selectTab(tab));
-        tab.addEventListener('keydown', (e) => {
-          const i = tabs.indexOf(tab);
-          let next = null;
-          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-            next = tabs[(i + 1) % tabs.length];
-          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-            next = tabs[(i - 1 + tabs.length) % tabs.length];
-          } else if (e.key === 'Home') {
-            next = tabs[0];
-          } else if (e.key === 'End') {
-            next = tabs[tabs.length - 1];
-          }
-          if (next) {
+      function toggle(tile) {
+        const willOpen = !tile.classList.contains('is-open');
+        // Solo una tarjeta abierta a la vez (modo clic / teclado)
+        tiles.forEach((t) => { if (t !== tile) setOpen(t, false); });
+        setOpen(tile, willOpen);
+      }
+
+      tiles.forEach((tile) => {
+        tile.addEventListener('click', () => toggle(tile));
+        tile.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            selectTab(next, true);
+            toggle(tile);
+          } else if (e.key === 'Escape') {
+            setOpen(tile, false);
           }
         });
       });
-
-      // Pausar animaciones cuando la sección está fuera de viewport
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              root.removeAttribute('data-paused');
-            } else {
-              root.setAttribute('data-paused', '');
-            }
-          });
-        }, { threshold: 0.05 });
-        io.observe(root);
-      } else {
-        root.removeAttribute('data-paused');
-      }
     })();
   </script>
 
-  <section class="why-choose-us">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center small">Por qué elegirnos</h2>
-      <div class="reasons-grid">
-        {reasons.map((r) => (
-          <div class="reason-item">
-            <div class="reason-icon">{r.Icon ? <r.Icon /> : r.text}</div>
-            <h3>{r.title}</h3>
-          </div>
-        ))}
+  <section class="diferenciadores-section">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="dif-header">
+        <p class="dif-eyebrow">Nuestro respaldo</p>
+        <h2>Por qué confiar en nosotros</h2>
+        <span class="dif-underline" aria-hidden="true"></span>
       </div>
+      <ul class="diferenciadores-grid">
+        {diferenciadores.map(({ Icon, text }) => (
+          <li class="dif-card">
+            <span class="dif-icon"><Icon /></span>
+            <p>{text}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 </Layout>
@@ -464,383 +356,359 @@ const reasons = [
 
   .success-cases {
     padding: 6rem 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
   }
 
-  /* Casos de éxito - selector + detalle */
-  .cases-layout {
+  /* Casos de éxito - grid de tarjetas expandibles */
+  .cases-grid {
     display: grid;
-    grid-template-columns: minmax(380px, 460px) 1fr;
-    gap: 3rem;
-    align-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
   }
 
-  .cases-selector {
+  /* 3 por fila (cada tarjeta abarca 2 de 6 columnas); las dos últimas se centran */
+  .case-tile {
+    grid-column: span 2;
+  }
+
+  .case-tile:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .case-tile:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .case-tile {
     position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  /* Helper accesible para texto solo lector */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    aspect-ratio: 4 / 5;
+    border-radius: 20px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    cursor: pointer;
+    background: #0F2E65;
+    box-shadow: 0 10px 28px rgba(15, 46, 101, 0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    isolation: isolate;
   }
 
-  .cases-orbit {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px dashed rgba(15, 46, 101, 0.08);
-    pointer-events: none;
-    z-index: 0;
-    animation-play-state: paused;
+  .case-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(15, 46, 101, 0.22);
   }
 
-  .cases-orbit-1 {
-    inset: 18%;
-    animation: orbit-spin 60s linear infinite;
+  .case-tile:focus-visible {
+    outline: 3px solid #78BE20;
+    outline-offset: 3px;
   }
 
-  .cases-orbit-2 {
-    inset: 8%;
-    border-style: solid;
-    border-color: rgba(120, 190, 32, 0.06);
-    animation: orbit-spin 90s linear infinite reverse;
-  }
-
-  [data-paused] .cases-orbit,
-  [data-paused] .case-pulse {
-    animation-play-state: paused !important;
-  }
-
-  .cases-layout:not([data-paused]) .cases-orbit {
-    animation-play-state: running;
-  }
-
-  @keyframes orbit-spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-
-  .cases-star-lines {
+  .case-tile-img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .case-circle {
-    position: absolute;
-    z-index: 2;
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: none;
-    background:
-      linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: box-shadow 0.35s ease, transform 0.35s ease, filter 0.35s ease;
-    padding: 0;
-    box-shadow:
-      inset 0 0 0 2px #0F2E65,
-      0 8px 20px rgba(15, 46, 101, 0.12),
-      0 2px 4px rgba(15, 46, 101, 0.06);
-    overflow: hidden;
-    filter: saturate(0.95);
-  }
-
-  .case-ring {
-    display: none;
-  }
-
-  /* Posiciones en estrella (pentágono): top, ur, lr, ll, ul */
-  .pos-top        { top: 2%;   left: 50%; --tx: -50%; --ty: 0; transform: translate(var(--tx), var(--ty)); }
-  .pos-upper-right{ top: 32%;  right: 2%; --tx: 0;    --ty: -50%; transform: translate(var(--tx), var(--ty)); }
-  .pos-lower-right{ bottom: 2%; right: 12%; --tx: 0;  --ty: 0; transform: translate(var(--tx), var(--ty)); }
-  .pos-lower-left { bottom: 2%; left: 12%; --tx: 0;   --ty: 0; transform: translate(var(--tx), var(--ty)); }
-  .pos-upper-left { top: 32%;  left: 2%;  --tx: 0;    --ty: -50%; transform: translate(var(--tx), var(--ty)); }
-
-  .case-circle:hover,
-  .case-circle:focus-visible {
-    filter: saturate(1.1);
-    box-shadow:
-      inset 0 0 0 2px #78BE20,
-      0 0 0 4px rgba(120, 190, 32, 0.12),
-      0 12px 28px rgba(120, 190, 32, 0.22);
-    transform: translate(var(--tx), var(--ty)) scale(1.04);
-    outline: none;
-  }
-
-  .case-circle:focus-visible {
-    box-shadow:
-      inset 0 0 0 2px #78BE20,
-      0 0 0 4px rgba(120, 190, 32, 0.35),
-      0 12px 28px rgba(120, 190, 32, 0.28);
-  }
-
-  .case-circle.active {
-    filter: saturate(1.1);
-    background: linear-gradient(180deg, #ffffff 0%, #f7fbed 100%);
-    box-shadow:
-      inset 0 0 0 3px #78BE20,
-      0 0 0 8px rgba(120, 190, 32, 0.14),
-      0 16px 34px rgba(120, 190, 32, 0.35),
-      0 4px 8px rgba(15, 46, 101, 0.08);
-    transform: translate(var(--tx), var(--ty)) scale(1.1);
-    z-index: 3;
-  }
-
-
-  .case-pulse {
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    border: 2px solid #78BE20;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .case-circle.active .case-pulse {
-    animation: case-ring-pulse 1.8s ease-out infinite;
-  }
-
-  @keyframes case-ring-pulse {
-    0%   { transform: scale(1);    opacity: 0.6; }
-    100% { transform: scale(1.45); opacity: 0; }
-  }
-
-  .case-circle-inner {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #0F2E65;
-    text-align: center;
-    line-height: 1.25;
-    padding: 0 0.75rem;
-    letter-spacing: 0.01em;
-    transition: color 0.3s ease;
-    position: relative;
-    z-index: 1;
-  }
-
-  .case-circle.active .case-circle-inner {
-    color: #5a9410;
-  }
-
-  .case-circle-img {
-    width: 72%;
-    height: 72%;
-    max-width: 72%;
-    max-height: 72%;
-    object-fit: contain;
-    pointer-events: none;
-    transition: transform 0.3s ease;
-    display: block;
-  }
-
-  .case-circle:hover .case-circle-img {
-    transform: scale(1.05);
-  }
-
-  .case-detail {
-    position: relative;
-    min-height: 380px;
-    overflow: hidden;
-  }
-
-  .case-detail-card {
-    background: #ffffff;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid #e6e9f2;
-    box-shadow: 0 10px 30px rgba(15, 46, 101, 0.08);
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    min-height: 420px;
-    will-change: transform, opacity;
-  }
-
-  .case-detail-card[hidden] {
-    display: none;
-  }
-
-  .case-detail-card.is-leaving {
-    animation: case-slide-out 0.4s cubic-bezier(0.4, 0, 0.6, 1) forwards;
-  }
-
-  .case-detail-card.is-entering {
-    animation: case-slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  @keyframes case-slide-out {
-    0%   { opacity: 1; transform: translateY(0)    scale(1); }
-    100% { opacity: 0; transform: translateY(60px) scale(0.97); }
-  }
-
-  @keyframes case-slide-in {
-    0%   { opacity: 0; transform: translateY(-60px) scale(0.97); }
-    60%  { opacity: 1; }
-    100% { opacity: 1; transform: translateY(0)     scale(1); }
-  }
-
-  .case-detail-img {
-    background: linear-gradient(135deg, #0F2E65 0%, #1740a8 100%);
-    overflow: hidden;
-    min-height: 100%;
-  }
-
-  .case-detail-img img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-    opacity: 0.85;
+    transition: transform 0.5s ease;
   }
 
-  .case-detail-body {
-    padding: 2.25rem 2.5rem;
+  .case-tile:hover .case-tile-img,
+  .case-tile.is-open .case-tile-img {
+    transform: scale(1.06);
+    will-change: transform;
+  }
+
+  .case-tile-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to top, rgba(10, 18, 40, 0.92) 0%, rgba(10, 18, 40, 0.45) 40%, rgba(10, 18, 40, 0) 70%);
+  }
+
+  .case-tile-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
+    background: rgba(120, 190, 32, 0.95);
+    color: #0F2E65;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+  }
+
+  .case-tile-head {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 1.5rem 1.4rem;
+    transition: opacity 0.3s ease;
+  }
+
+  .case-tile:hover .case-tile-head,
+  .case-tile.is-open .case-tile-head {
+    opacity: 0;
+  }
+
+  .case-tile-cat {
+    display: block;
+    color: #78BE20;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .case-tile-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+  }
+
+  .case-tile-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #78BE20;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .case-tile-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Panel de detalle deslizante */
+  .case-tile-detail {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: linear-gradient(160deg, rgba(15, 46, 101, 0.97), rgba(10, 24, 60, 0.98));
+    padding: 1.6rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
-  .case-detail-eyebrow {
-    display: inline-block;
+  .case-tile:hover .case-tile-detail,
+  .case-tile:focus-within .case-tile-detail,
+  .case-tile.is-open .case-tile-detail {
+    transform: translateY(0);
+  }
+
+  .case-tile.is-open .case-tile-icon {
+    transform: rotate(45deg);
+  }
+
+  .case-tile-detail .case-detail-eyebrow {
+    display: block;
     color: #78BE20;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-tile-detail h3 {
+    color: #ffffff;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    margin: 0 0 1rem;
+  }
+
+  .case-tile-desc {
+    margin: 0;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .cases-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .case-tile:nth-child(4) {
+      grid-column: span 2;
+    }
+    .case-tile:nth-child(5) {
+      grid-column: 2 / span 2;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .cases-grid {
+      grid-template-columns: 1fr;
+    }
+    .case-tile,
+    .case-tile:nth-child(4),
+    .case-tile:nth-child(5) {
+      grid-column: auto;
+    }
+    .case-tile {
+      aspect-ratio: 16 / 11;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-tile,
+    .case-tile-img,
+    .case-tile-detail,
+    .case-tile-head,
+    .case-tile-icon {
+      transition: none !important;
+    }
+  }
+
+  .diferenciadores-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #f4f7fb 0%, #ffffff 100%);
+  }
+
+  .dif-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .dif-eyebrow {
+    color: #78BE20;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     margin-bottom: 0.6rem;
   }
 
-  .case-detail-body h3 {
+  .dif-header h2 {
     color: #0F2E65;
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.3;
-  }
-
-  .case-detail-body ul {
-    list-style: none;
-    padding: 0;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
   }
 
-  .case-detail-body li {
+  .dif-underline {
+    display: block;
+    width: 56px;
+    height: 4px;
+    border-radius: 999px;
+    background: #78BE20;
+    margin: 1rem auto 0;
+  }
+
+  .diferenciadores-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .dif-card {
     position: relative;
-    padding-left: 1.5rem;
-    font-size: 0.95rem;
-    color: #4a5568;
-    line-height: 1.65;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #ffffff;
+    border: 1px solid #e6e9f2;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(15, 46, 101, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
 
-  .case-detail-body li::before {
+  .dif-card::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.55em;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
     background: #78BE20;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+
+  .dif-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(15, 46, 101, 0.12);
+    border-color: #cfe0b3;
+  }
+
+  .dif-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .dif-icon {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(120, 190, 32, 0.16), rgba(120, 190, 32, 0.04));
+    color: #5a9410;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .dif-icon :global(svg) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .dif-card:hover .dif-icon {
+    background: #78BE20;
+    color: #ffffff;
+  }
+
+  .dif-card p {
+    margin: 0;
+    color: #0F2E65;
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.45;
   }
 
   @media (max-width: 900px) {
-    .cases-layout {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .cases-selector {
-      aspect-ratio: auto;
-      max-width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .cases-star-lines,
-    .cases-orbit { display: none; }
-    .case-circle {
-      position: static;
-      transform: none !important;
-      width: 90px;
-      height: 90px;
-    }
-    .case-detail-card {
-      grid-template-columns: 1fr;
-    }
-    .case-detail-img {
-      min-height: 200px;
-    }
-    .case-detail-card.is-leaving {
-      animation-duration: 0.25s;
-    }
-    .case-detail-card.is-entering {
-      animation-duration: 0.3s;
+    .diferenciadores-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  /* Respetar preferencia del usuario por menos movimiento */
-  @media (prefers-reduced-motion: reduce) {
-    .cases-orbit,
-    .case-pulse,
-    .case-circle.active .case-pulse,
-    .case-detail-card.is-leaving,
-    .case-detail-card.is-entering {
-      animation: none !important;
+  @media (max-width: 560px) {
+    .diferenciadores-grid {
+      grid-template-columns: 1fr;
     }
-    .case-circle,
-    .case-circle-img {
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dif-card,
+    .dif-card::before,
+    .dif-icon {
       transition: none !important;
     }
-    .case-circle:hover,
-    .case-circle:focus-visible,
-    .case-circle.active {
-      transform: translate(var(--tx, 0), var(--ty, 0)) !important;
-    }
-  }
-
-  .why-choose-us {
-    padding: 6rem 0;
-  }
-
-  .reasons-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .reason-icon {
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    margin-bottom: 1rem;
-  }
-
-  .reason-item h3 {
-    font-size: 0.9rem;
-    color: #0F2E65;
-    max-width: 120px;
-    margin: 0 auto;
   }
 
   @media (max-width: 992px) {
-    .solutions-grid, .cases-grid, .reasons-grid {
+    .solutions-grid {
       grid-template-columns: 1fr;
     }
   }
