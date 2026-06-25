@@ -1,157 +1,389 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ContactSection from '../../components/home/ContactSection.astro';
-import { Search, Shield, Thermometer, User, Users, Video } from 'lucide-astro';
+import Layout from "../../layouts/Layout.astro";
+import { 
+  Wifi, 
+  Shield, 
+  Server, 
+  Clock, 
+  Zap, 
+  Headphones, 
+  Laptop, 
+  FileText, 
+  Phone,
+  MessageCircle,
+  Mail,
+  Globe,
+  ArrowRight, 
+  ChevronRight, 
+  HelpCircle, 
+  Sparkles, 
+  Send, 
+  CheckCircle, 
+  ArrowUpRight
+} from "lucide-astro";
 
-const beneficios = [
-  { Icon: Thermometer, title: 'Detección de temperatura' },
-  { Icon: Users, title: 'Conteo de personal' },
-  { Icon: User, title: 'Reconocimiento facial' },
-  { Icon: Video, title: 'Monitoreo 24/7/365' },
+const title = "Video Vigilancia";
+const badge = "Seguridad Física";
+const subtitle = "Protege tus instalaciones corporativas con sistemas inteligentes de videovigilancia CCTV IP de alta definición, analíticos avanzados y monitoreo continuo.";
+const bgImage = "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1920&h=1080&fit=crop";
+
+const highlights = [
+  {icon: Server, title: "Detección de temperatura"},
+  {icon: Laptop, title: "Conteo de personal"},
+  {icon: Shield, title: "Reconocimiento facial"},
+  {icon: Clock, title: "Monitoreo remoto 24/7"}
 ];
 
-const faq = [
-  { q: '¿En cuánto tiempo instalan?', a: 'Instalamos en tiempo récord una vez contratado el servicio.' },
-  { q: '¿Ofrecen soporte 24/7?', a: 'Sí, contamos con soporte técnico especializado disponible las 24 horas.' },
-  { q: '¿Pueden integrar múltiples cámaras?', a: 'Sí, podemos gestionar múltiples puntos de monitoreo.' },
-  { q: '¿Como empezaron?', a: 'Luminet nació de la necesidad de ofrecer conectividad empresarial de clase mundial.' },
+const features = [
+  {title: "Solución Integral", desc: "Te escuchamos y diseñamos una solución a la medida, llevando tu idea de monitoreo a la realidad de manera óptima.", icon: Shield, color: "from-blue-500/20 to-blue-600/5"},
+  {title: "Cámaras Ultra HD e IP", desc: "Instalación de cámaras de alta resolución con visión nocturna, filtros climáticos y grabación local y redundante en la nube.", icon: Server, color: "from-luminet-lime/20 to-luminet-lime/5"},
+  {title: "Analíticos con Inteligencia Artificial", desc: "Sistemas capaces de detectar intrusos, reconocer patentes, contar personas y alertar comportamientos sospechosos de manera automatizada.", icon: Zap, color: "from-orange-500/20 to-orange-500/5"}
 ];
+
+const cases = [
+  {title: "Nombre de Marca 1", desc: "(Descripción del servicio realizado) Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.", tag: "Logística", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&h=500&fit=crop"},
+  {title: "Nombre de Marca 2", desc: "(Descripción del servicio realizado) Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.", tag: "Retail", image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&h=500&fit=crop"}
+];
+
+const faqs = [
+  {q: "¿En cuánto tiempo instalan?", a: "Instalamos en menos de 6 horas una vez contratado el servicio."},
+  {q: "¿Ofrecen soporte 24/7?", a: "Sí, contamos con soporte técnico especializado disponible las 24 horas, los 365 días del año."},
+  {q: "¿Cómo funciona el almacenamiento de grabaciones?", a: "Ofrecemos sistemas híbridos que graban de manera local en NVRs de alta capacidad física y simultáneamente respaldan clips de seguridad críticos en la nube."},
+  {q: "¿Cómo empezaron?", a: "Luminet nació de la necesidad de ofrecer conectividad empresarial de clase mundial con un enfoque humano y técnico superior."}
+];
+
+const iconMap = {
+  Wifi,
+  Shield,
+  Server,
+  Clock,
+  Zap,
+  Headphones,
+  Laptop,
+  FileText,
+  Phone,
+  MessageCircle,
+  Mail,
+  Globe,
+  ArrowUpRight
+};
 ---
 
-<Layout title="Video Vigilancia - Luminet">
-  <section class="service-hero">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hero-container">
-      <h1 class="animate-fade-in">Video Vigilancia</h1>
+<Layout title={title + " - Luminet"}>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-luminet-dark">
+    <div class="absolute inset-0">
+      <div 
+        class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity" 
+        style={`background-image: url("${bgImage}");`}
+      ></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-luminet-navy/95 via-luminet-navy/85 to-luminet-navy-dark/95"></div>
+      <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-luminet-lime/10 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-64 h-64 bg-luminet-lime/5 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-24 md:pt-36 md:pb-32">
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-sm text-white/50 mb-8 animate-fade-in">
+        <a href="/" class="hover:text-luminet-lime transition-colors">Inicio</a>
+        <ChevronRight class="w-4 h-4" />
+        <a href="/conectividad" class="hover:text-luminet-lime transition-colors">Soluciones</a>
+        <ChevronRight class="w-4 h-4" />
+        <span class="text-luminet-lime">{title}</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-1.5 text-luminet-lime text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 rounded-full bg-luminet-lime/10 border border-luminet-lime/20">
+          <Sparkles class="w-3.5 h-3.5" /> {badge}
+        </span>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-5 tracking-tight animate-fade-in">
+          {title}
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mb-8 animate-fade-in">
+          {subtitle}
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+          <a href="#quote-form" class="inline-flex items-center gap-2 px-8 py-4 bg-luminet-lime text-luminet-navy font-bold rounded-full hover:bg-luminet-lime-light hover:scale-105 transition-all duration-300 shadow-lg shadow-luminet-lime/20">
+            Cotizar solución
+            <ArrowRight class="w-4 h-4" />
+          </a>
+          <a href="#features" class="inline-flex items-center gap-2 px-8 py-4 border border-white/20 hover:border-white/40 text-white font-semibold rounded-full hover:bg-white/5 transition-all duration-300">
+            Diferenciadores clave
+          </a>
+        </div>
+      </div>
+
+      <!-- Highlights Horizontal List -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16">
+        {highlights.map((hl) => {
+          const IconComponent = iconMap[hl.icon] || Wifi;
+          return (
+            <div class="px-6 py-5 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex items-center gap-4 hover:border-luminet-lime/30 transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-luminet-lime/10 flex items-center justify-center shrink-0 border border-luminet-lime/20">
+                <IconComponent class="w-5 h-5 text-luminet-lime" />
+              </div>
+              <div class="text-sm font-bold text-white leading-snug">{hl.title}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Bottom curve -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-10 md:h-20" preserveAspectRatio="none">
+        <path d="M0 120V60C240 0 480 0 720 30C960 60 1200 90 1440 60V120H0Z" fill="white"></path>
+      </svg>
     </div>
   </section>
 
-  <section class="service-subtitle">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p>Administra la seguridad y prevención de pérdidas con nuestra solución de Monitoreo y Video Vigilancia, ve más allá con tecnología actual y disruptiva.</p>
+  <!-- Features/Diferenciadores Section -->
+  <section id="features" class="py-20 md:py-28 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-luminet-lime/10 text-luminet-lime text-xs font-bold tracking-wider uppercase mb-3">
+          <Shield class="w-3.5 h-3.5" /> Innovación y Respaldo
+        </span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-luminet-navy tracking-tight">
+          Nuestros <span class="text-luminet-lime">Diferenciadores</span>
+        </h2>
+        <p class="text-gray-500 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">
+          Infraestructura de vanguardia y procesos diseñados específicamente para resolver los requerimientos de conectividad más exigentes del mercado.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {features.map((feat) => {
+          const IconComponent = iconMap[feat.icon] || Shield;
+          return (
+            <div class="group relative p-8 rounded-3xl bg-luminet-gray border border-gray-100 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col justify-between">
+              <div class="absolute top-0 left-0 right-0 h-1 w-0 group-hover:w-full bg-gradient-to-r from-luminet-lime to-luminet-lime-light transition-all duration-500"></div>
+              <div>
+                <div class={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feat.color} flex items-center justify-center mb-6 border border-gray-100/50 group-hover:from-luminet-lime group-hover:to-luminet-lime-light transition-all duration-500`}>
+                  <IconComponent class="w-6 h-6 text-luminet-navy group-hover:text-white transition-colors duration-500" />
+                </div>
+                <h3 class="text-xl font-bold text-luminet-navy mb-2 group-hover:text-luminet-lime transition-colors duration-300">
+                  {feat.title}
+                </h3>
+                <p class="text-sm text-gray-500 leading-relaxed">
+                  {feat.desc}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   </section>
 
-  <section class="beneficios-luminet">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Beneficios de Luminet</h2>
-      <div class="steps-grid">
-        <div class="steps-line"></div>
-        {beneficios.map((ben) => (
-          <div class="step-item">
-            <div class="step-icon"><ben.Icon /></div>
-            <p>{ben.title}</p>
+  <!-- Success Cases Section -->
+  <section class="py-20 md:py-28 bg-luminet-gray relative overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-luminet-lime/10 text-luminet-lime text-xs font-bold tracking-wider uppercase mb-3">
+          <Server class="w-3.5 h-3.5" /> Casos de Éxito
+        </span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-luminet-navy tracking-tight">
+          Nuestros Clientes <span class="text-luminet-lime">Hablan por Nosotros</span>
+        </h2>
+        <p class="text-gray-500 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">
+          Casos reales de empresas líderes que han potenciado su productividad y asegurado su continuidad de red gracias a nuestras soluciones.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {cases.map((cs) => (
+          <div class="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-card hover:shadow-card-hover transition-all duration-500 flex flex-col sm:flex-row h-full">
+            <div class="sm:w-1/2 relative h-48 sm:h-auto overflow-hidden">
+              <img 
+                src={cs.image} 
+                alt={cs.title} 
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <span class="absolute top-4 left-4 px-3 py-1 text-xs font-bold text-luminet-navy bg-luminet-lime rounded-full uppercase tracking-wider">
+                {cs.tag}
+              </span>
+            </div>
+            <div class="sm:w-1/2 p-8 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold text-luminet-navy mb-3 group-hover:text-luminet-lime transition-colors">
+                  {cs.title}
+                </h3>
+                <p class="text-sm text-gray-500 leading-relaxed">
+                  {cs.desc}
+                </p>
+              </div>
+              <div class="text-xs font-bold text-luminet-navy/40 uppercase tracking-widest mt-6">Caso de Éxito Certificado</div>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="diferenciadores">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="diferenciadores-card">
-        <div class="dif-visual">
-          <div class="visual-placeholder"><Video /> <Shield /> <Search /></div>
-        </div>
-        <div class="dif-content">
-          <h3>Diferenciadores Principales</h3>
-          <ul class="dif-list">
-            <li>
-              <div class="dif-item">
-                <strong>Solución Integral</strong>
-                <p>Te escuchamos y diseñamos una solución a la medida, llevamos tu idea a la realidad.</p>
-              </div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Vigila Entorno</strong></div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Respaldo</strong></div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <ContactSection />
-
-  <section class="success-cases">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Casos de Éxito</h2>
-      <div class="cases-grid">
-        <div class="case-card">
-          <div class="case-img-placeholder">
-             <img src="/success-office.png" alt="Success Case" />
-          </div>
-          <div class="case-body">
-            <h3>Nombre de Marca 1</h3>
-            <p>(Descripción del servicio realizado) Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          </div>
-        </div>
-        <div class="case-card">
-          <div class="case-img-placeholder">
-             <img src="/success-office.png" alt="Success Case" />
-          </div>
-          <div class="case-body">
-            <h3>Nombre de Marca 2</h3>
-            <p>(Descripción del servicio realizado) Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Preguntas Frecuentes</h2>
-      <div class="faq-list">
-        {faq.map((item) => (
-          <details class="faq-item">
-            <summary>{item.q} <span class="plus">+</span></summary>
-            <div class="faq-answer">
-              <p>{item.a}</p>
+  <!-- Interactive Lead Form / Quote Section -->
+  <section id="quote-form" class="py-20 md:py-28 bg-white">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="bg-luminet-navy rounded-3xl p-8 md:p-12 relative overflow-hidden text-white shadow-card">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-luminet-lime/5 rounded-full blur-3xl"></div>
+        
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
+          <div class="lg:col-span-2">
+            <span class="inline-flex items-center gap-1 text-luminet-lime text-xs font-bold uppercase tracking-widest mb-3">
+              <Sparkles class="w-3.5 h-3.5 animate-pulse" /> Cotización Rápida
+            </span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
+              Propuesta a <span class="text-luminet-lime">Tu Medida</span>
+            </h2>
+            <p class="text-white/70 text-base leading-relaxed mb-6">
+              Analizamos los requerimientos particulares de tu empresa y diseñamos una solución tecnológica robusta y escalable sin costo alguno.
+            </p>
+            <div class="text-sm font-bold text-luminet-lime inline-block bg-luminet-lime/10 px-3 py-1.5 rounded-full border border-luminet-lime/20">
+              Asesoría Gratuita &lt; 24 hrs
             </div>
-          </details>
+          </div>
+
+          <div class="lg:col-span-3 bg-white/5 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10">
+            <!-- Form Success Box -->
+            <div id="quote-success" class="hidden text-center py-10 px-4 text-white">
+              <div class="w-16 h-16 bg-luminet-lime/20 text-luminet-lime rounded-full flex items-center justify-center mx-auto mb-4 border border-luminet-lime/20 animate-bounce">
+                <CheckCircle class="w-8 h-8" />
+              </div>
+              <h4 class="text-xl font-bold mb-2">¡Solicitud Enviada!</h4>
+              <p class="text-white/70 text-sm max-w-sm mx-auto mb-4">
+                Tu requerimiento de cotización ha sido registrado. Un consultor experto se comunicará contigo de inmediato.
+              </p>
+              <button id="reset-quote" class="text-xs font-bold text-luminet-lime hover:underline">Solicitar otra cotización</button>
+            </div>
+
+            <!-- Lead Form -->
+            <form id="solution-quote-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-white/70 uppercase mb-1">Nombre completo <span class="text-red-500">*</span></label>
+                  <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:border-luminet-lime focus:outline-none text-white text-sm transition-colors placeholder-white/30" placeholder="Tu nombre" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-white/70 uppercase mb-1">Email corporativo <span class="text-red-500">*</span></label>
+                  <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:border-luminet-lime focus:outline-none text-white text-sm transition-colors placeholder-white/30" placeholder="empresa@tu.com" />
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-white/70 uppercase mb-1">Teléfono corporativo <span class="text-red-500">*</span></label>
+                  <input type="tel" name="telefono" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:border-luminet-lime focus:outline-none text-white text-sm transition-colors placeholder-white/30" placeholder="10 dígitos" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-white/70 uppercase mb-1">Compañía <span class="text-red-500">*</span></label>
+                  <input type="text" name="compania" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:border-luminet-lime focus:outline-none text-white text-sm transition-colors placeholder-white/30" placeholder="Nombre de tu empresa" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-white/70 uppercase mb-1">Descripción de tu necesidad</label>
+                <textarea name="mensaje" rows="2" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 focus:border-luminet-lime focus:outline-none text-white text-sm transition-colors placeholder-white/30 resize-none" placeholder="Cuéntanos brevemente qué velocidad o solución requieres..."></textarea>
+              </div>
+              <input type="hidden" name="necesidad" value={title} />
+              <button type="submit" class="w-full py-4 bg-luminet-lime text-luminet-navy hover:bg-luminet-lime-light font-extrabold rounded-xl transition-all duration-300 shadow-md shadow-luminet-lime/25 flex items-center justify-center gap-2 text-sm hover:scale-[1.01] active:scale-[0.99] cursor-pointer">
+                Enviar y recibir propuesta
+                <Send class="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="py-20 md:py-28 bg-white border-t border-gray-100">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-luminet-lime/10 text-luminet-lime text-xs font-bold tracking-wider uppercase mb-3">
+          <HelpCircle class="w-3.5 h-3.5" /> FAQ
+        </span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-luminet-navy tracking-tight">
+          Preguntas <span class="text-luminet-lime">Frecuentes</span>
+        </h2>
+        <p class="text-gray-500 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">
+          Respondemos de manera ágil a las principales dudas sobre la implementación, cobertura y alcances de nuestro servicio de {title}.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, idx) => (
+          <div class="faq-accordion bg-luminet-gray rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300">
+            <button 
+              type="button"
+              class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-100/50 transition-colors duration-300 focus:outline-none"
+              data-index={idx}
+            >
+              <span class="text-base font-bold text-luminet-navy pr-4">
+                {faq.q}
+              </span>
+              <span class="faq-symbol ml-4 shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-lg font-black transition-all duration-300 bg-white text-luminet-navy border border-gray-200">
+                +
+              </span>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 border-t border-gray-100/30 pt-4">
+              <p class="text-sm sm:text-base text-gray-500 leading-relaxed">
+                {faq.a}
+              </p>
+            </div>
+          </div>
         ))}
       </div>
     </div>
   </section>
 </Layout>
 
-<style>
-  /* Shared styles */
-  .service-hero { min-height: 400px; padding: 4rem 0; background: linear-gradient(rgba(15, 46, 101, 0.7), rgba(15, 46, 101, 0.7)), url('/internet-hero.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: 80px; color: white; }
-  .service-hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; }
-  .service-subtitle { padding: 3rem 0; text-align: center; color: #78BE20; font-weight: 600; font-size: 1.1rem; max-width: 900px; margin: 0 auto; }
-  .section-title-center { text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); color: #0F2E65; margin-bottom: 4rem; }
-  .beneficios-luminet { padding: 6rem 0; background: #f8f9fa; }
-  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; position: relative; text-align: center; }
-  .steps-line { position: absolute; top: 50px; left: 10%; right: 10%; height: 1px; background: #cbd5e0; z-index: 0; }
-  .step-item { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-  .step-icon { width: 100px; height: 100px; background: white; border: 1px solid #cbd5e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(1.8rem, 5vw, 2.5rem); }
-  .step-item p { font-weight: 700; color: #0F2E65; font-size: 0.9rem; max-width: 150px; }
-  .diferenciadores { padding: 6rem 0; }
-  .diferenciadores-card { background: #0F2E65; border-radius: 30px; padding: clamp(2rem, 5vw, 4rem); display: flex; gap: 4rem; align-items: center; color: white; }
-  .dif-visual { flex: 1; display: flex; justify-content: center; align-items: center; }
-  .visual-placeholder { font-size: 5rem; }
-  .dif-content { flex: 1; }
-  .dif-content h3 { font-size: 2rem; margin-bottom: 2.5rem; }
-  .dif-list { list-style: none; border-left: 3px solid rgba(255, 255, 255, 0.3); padding-left: 2rem; }
-  .dif-item { margin-bottom: 2rem; }
-  .dif-item strong { font-size: 1.2rem; display: block; margin-bottom: 0.5rem; }
-  .dif-item p { font-size: 0.9rem; opacity: 0.8; }
-  .success-cases { padding: 8rem 0; }
-  .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .case-card { background: #f8f9fa; border-radius: 20px; overflow: hidden; }
-  .case-img-placeholder { height: 250px; }
-  .case-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-  .case-body { padding: 2.5rem; }
-  .case-body h3 { color: #0F2E65; margin-bottom: 1rem; }
-  .case-body p { font-size: 0.9rem; color: #4a5568; line-height: 1.6; }
-  .faq-section { padding: 8rem 0; }
-  .faq-list { max-width: 900px; margin: 0 auto; }
-  .faq-item { border-bottom: 1px solid #e2e8f0; padding: 1.5rem 0; }
-  .faq-item summary { list-style: none; font-weight: 700; color: #0F2E65; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-  .faq-answer { padding-top: 1rem; color: #4a5568; }
-  @media (max-width: 992px) { .steps-grid, .cases-grid, .diferenciadores-card { grid-template-columns: 1fr; flex-direction: column; } .steps-line { display: none; } }
-</style>
+<script>
+  // Dynamic Ticket Form Handler
+  const supportForm = document.getElementById("support-ticket-form") as HTMLFormElement | null;
+  const successBox = document.getElementById("quote-success");
+  const resetBtn = document.getElementById("reset-form");
+
+  supportForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    supportForm.classList.add("hidden");
+    successBox?.classList.remove("hidden");
+  });
+
+  resetBtn?.addEventListener("click", () => {
+    supportForm?.reset();
+    successBox?.classList.add("hidden");
+    supportForm?.classList.remove("hidden");
+  });
+
+  // Smooth Accordion Handler
+  const toggles = document.querySelectorAll(".faq-toggle");
+  
+  toggles.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".faq-accordion");
+      const content = parent?.querySelector(".faq-content");
+      const symbol = btn.querySelector(".faq-symbol");
+      
+      const isOpen = !content?.classList.contains("hidden");
+      
+      document.querySelectorAll(".faq-accordion").forEach((item) => {
+        item.querySelector(".faq-content")?.classList.add("hidden");
+        const itemSymbol = item.querySelector(".faq-symbol");
+        if (itemSymbol) {
+          itemSymbol.textContent = "+";
+          itemSymbol.classList.remove("bg-luminet-lime", "text-luminet-navy", "border-transparent");
+          itemSymbol.classList.add("bg-white", "text-luminet-navy", "border-gray-200");
+        }
+      });
+      
+      if (!isOpen) {
+        content?.classList.remove("hidden");
+        if (symbol) {
+          symbol.textContent = "−";
+          symbol.classList.add("bg-luminet-lime", "text-luminet-navy", "border-transparent");
+          symbol.classList.remove("bg-white", "text-luminet-navy", "border-gray-200");
+        }
+      }
+    });
+  });
+</script>

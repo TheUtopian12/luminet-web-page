@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --color-luminet-navy: #1F4275;
+  --color-luminet-navy-light: #2A5689;
+  --color-luminet-navy-dark: #16325A;
+  --color-luminet-lime: #7DBF43;
+  --color-luminet-lime-light: #95CD62;
+  --color-luminet-dark: #06101E;
+  --color-luminet-gray: #F0F2F5;
+  
+  --shadow-card: 0 10px 30px -10px rgba(31, 66, 117, 0.08);
+  --shadow-card-hover: 0 20px 40px -15px rgba(31, 66, 117, 0.15);
+}
+
 html {
   scroll-behavior: smooth;
 }
