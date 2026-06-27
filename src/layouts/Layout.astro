@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/layout/Navbar.astro";
 import Footer from "../components/layout/Footer.astro";
+import CookieConsent from "../components/layout/CookieConsent.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -36,6 +37,7 @@ const { title } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
   </body>
 </html>
 

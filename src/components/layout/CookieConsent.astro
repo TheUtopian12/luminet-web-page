@@ -1,0 +1,66 @@
+---
+import { Cookie } from 'lucide-astro';
+---
+
+<div id="cookie-consent-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md bg-[#0F2E65] text-white p-6 rounded-2xl shadow-2xl border border-white/10 transform translate-y-[150%] transition-transform duration-500 ease-out z-[9999] hidden">
+  <div class="flex items-start gap-4">
+    <div class="p-2.5 bg-white/10 rounded-xl text-[#78BE20] shrink-0">
+      <Cookie class="w-6 h-6" />
+    </div>
+    <div class="space-y-3">
+      <h4 class="font-bold text-lg text-white">Valoramos tu privacidad</h4>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        Utilizamos cookies propias y de terceros para analizar el tráfico del sitio y mejorar tu experiencia de navegación. Al hacer clic en "Aceptar todo", aceptas nuestro uso de cookies.
+      </p>
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <button id="accept-cookies-btn" class="flex-1 bg-[#78BE20] text-[#0F2E65] px-4 py-2.5 rounded-xl text-sm font-bold hover:bg-[#8ee024] hover:shadow-lg transition-all duration-300 cursor-pointer text-center">
+          Aceptar todo
+        </button>
+        <button id="reject-cookies-btn" class="flex-1 bg-white/10 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-white/20 transition-all duration-300 cursor-pointer text-center">
+          Rechazar
+        </button>
+      </div>
+      <div class="text-xs text-center pt-1">
+        <a href="#" class="text-gray-400 hover:text-white underline transition-colors">Política de Cookies</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Runs entirely on the client
+  const banner = document.getElementById('cookie-consent-banner');
+  const acceptBtn = document.getElementById('accept-cookies-btn');
+  const rejectBtn = document.getElementById('reject-cookies-btn');
+
+  if (banner && acceptBtn && rejectBtn) {
+    // Check if consent has already been given or rejected
+    const consent = localStorage.getItem('cookie-consent');
+
+    if (!consent) {
+      // Remove hidden class to render but offset
+      banner.classList.remove('hidden');
+      // Trigger slide-up animation after a short delay
+      setTimeout(() => {
+        banner.classList.remove('translate-y-[150%]');
+      }, 100);
+    }
+
+    const hideBanner = () => {
+      banner.classList.add('translate-y-[150%]');
+      setTimeout(() => {
+        banner.classList.add('hidden');
+      }, 500);
+    };
+
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookie-consent', 'accepted');
+      hideBanner();
+    });
+
+    rejectBtn.addEventListener('click', () => {
+      localStorage.setItem('cookie-consent', 'rejected');
+      hideBanner();
+    });
+  }
+</script>
