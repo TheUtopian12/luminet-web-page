@@ -4,10 +4,10 @@ import ContactSection from '../../components/home/ContactSection.astro';
 import { Clock, FileText, Headphones, Laptop, Wifi } from 'lucide-astro';
 
 const beneficios = [
-  { Icon: Wifi, title: 'Proceso de contratación fácil y rápido' },
-  { Icon: Clock, title: 'Implementación en - 6 horas.' },
-  { Icon: Laptop, title: 'Soporte técnico personalizado 24/7.' },
-  { Icon: FileText, title: 'Garantía de servicio por contrato' },
+  { Icon: Clock, title: 'Implementación ágil: activación en menos de 6 horas con SLA garantizado.' },
+  { Icon: Wifi, title: 'Arquitectura híbrida: fibra óptica y radioenlace de microondas, desde 50 Mbps hasta Multi-Gigabit.' },
+  { Icon: Laptop, title: 'Rutas optimizadas: enrutamiento directo con proveedores Tier 1 para menor latencia.' },
+  { Icon: FileText, title: 'Telemetría de red: reportes avanzados y gráficas detalladas de consumo de ancho de banda.' },
 ];
 
 const faq = [
@@ -28,7 +28,18 @@ const faq = [
 
   <section class="internet-subtitle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p>Conexión simétrica, con 99.97% de disponibilidad y adaptada para brindarte un servicio a la medida.</p>
+      <p>Proporcionamos conectividad simétrica y dedicada de grado empresarial, diseñada para garantizar la continuidad de sus operaciones de red más exigentes.</p>
+    </div>
+  </section>
+
+  <section class="perfil-cliente">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title-center">Perfil de cliente (Target Corporativo)</h2>
+      <p class="perfil-text">
+        Cualquier tipo de empresa que requiera infraestructura robusta para tráfico ininterrumpido:
+        misión crítica, transacciones financieras de alto volumen, entornos Cloud, VPN corporativas
+        y transferencia masiva de datos bidireccional.
+      </p>
     </div>
   </section>
 
@@ -58,23 +69,26 @@ const faq = [
           <ul class="dif-list">
             <li>
               <div class="dif-item">
-                <strong>Operadoras Tier 1</strong>
-                <p>Contamos con conexiones directas a operadoras de Internet Tier 1.</p>
+                <strong>Microonda y Fibra Óptica</strong>
+                <p>Entrega de servicios mediante microonda y fibra óptica, con flexibilidad de capacidades.</p>
               </div>
             </li>
             <li>
               <div class="dif-item">
-                <strong>Microondas y Fibra Optica</strong>
+                <strong>Tier 1</strong>
+                <p>Rutas directas con proveedores internacionales tipo Tier 1.</p>
               </div>
             </li>
             <li>
               <div class="dif-item">
-                <strong>Mas Capacidad</strong>
+                <strong>Mayor Capacidad</strong>
+                <p>Capacidades de entrega de servicio según las necesidades del cliente, desde 50 megas hasta Multi Gigas.</p>
               </div>
             </li>
             <li>
               <div class="dif-item">
                 <strong>Monitoreo de tu Red</strong>
+                <p>Generación de reportes y gráficas detalladas de consumo de tu servicio.</p>
               </div>
             </li>
           </ul>
@@ -84,47 +98,6 @@ const faq = [
   </section>
 
   <ContactSection />
-
-  <section class="success-cases">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Casos de Éxito</h2>
-      <div class="cases-grid">
-        <div class="case-card">
-          <div class="case-img-placeholder">
-             <img src="/success-office.png" alt="Success Case" />
-          </div>
-          <div class="case-body">
-            <h3>Nombre de Marca 1</h3>
-            <p>(Descripción del servicio realizado) Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          </div>
-        </div>
-        <div class="case-card">
-          <div class="case-img-placeholder">
-             <img src="/success-office.png" alt="Success Case" />
-          </div>
-          <div class="case-body">
-            <h3>Nombre de Marca 2</h3>
-            <p>(Descripción del servicio realizado) Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-bar-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="cta-bar">
-        <div class="cta-left">
-          <div class="cta-icon"><Headphones /></div>
-          <p>Contáctenos para más información</p>
-        </div>
-        <div class="cta-right">
-          <a href="#contact" class="btn btn-white">Contactanos</a>
-          <a href="#" class="btn btn-outline-white">Enviar Propuesta</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="faq-section">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -177,6 +150,19 @@ const faq = [
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: #0F2E65;
     margin-bottom: 4rem;
+  }
+
+  .perfil-cliente {
+    padding: 5rem 0 2rem;
+  }
+
+  .perfil-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
 
   .beneficios-luminet {
