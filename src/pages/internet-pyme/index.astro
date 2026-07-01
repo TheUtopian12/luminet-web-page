@@ -1,13 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactSection from '../../components/home/ContactSection.astro';
-import { Clock, Cloud, FileText, Laptop, Lock, Monitor, Wifi } from 'lucide-astro';
+import { Clock, Gauge, Cpu, Zap, Users, Monitor, Cloud, Lock } from 'lucide-astro';
 
 const beneficios = [
-  { Icon: Wifi, title: 'Proceso de contratación fácil y rápido' },
-  { Icon: Clock, title: 'Implementación en - 6 horas.' },
-  { Icon: Laptop, title: 'Soporte técnico personalizado 24/7.' },
-  { Icon: FileText, title: 'Garantía de servicio por contrato' },
+  { Icon: Clock, title: 'Puesta en marcha eficiente: implementación en menos de 6 horas con soporte 24/7.' },
+  { Icon: Gauge, title: 'Garantía de rendimiento: baja sobresuscripción para mantener la velocidad real.' },
+  { Icon: Cpu, title: 'Equipamiento avanzado: CPE de última generación con facilidad de escalamiento.' },
+  { Icon: Zap, title: 'Experiencia de navegación: rutas cortas de red para baja latencia y alta velocidad de respuesta.' },
+  { Icon: Users, title: 'Valor agregado: WiFi segmentada para visitantes/ciudadanos y analíticas de tráfico integradas.' },
 ];
 
 const faq = [
@@ -27,13 +28,24 @@ const faq = [
 
   <section class="service-subtitle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p>Una solución personalizada de Internet de Alta Disponibilidad, para cualquier tamano de negocio o proyecto, la respuesta que buscabas.</p>
+      <p>Enlace de alta disponibilidad optimizado para impulsar la transformación digital de dependencias pequeñas y medianas, ofreciendo estabilidad de red con una excelente relación costo-beneficio.</p>
+    </div>
+  </section>
+
+  <section class="perfil-cliente">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title-center">Perfil de cliente (Target Gobierno)</h2>
+      <p class="perfil-text">
+        Delegaciones, módulos de atención y oficinas municipales con menos de 50 terminales;
+        ayuntamientos pequeños, juntas auxiliares, casetas de enlace y dependencias con operación
+        administrativa ligera.
+      </p>
     </div>
   </section>
 
   <section class="beneficios-luminet">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Beneficios Luminet</h2>
+      <h2 class="section-title-center">Ventajas Competitivas</h2>
       <div class="steps-grid">
         <div class="steps-line"></div>
         {beneficios.map((ben) => (
@@ -57,18 +69,33 @@ const faq = [
           <ul class="dif-list">
             <li>
               <div class="dif-item">
+                <strong>Mejor Experiencia de Navegación</strong>
+                <p>Rutas cortas hacia internet, con baja latencia y mayor velocidad.</p>
+              </div>
+            </li>
+            <li>
+              <div class="dif-item">
+                <strong>Más Ancho de Banda</strong>
+                <p>Servicio con baja sobresuscripción.</p>
+              </div>
+            </li>
+            <li>
+              <div class="dif-item">
+                <strong>Tecnología de Última Generación</strong>
+                <p>Equipos de entrega con tecnología innovadora y de altas prestaciones, con facilidad de incrementar capacidades.</p>
+              </div>
+            </li>
+            <li>
+              <div class="dif-item">
                 <strong>Conexión Confiable</strong>
                 <p>Conexión estable de alta calidad sin interrupciones.</p>
               </div>
             </li>
             <li>
-              <div class="dif-item"><strong>Mejor Experiencia de Navegación</strong></div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Ancho de Banda</strong></div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Tecnología de Ultima Generacion</strong></div>
+              <div class="dif-item">
+                <strong>Gráficas de Consumo</strong>
+                <p>Generación de reportes de consumo de servicio de internet.</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -235,6 +262,19 @@ const faq = [
   .dif-item p {
     font-size: 0.9rem;
     opacity: 0.8;
+  }
+
+  .perfil-cliente {
+    padding: 5rem 0 2rem;
+  }
+
+  .perfil-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
 
   .success-cases {
