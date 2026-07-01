@@ -2,8 +2,7 @@
 import { Phone, MessageCircle, Mail, Clock } from 'lucide-astro';
 
 const telefonos = [
-  { label: 'Soporte técnico', value: '844 362 6447', href: 'tel:8443626447' },
-  { label: 'Atención a clientes', value: '81 36 48 18 48', href: 'tel:8136481848' },
+  { label: 'Soporte y atención a clientes', value: '844 379 0201', href: 'tel:8443790201' },
 ];
 ---
 
@@ -21,7 +20,7 @@ const telefonos = [
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+    <div class="grid gap-6 max-w-md mx-auto">
       {telefonos.map((t) => (
         <a
           href={t.href}
