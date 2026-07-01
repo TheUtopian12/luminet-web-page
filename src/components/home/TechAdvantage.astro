@@ -1,0 +1,81 @@
+---
+import { RadioTower, Building2, Headset } from 'lucide-astro';
+
+const items = [
+  {
+    Icon: RadioTower,
+    title: 'Cobertura inalámbrica donde la fibra no llega',
+    desc: 'Nuestra tecnología de radiofrecuencia nos permite instalar en zonas donde un operador tradicional tardaría meses — o simplemente no entraría. Si hay señal, hay Luminet.',
+    badLabel: 'Fibra tradicional',
+    bad: 'Requiere permisos, zanjas y meses de espera.',
+    good: 'Instalación en días, sin obra civil.',
+  },
+  {
+    Icon: Building2,
+    title: 'Infraestructura 100% propia en 10 estados',
+    desc: 'No rentamos red de terceros. Somos dueños de nuestra infraestructura, lo que nos da control total sobre la calidad, los tiempos de respuesta y los acuerdos de servicio.',
+    badLabel: 'Revendedores',
+    bad: 'Dependen de otro operador, sin control real.',
+    good: 'Red propia = compromiso real con el SLA.',
+  },
+  {
+    Icon: Headset,
+    title: 'Soporte personalizado, no un call center',
+    desc: 'Tienes un punto de contacto real. Nuestro equipo conoce tu instalación, tu historial y tus necesidades. No explicas tu problema desde cero cada vez que llamas.',
+    badLabel: 'ISPs masivos',
+    bad: 'Tickets genéricos, respuesta en días.',
+    good: 'Respuesta en horas, contacto directo.',
+  },
+];
+---
+
+<section class="relative overflow-hidden bg-gradient-to-b from-[#0F2E65] to-[#0a1f45] py-24 md:py-28 px-4 sm:px-6 lg:px-8">
+  <!-- glows decorativos -->
+  <div class="pointer-events-none absolute -top-32 -right-32 w-[36rem] h-[36rem] rounded-full bg-[#78BE20]/10 blur-3xl"></div>
+  <div class="pointer-events-none absolute top-1/2 -left-40 w-[28rem] h-[28rem] rounded-full bg-[#1e4a9e]/25 blur-3xl"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="max-w-3xl mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-10 h-px bg-[#78BE20]"></span>
+        <span class="text-[#78BE20] text-sm font-semibold uppercase tracking-[0.18em]">Por qué Luminet</span>
+      </div>
+      <h2 class="text-white text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.1] tracking-tight mb-6">
+        Nuestra tecnología<br />
+        <span class="italic text-[#78BE20]">es nuestra ventaja</span>
+      </h2>
+      <p class="text-white/75 text-lg leading-relaxed">
+        Mientras los operadores tradicionales dependen de cables y permisos de instalación, nosotros
+        llegamos por radiofrecuencia. Sin burocracia, sin esperas, sin excusas.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {items.map((item) => (
+        <article class="group relative flex flex-col bg-white/[0.04] border border-white/10 rounded-3xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.06] hover:border-[#78BE20]/40 hover:-translate-y-1.5">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#78BE20] to-[#5a9416] flex items-center justify-center mb-7 shadow-lg shadow-[#78BE20]/25">
+            <item.Icon class="w-7 h-7 text-[#0F2E65]" />
+          </div>
+
+          <h3 class="text-white text-xl font-bold leading-snug mb-4">{item.title}</h3>
+          <p class="text-white/75 text-sm leading-relaxed mb-8 flex-1">{item.desc}</p>
+
+          <!-- Comparación -->
+          <div class="border-t border-white/15 pt-6 grid grid-cols-[1fr_auto_1fr] gap-3 items-center">
+            <div>
+              <p class="text-red-300 text-[0.7rem] font-bold uppercase tracking-wide mb-1.5">{item.badLabel}</p>
+              <p class="text-white/65 text-xs leading-snug">{item.bad}</p>
+            </div>
+            <span class="text-white/40 text-[0.65rem] font-bold uppercase self-center px-1">vs</span>
+            <div>
+              <p class="text-[#78BE20] text-[0.7rem] font-bold uppercase tracking-wide mb-1.5">Luminet</p>
+              <p class="text-white/85 text-xs leading-snug">{item.good}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
