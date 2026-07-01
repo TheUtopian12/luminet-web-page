@@ -101,6 +101,37 @@ const especialidades = [
     </div>
   </section>
 
+  <section class="mv-section">
+    <div class="container">
+      <div class="ops-section-header">
+        <span class="ops-eyebrow">NUESTRO PROPÓSITO</span>
+        <h2>Misión y Visión</h2>
+        <p>Lo que nos mueve y hacia dónde vamos como aliado tecnológico del sector público.</p>
+      </div>
+
+      <div class="mv-grid">
+        <article class="mv-item">
+          <h3>Misión</h3>
+          <span class="mv-line"></span>
+          <p>
+            Proporcionar soluciones de conectividad e infraestructura TI de grado institucional
+            que garanticen la continuidad operativa y la transformación digital de las dependencias
+            de gobierno en México, con los más altos estándares de calidad, seguridad y cumplimiento normativo.
+          </p>
+        </article>
+
+        <article class="mv-item">
+          <h3>Visión</h3>
+          <span class="mv-line"></span>
+          <p>
+            Ser el aliado tecnológico de referencia del sector público mexicano, reconocido por
+            impulsar instituciones más conectadas, seguras y eficientes al servicio de la ciudadanía.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <Partners />
 </Layout>
 
@@ -154,7 +185,8 @@ const especialidades = [
 
 <style is:global>
   .quienes-hero .container,
-  .quienes-ops .container {
+  .quienes-ops .container,
+  .mv-section .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -636,5 +668,44 @@ const especialidades = [
     .esp-slide {
       padding: 2rem 1.5rem;
     }
+  }
+
+  /* Misión y Visión — minimalista */
+  .mv-section {
+    padding: clamp(3rem, 7vw, 6rem) 0;
+    background: #fff;
+  }
+  .mv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .mv-section .ops-section-header {
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+  .mv-item h3 {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #0F2E65;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .mv-line {
+    display: block;
+    width: 48px;
+    height: 4px;
+    border-radius: 4px;
+    background: #78BE20;
+    margin-bottom: 1.5rem;
+  }
+  .mv-item p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #56637a;
+  }
+  @media (max-width: 768px) {
+    .mv-grid { grid-template-columns: 1fr; gap: 3rem; }
   }
 </style>
