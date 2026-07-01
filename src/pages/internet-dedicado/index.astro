@@ -4,10 +4,10 @@ import ContactSection from '../../components/home/ContactSection.astro';
 import { Clock, FileText, Headphones, Laptop, Wifi } from 'lucide-astro';
 
 const beneficios = [
-  { Icon: Clock, title: 'Implementación ágil: activación en menos de 6 horas con SLA garantizado.' },
+  { Icon: Clock, title: 'Implementación ágil: activación en menos de 6 horas con SLA garantizado y soporte 24/7.' },
   { Icon: Wifi, title: 'Arquitectura híbrida: fibra óptica y radioenlace de microondas, desde 50 Mbps hasta Multi-Gigabit.' },
   { Icon: Laptop, title: 'Rutas optimizadas: enrutamiento directo con proveedores Tier 1 para menor latencia.' },
-  { Icon: FileText, title: 'Telemetría de red: reportes avanzados y gráficas detalladas de consumo de ancho de banda.' },
+  { Icon: FileText, title: 'Telemetría de red: reportes y gráficas de consumo, disponibles para auditoría y transparencia institucional.' },
 ];
 
 const faq = [
@@ -28,24 +28,25 @@ const faq = [
 
   <section class="internet-subtitle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p>Proporcionamos conectividad simétrica y dedicada de grado empresarial, diseñada para garantizar la continuidad de sus operaciones de red más exigentes.</p>
+      <p>Proporcionamos conectividad simétrica y dedicada de grado gubernamental, diseñada para garantizar la continuidad de los servicios públicos y la operación de las dependencias más exigentes.</p>
     </div>
   </section>
 
   <section class="perfil-cliente">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Perfil de cliente (Target Corporativo)</h2>
+      <h2 class="section-title-center">Perfil de cliente (Target Gobierno)</h2>
       <p class="perfil-text">
-        Cualquier tipo de empresa que requiera infraestructura robusta para tráfico ininterrumpido:
-        misión crítica, transacciones financieras de alto volumen, entornos Cloud, VPN corporativas
-        y transferencia masiva de datos bidireccional.
+        Cualquier nivel o dependencia de gobierno. Dependencias federales, estatales y municipales
+        que requieren infraestructura robusta para operación ininterrumpida: trámites en línea,
+        sistemas de recaudación, plataformas de seguridad pública, videovigilancia, centros de mando
+        y transferencia masiva de datos entre sedes.
       </p>
     </div>
   </section>
 
   <section class="beneficios-luminet">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Beneficios Luminet</h2>
+      <h2 class="section-title-center">Ventajas Competitivas</h2>
       <div class="steps-grid">
         <div class="steps-line"></div>
         {beneficios.map((ben) => (
@@ -70,7 +71,7 @@ const faq = [
             <li>
               <div class="dif-item">
                 <strong>Microonda y Fibra Óptica</strong>
-                <p>Entrega de servicios mediante microonda y fibra óptica, con flexibilidad de capacidades.</p>
+                <p>Entrega de servicios mediante microonda y fibra óptica, con flexibilidad de capacidades para adaptarse a la infraestructura de cada dependencia.</p>
               </div>
             </li>
             <li>
@@ -82,13 +83,13 @@ const faq = [
             <li>
               <div class="dif-item">
                 <strong>Mayor Capacidad</strong>
-                <p>Capacidades de entrega de servicio según las necesidades del cliente, desde 50 megas hasta Multi Gigas.</p>
+                <p>Capacidades de entrega de servicio según las necesidades de la institución, desde 50 megas hasta Multi Gigas.</p>
               </div>
             </li>
             <li>
               <div class="dif-item">
                 <strong>Monitoreo de tu Red</strong>
-                <p>Generación de reportes y gráficas detalladas de consumo de tu servicio.</p>
+                <p>Generación de reportes y gráficas detalladas de consumo de tu servicio, con respaldo para procesos de rendición de cuentas.</p>
               </div>
             </li>
           </ul>
