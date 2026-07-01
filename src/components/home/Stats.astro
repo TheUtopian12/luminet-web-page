@@ -1,0 +1,64 @@
+---
+import { ArrowRight } from 'lucide-astro';
+
+const stats = [
+  { value: '+1K', label: 'Clientes activos en todo México' },
+  { value: '+100', label: 'Colaboradores dedicados a tu servicio' },
+  { value: '10', label: 'Estados con infraestructura propia' },
+  { value: '99.98%', label: 'Uptime garantizado en internet dedicado' },
+];
+---
+
+<section class="bg-[#f6f7f9] py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <!-- Copy -->
+    <div>
+      <span class="inline-flex items-center gap-2 bg-[#0F2E65]/8 text-[#0F2E65] text-xs font-bold uppercase tracking-[0.12em] px-4 py-2 rounded-full mb-8">
+        <span class="w-2 h-2 rounded-full bg-[#78BE20]"></span>
+        Concesionario Federal · +7 años
+      </span>
+      <h2 class="text-[#0F2E65] text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
+        Donde la fibra no llega,<br />
+        <span class="italic text-[#78BE20]">nosotros sí.</span>
+      </h2>
+      <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-lg mb-10">
+        Somos Luminet. Una empresa de telecomunicaciones con infraestructura propia,
+        tecnología inalámbrica de punta y más de +1,000 empresas que ya confían en nosotros
+        para nunca desconectarse.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#contacto" class="group inline-flex items-center gap-2 bg-[#78BE20] text-[#0F2E65] px-7 py-3.5 rounded-full text-sm font-bold hover:bg-[#6aad1a] transition-all duration-300 shadow-lg shadow-[#78BE20]/25">
+          Solicitar cotización
+          <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </a>
+        <a href="/conectividad" class="inline-flex items-center gap-2 border-2 border-[#0F2E65]/15 text-[#0F2E65] px-7 py-3.5 rounded-full text-sm font-semibold hover:border-[#0F2E65] hover:bg-[#0F2E65]/5 transition-all duration-300">
+          Ver soluciones
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="grid grid-cols-2 gap-4 md:gap-5">
+      <!-- Featured -->
+      <div class="col-span-2 relative overflow-hidden bg-gradient-to-br from-[#0F2E65] to-[#0a1f45] rounded-3xl p-8 md:p-10 shadow-xl shadow-[#0F2E65]/25">
+        <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-[#78BE20]/10 blur-2xl"></div>
+        <div class="absolute -bottom-12 -right-8 w-40 h-40 rounded-full bg-white/5"></div>
+        <div class="relative z-10">
+          <span class="inline-flex items-center gap-2 text-[#78BE20] text-xs font-bold uppercase tracking-[0.15em] mb-4">
+            <span class="w-6 h-px bg-[#78BE20]"></span> Cobertura nacional
+          </span>
+          <p class="text-white text-4xl md:text-5xl font-extrabold tracking-tight leading-none">+15,000</p>
+          <p class="text-white/70 text-sm md:text-base mt-3">km de red en territorio nacional</p>
+        </div>
+      </div>
+
+      {stats.map((s) => (
+        <div class="group relative overflow-hidden bg-white rounded-2xl p-6 md:p-7 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+          <span class="absolute left-0 top-6 bottom-6 w-1 rounded-r-full bg-[#78BE20] scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-300"></span>
+          <p class="text-[#0F2E65] text-3xl md:text-4xl font-extrabold tracking-tight group-hover:text-[#78BE20] transition-colors duration-300">{s.value}</p>
+          <p class="text-gray-500 text-sm mt-2 leading-snug">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
