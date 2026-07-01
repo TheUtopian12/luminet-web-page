@@ -1,0 +1,60 @@
+---
+const pasos = [
+  {
+    n: '1',
+    title: 'Diagnóstico gratuito',
+    desc: 'Un especialista analiza tu situación actual: velocidades, cortes y necesidades por área. Sin compromiso ni costo. Te explicamos exactamente qué mejoraría con Luminet.',
+  },
+  {
+    n: '2',
+    title: 'Propuesta a la medida',
+    desc: 'Diseñamos una solución específica para tu dependencia: ancho de banda, redundancia, ciberseguridad y presupuesto. No planes de catálogo, sino arquitectura real.',
+  },
+  {
+    n: '3',
+    title: 'Instalación en días',
+    desc: 'Nuestro equipo instala sin obra civil en la mayoría de los casos. Coordinamos el proceso para que tu operación no se detenga ni un momento durante la transición.',
+  },
+  {
+    n: '4',
+    title: 'Soporte continuo',
+    desc: 'Monitoreo proactivo de tu enlace. Si hay un problema, lo vemos antes que tú. Si necesitas escalar, tienes un contacto directo, no un ticket genérico.',
+  },
+];
+---
+
+<section class="bg-[#f6f7f9] py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="max-w-2xl mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-10 h-px bg-[#78BE20]"></span>
+        <span class="text-[#78BE20] text-sm font-semibold uppercase tracking-[0.18em]">Cómo trabajamos</span>
+      </div>
+      <h2 class="text-[#0F2E65] text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
+        De la cotización<br />
+        <span class="italic text-[#78BE20]">al servicio activo</span>
+      </h2>
+      <p class="text-[#3f4a5f] text-lg leading-relaxed">
+        Proceso claro, sin sorpresas. Sabemos que cambiar de proveedor genera dudas —
+        por eso lo hacemos lo más simple posible.
+      </p>
+    </div>
+
+    <!-- Pasos -->
+    <div class="relative grid md:grid-cols-4 gap-10 md:gap-6">
+      <!-- Línea conectora (desktop): conecta los centros de los círculos -->
+      <div class="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] h-0.5 -translate-y-1/2 bg-gradient-to-r from-[#78BE20] via-[#0F2E65]/25 to-[#0F2E65]/15"></div>
+
+      {pasos.map((p) => (
+        <div class="relative flex flex-col items-center text-center md:px-2">
+          <div class="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-[#0F2E65] to-[#0a1f45] text-white flex items-center justify-center text-xl font-extrabold shadow-lg shadow-[#0F2E65]/25 ring-4 ring-[#f6f7f9] mb-6">
+            {p.n}
+          </div>
+          <h3 class="text-[#0F2E65] text-lg font-bold mb-3">{p.title}</h3>
+          <p class="text-[#56637a] text-sm leading-relaxed max-w-[16rem]">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
