@@ -1,20 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactSection from '../../components/home/ContactSection.astro';
-import { BarChart, Clock, Cloud, Globe, Laptop, RefreshCw, Wifi } from 'lucide-astro';
+import { Gauge, Lock, ShieldCheck, Settings } from 'lucide-astro';
 
 const beneficios = [
-  { Icon: RefreshCw, title: 'Flexibilidad de operación con multiples provedores de internet' },
-  { Icon: Clock, title: 'Tiempo de implementación' },
-  { Icon: Laptop, title: 'Soporte 24/7' },
-  { Icon: BarChart, title: 'Reportes de consumo' },
+  { Icon: Gauge, title: 'Desempeño garantizado: alta disponibilidad y baja latencia respaldadas por SLA.' },
+  { Icon: Lock, title: 'Privacidad total: red completamente aislada del tráfico de otras instituciones.' },
+  { Icon: ShieldCheck, title: 'Mayor seguridad: reducción de vectores de ataque al no depender de internet público.' },
+  { Icon: Settings, title: 'Gestión simplificada: configuración, monitoreo y mantenimiento a cargo de Luminet.' },
 ];
 
 const faq = [
-  { q: '¿En cuánto tiempo instalan?', a: 'Instalamos en tiempo récord una vez contratado el servicio.' },
-  { q: '¿Ofrecen soporte 24/7?', a: 'Sí, contamos con soporte técnico especializado disponible las 24 horas.' },
-  { q: '¿Pueden integrar múltiples enlaces?', a: 'Sí, podemos gestionar múltiples enlaces.' },
-  { q: '¿Como empezaron?', a: 'Luminet nació de la necesidad de ofrecer conectividad empresarial de clase mundial.' },
+  { q: '¿Es una VPN tradicional?', a: 'No. Es una red privada gestionada dentro de nuestra propia infraestructura, sin depender de internet público como una VPN convencional.' },
+  { q: '¿Qué nivel de disponibilidad ofrece?', a: 'Alta disponibilidad y baja latencia respaldadas por acuerdos de nivel de servicio (SLA).' },
+  { q: '¿Puedo agregar nuevas sedes?', a: 'Sí, la red es escalable y permite incorporar nuevas sedes según la necesidad de la dependencia.' },
+  { q: '¿Quién administra la red?', a: 'La configuración, monitoreo y mantenimiento están a cargo de Luminet, sin carga operativa para la institución.' },
 ];
 ---
 
@@ -27,13 +27,24 @@ const faq = [
 
   <section class="service-subtitle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p>La solución de Alta Disponibilidad minimiza y reduce un posible corte de servicio, derivado de una falla o degradación de alguno de los proveedores de Internet conectados al equipo Alta Disponibilidad. Con esto se garantiza la continuidad operativa de forma rápida y automática.</p>
+      <p>Interconexión institucional entre sedes a través de una red privada gestionada dentro de nuestra propia infraestructura, sin depender de internet público como una VPN tradicional.</p>
+    </div>
+  </section>
+
+  <section class="perfil-cliente">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title-center">Perfil de cliente (Target Gobierno)</h2>
+      <p class="perfil-text">
+        Dependencias con múltiples sedes (oficinas centrales, delegaciones, módulos de atención) que
+        requieren interconectar su operación de forma segura, sin exponer información sensible a la
+        red pública.
+      </p>
     </div>
   </section>
 
   <section class="beneficios-luminet">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Beneficios de Luminet</h2>
+      <h2 class="section-title-center">Ventajas Competitivas</h2>
       <div class="steps-grid">
         <div class="steps-line"></div>
         {beneficios.map((ben) => (
@@ -50,26 +61,15 @@ const faq = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="diferenciadores-card">
         <div class="dif-visual">
-          <div class="visual-placeholder"><Globe /> <Wifi /> <Cloud /></div>
+          <div class="visual-placeholder"><Lock /> <ShieldCheck /> <Settings /></div>
         </div>
         <div class="dif-content">
           <h3>Diferenciadores Principales</h3>
           <ul class="dif-list">
-            <li>
-              <div class="dif-item">
-                <strong>Inspección profunda</strong>
-                <p>Visión de uso de servicio de Internet. Segmentación por categorías o páginas web.</p>
-              </div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Gestión en Nube</strong></div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Monitoreo Libre</strong></div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Equipo Compatible</strong></div>
-            </li>
+            <li><div class="dif-item"><strong>Red Aislada</strong><p>Red con mínima sobresuscripción, a diferencia de proveedores convencionales.</p></div></li>
+            <li><div class="dif-item"><strong>SLA Garantizado</strong><p>Desempeño y baja latencia respaldados por acuerdos de nivel de servicio.</p></div></li>
+            <li><div class="dif-item"><strong>Gestión Integral</strong><p>Configuración, monitoreo y mantenimiento sin carga operativa para la dependencia.</p></div></li>
+            <li><div class="dif-item"><strong>Escalable</strong><p>Fácil incorporación de nuevas sedes según necesidad.</p></div></li>
           </ul>
         </div>
       </div>
@@ -85,9 +85,7 @@ const faq = [
         {faq.map((item) => (
           <details class="faq-item">
             <summary>{item.q} <span class="plus">+</span></summary>
-            <div class="faq-answer">
-              <p>{item.a}</p>
-            </div>
+            <div class="faq-answer"><p>{item.a}</p></div>
           </details>
         ))}
       </div>
@@ -96,39 +94,32 @@ const faq = [
 </Layout>
 
 <style>
-  /* Shared styles */
   .service-hero { min-height: 400px; padding: 4rem 0; background: linear-gradient(rgba(15, 46, 101, 0.7), rgba(15, 46, 101, 0.7)), url('/internet-hero.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: 80px; color: white; }
   .service-hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; }
   .service-subtitle { padding: 3rem 0; text-align: center; color: #78BE20; font-weight: 600; font-size: 1.1rem; max-width: 900px; margin: 0 auto; }
   .section-title-center { text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); color: #0F2E65; margin-bottom: 4rem; }
+  .perfil-cliente { padding: 5rem 0 2rem; }
+  .perfil-text { max-width: 800px; margin: 0 auto; text-align: center; color: #4a5568; font-size: 1.1rem; line-height: 1.7; }
   .beneficios-luminet { padding: 6rem 0; background: #f8f9fa; }
   .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; position: relative; text-align: center; }
   .steps-line { position: absolute; top: 50px; left: 10%; right: 10%; height: 1px; background: #cbd5e0; z-index: 0; }
   .step-item { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
   .step-icon { width: 100px; height: 100px; background: white; border: 1px solid #cbd5e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(1.8rem, 5vw, 2.5rem); }
-  .step-item p { font-weight: 700; color: #0F2E65; font-size: 0.9rem; max-width: 150px; }
+  .step-item p { font-weight: 700; color: #0F2E65; font-size: 0.9rem; max-width: 200px; }
   .diferenciadores { padding: 6rem 0; }
   .diferenciadores-card { background: #0F2E65; border-radius: 30px; padding: clamp(2rem, 5vw, 4rem); display: flex; gap: 4rem; align-items: center; color: white; }
   .dif-visual { flex: 1; display: flex; justify-content: center; align-items: center; }
-  .visual-placeholder { font-size: 5rem; }
+  .visual-placeholder { font-size: 5rem; color: #78BE20; }
   .dif-content { flex: 1; }
   .dif-content h3 { font-size: 2rem; margin-bottom: 2.5rem; }
   .dif-list { list-style: none; border-left: 3px solid rgba(255, 255, 255, 0.3); padding-left: 2rem; }
   .dif-item { margin-bottom: 2rem; }
   .dif-item strong { font-size: 1.2rem; display: block; margin-bottom: 0.5rem; }
   .dif-item p { font-size: 0.9rem; opacity: 0.8; }
-  .success-cases { padding: 8rem 0; }
-  .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .case-card { background: #f8f9fa; border-radius: 20px; overflow: hidden; }
-  .case-img-placeholder { height: 250px; }
-  .case-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-  .case-body { padding: 2.5rem; }
-  .case-body h3 { color: #0F2E65; margin-bottom: 1rem; }
-  .case-body p { font-size: 0.9rem; color: #4a5568; line-height: 1.6; }
   .faq-section { padding: 8rem 0; }
   .faq-list { max-width: 900px; margin: 0 auto; }
   .faq-item { border-bottom: 1px solid #e2e8f0; padding: 1.5rem 0; }
   .faq-item summary { list-style: none; font-weight: 700; color: #0F2E65; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
   .faq-answer { padding-top: 1rem; color: #4a5568; }
-  @media (max-width: 992px) { .steps-grid, .cases-grid, .diferenciadores-card { grid-template-columns: 1fr; flex-direction: column; } .steps-line { display: none; } }
+  @media (max-width: 992px) { .steps-grid, .diferenciadores-card { grid-template-columns: 1fr; flex-direction: column; } .steps-line { display: none; } }
 </style>

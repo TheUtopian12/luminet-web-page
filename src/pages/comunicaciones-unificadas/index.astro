@@ -1,13 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactSection from '../../components/home/ContactSection.astro';
-import { Cloud, Handshake, Laptop, Phone, Satellite, Settings } from 'lucide-astro';
+import { Cloud, Phone, Satellite, Smartphone, ClipboardCheck, LayoutDashboard } from 'lucide-astro';
 
 const beneficios = [
-  { Icon: Cloud, title: 'Gestionamiento y Control desde La nube' },
-  { Icon: Laptop, title: 'Soporte 24/7' },
-  { Icon: Settings, title: 'Acceso de administración compartida con el cliente' },
-  { Icon: Handshake, title: 'Acompañamiento desde la eleccion hasta la implementacion y soporte de tu servicio' },
+  { Icon: Smartphone, title: 'Acceso multidispositivo: extensión telefónica en smartphones, tabletas, PC y teléfonos fijos, para oficinas centrales y módulos foráneos.' },
+  { Icon: ClipboardCheck, title: 'Auditoría y control: grabación de llamadas con almacenamiento de hasta 90 días en la nube, útil para transparencia y rendición de cuentas.' },
+  { Icon: Phone, title: 'Numeración inteligente: DID dinámico según destino de marcación para mejorar los índices de atención y contactación ciudadana.' },
+  { Icon: LayoutDashboard, title: 'Administración compartida: panel web para monitorear rendimiento, respaldado por nuestro Centro de Respuesta Inmediata.' },
 ];
 
 const faq = [
@@ -27,13 +27,24 @@ const faq = [
 
   <section class="service-subtitle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p>Eleva los resultados e imagen de tu negocio a través del PBX IP Xcien, solución que te ayudará a crear menús de atención por tipo de servicio.</p>
+      <p>Modernización de las telecomunicaciones institucionales a través de plataformas de conmutación IP alojadas en la nube, optimizando el enrutamiento de atención ciudadana y proyectando una imagen sólida e institucional.</p>
+    </div>
+  </section>
+
+  <section class="perfil-cliente">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title-center">Perfil de cliente (Target Gobierno)</h2>
+      <p class="perfil-text">
+        Centros de atención ciudadana, módulos de trámites, dependencias de recaudación y organismos
+        de servicios que necesitan habilitar movilidad e interconexión entre personal presencial y
+        remoto en distintas sedes.
+      </p>
     </div>
   </section>
 
   <section class="beneficios-luminet">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Beneficios de Luminet</h2>
+      <h2 class="section-title-center">Ventajas Competitivas</h2>
       <div class="steps-grid">
         <div class="steps-line"></div>
         {beneficios.map((ben) => (
@@ -62,13 +73,34 @@ const faq = [
               </div>
             </li>
             <li>
-              <div class="dif-item"><strong>Acceso Multidispositivo</strong></div>
+              <div class="dif-item">
+                <strong>DID Destino</strong>
+                <p>DID de acuerdo al destino de marcación, para elevar la contactación y resultados en atención ciudadana.</p>
+              </div>
             </li>
             <li>
-              <div class="dif-item"><strong>Plataforma de Gestión</strong></div>
+              <div class="dif-item">
+                <strong>Soporte de Respuesta Inmediata</strong>
+                <p>Centro de Respuesta Inmediata para atender cualquier cambio o mejora.</p>
+              </div>
             </li>
             <li>
-              <div class="dif-item"><strong>Grabación y Almacenamiento</strong></div>
+              <div class="dif-item">
+                <strong>Acceso Multidispositivo</strong>
+                <p>Uso y acceso en múltiples dispositivos: mobile, tabletas, desktop y fijo.</p>
+              </div>
+            </li>
+            <li>
+              <div class="dif-item">
+                <strong>Grabación y Almacenamiento</strong>
+                <p>Grabación y almacenamiento de llamadas de hasta 90 días, disponible para auditoría institucional.</p>
+              </div>
+            </li>
+            <li>
+              <div class="dif-item">
+                <strong>Plataforma de Gestión</strong>
+                <p>Acceso a plataforma de gestión y monitoreo del desempeño de llamadas de tus servidores públicos.</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -117,6 +149,8 @@ const faq = [
   .dif-item { margin-bottom: 2rem; }
   .dif-item strong { font-size: 1.2rem; display: block; margin-bottom: 0.5rem; }
   .dif-item p { font-size: 0.9rem; opacity: 0.8; }
+  .perfil-cliente { padding: 5rem 0 2rem; }
+  .perfil-text { max-width: 800px; margin: 0 auto; text-align: center; color: #4a5568; font-size: 1.1rem; line-height: 1.7; }
   .success-cases { padding: 8rem 0; }
   .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
   .case-card { background: #f8f9fa; border-radius: 20px; overflow: hidden; }

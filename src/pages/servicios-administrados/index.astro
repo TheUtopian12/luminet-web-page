@@ -1,65 +1,107 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Headphones, Settings, Wifi } from 'lucide-astro';
+import ContactSection from '../../components/home/ContactSection.astro';
+import { Layers, RefreshCw, ShieldCheck, Settings, Cpu, Network } from 'lucide-astro';
 
-const solutions = [
-  { title: 'Comunicaciones Unificadas', desc: 'Contamos con conexiones directas a operadoras de Internet Tier 1.', link: '/comunicaciones-unificadas/' },
-  { title: 'Red WiFi', desc: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.', link: '/red-wifi/' },
-  { title: 'Ciberseguridad', desc: 'Somos eficientes en la implementación de su servicio.', link: '/ciberseguridad/' },
-  { title: 'Servicios Tic\'s', desc: 'Contamos con mas de 25 años de experiencia.', link: '#' },
-  { title: 'SDWAN', desc: 'Conexión simétrica, estable y dedicada.', link: '/sd-wan/' },
-  { title: 'Video Vigilancia', desc: 'Somos eficientes en la implementación de su servicio.', link: '/video-vigilancia/' },
+const beneficios = [
+  { Icon: Layers, title: 'Metodología estructurada: implementación por fases bien delimitadas para minimizar impactos en la operación y en la atención ciudadana.' },
+  { Icon: RefreshCw, title: 'Mejora continua: auditorías técnicas antes, durante y después de cada implementación.' },
+  { Icon: ShieldCheck, title: 'Garantía de servicio: soluciones a la medida con SLA rigurosa y atención experta 24/7.' },
 ];
 
-const reasons = [
-  { Icon: Headphones, title: 'Operadoras Tier 1' },
-  { Icon: Settings, title: 'Rápida Implementación' },
-  { text: '25', title: 'Pioneros de la Industria' },
-  { Icon: Wifi, title: 'Velocidad Garantizada' },
+const faq = [
+  { q: '¿En qué consiste el servicio?', a: 'Diagnóstico y acompañamiento tecnológico experto para estructurar, optimizar y estabilizar la infraestructura digital de su dependencia.' },
+  { q: '¿Ofrecen soporte 24/7?', a: 'Sí, contamos con atención experta disponible las 24 horas, los 365 días del año.' },
+  { q: '¿Se adaptan a la normativa de mi institución?', a: 'Sí, personalizamos los servicios de acuerdo a las necesidades y el marco regulatorio de cada dependencia.' },
+  { q: '¿Cómo minimizan el impacto en la operación?', a: 'Implementamos por fases bien delimitadas, con auditorías técnicas antes, durante y después de cada etapa.' },
 ];
 ---
 
 <Layout title="Servicios TIC - Luminet">
-  <section class="conectividad-hero">
+  <section class="service-hero">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hero-container">
       <h1 class="animate-fade-in">Servicios TIC</h1>
     </div>
   </section>
 
-  <section class="conectividad-desc">
+  <section class="service-subtitle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p>
-        Dale un vistazo a nuestra soluciones en red, dale un vistazo a nuestros trabajos Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud lobortis nisl ut aliquip ex ea commodo.
+      <p>Diagnóstico y acompañamiento tecnológico experto para estructurar, optimizar y estabilizar la infraestructura digital de su dependencia, alineando la tecnología a los objetivos institucionales y a los estándares de gobierno digital.</p>
+    </div>
+  </section>
+
+  <section class="perfil-cliente">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title-center">Perfil de cliente (Target Gobierno)</h2>
+      <p class="perfil-text">
+        Dependencias en proceso de modernización o transformación digital que necesitan rediseñar
+        topologías de red; instituciones con áreas de TI saturadas o con capacidad limitada para
+        atender proyectos complejos de infraestructura.
       </p>
     </div>
   </section>
 
-  <section class="solutions-grid-section">
+  <section class="beneficios-luminet">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="solutions-grid">
-        {solutions.map((sol) => (
-          <div class="sol-card">
-            <div class="sol-card-visual"></div>
-            <div class="sol-card-content">
-              <h3>{sol.title}</h3>
-              <p>{sol.desc}</p>
-              <a href={sol.link} class="ver-mas">Ver Mas</a>
-            </div>
+      <h2 class="section-title-center">Ventajas Competitivas</h2>
+      <div class="steps-grid">
+        <div class="steps-line"></div>
+        {beneficios.map((ben) => (
+          <div class="step-item">
+            <div class="step-icon"><ben.Icon /></div>
+            <p>{ben.title}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="why-choose-us">
+  <section class="diferenciadores">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center small">Por qué elegirnos</h2>
-      <div class="reasons-grid">
-        {reasons.map((r) => (
-          <div class="reason-item">
-            <div class="reason-icon">{r.Icon ? <r.Icon /> : r.text}</div>
-            <h3>{r.title}</h3>
-          </div>
+      <div class="diferenciadores-card">
+        <div class="dif-visual">
+          <div class="visual-placeholder"><Settings /> <Cpu /> <Network /></div>
+        </div>
+        <div class="dif-content">
+          <h3>Diferenciadores Principales</h3>
+          <ul class="dif-list">
+            <li>
+              <div class="dif-item">
+                <strong>Personalización de Servicio</strong>
+                <p>Personalización de servicios en base a las necesidades y normativa de cada institución.</p>
+              </div>
+            </li>
+            <li>
+              <div class="dif-item">
+                <strong>Servicio de Consultoría</strong>
+                <p>Servicios de consultoría de acuerdo a los requerimientos y marco regulatorio de las dependencias.</p>
+              </div>
+            </li>
+            <li>
+              <div class="dif-item">
+                <strong>Mejora Continua</strong>
+                <p>Detección de posibles mejoras previo y durante la fase de implementación del servicio.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactSection />
+
+  <section class="faq-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title-center">Preguntas Frecuentes</h2>
+      <div class="faq-list">
+        {faq.map((item) => (
+          <details class="faq-item">
+            <summary>{item.q} <span class="plus">+</span></summary>
+            <div class="faq-answer">
+              <p>{item.a}</p>
+            </div>
+          </details>
         ))}
       </div>
     </div>
@@ -67,30 +109,32 @@ const reasons = [
 </Layout>
 
 <style>
-  .conectividad-hero { min-height: 400px; padding: 4rem 0; background: linear-gradient(rgba(15, 46, 101, 0.7), rgba(15, 46, 101, 0.7)), url('/internet-hero.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: 80px; color: white; }
-  .conectividad-hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; }
-  .conectividad-desc { padding: 4rem 0; text-align: center; max-width: 900px; margin: 0 auto; }
-  .conectividad-desc p { font-size: 1rem; color: #718096; line-height: 1.8; }
-  .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding-bottom: 6rem; }
-  .sol-card { background: #f8f9fa; border-radius: 20px; overflow: hidden; padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease; }
-  .sol-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-  .sol-card-visual { height: 120px; background: rgba(0, 0, 0, 0.05); border-radius: 10px; margin-bottom: 1.5rem; }
-  .sol-card h3 { color: #0F2E65; margin-bottom: 1rem; font-size: 1.2rem; }
-  .sol-card p { font-size: 0.85rem; color: #4a5568; margin-bottom: 2rem; }
-  .ver-mas { color: #78BE20; font-weight: 700; font-size: 0.85rem; }
+  .service-hero { min-height: 400px; padding: 4rem 0; background: linear-gradient(rgba(15, 46, 101, 0.7), rgba(15, 46, 101, 0.7)), url('/internet-hero.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: 80px; color: white; }
+  .service-hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; }
+  .service-subtitle { padding: 3rem 0; text-align: center; color: #78BE20; font-weight: 600; font-size: 1.1rem; max-width: 900px; margin: 0 auto; }
   .section-title-center { text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); color: #0F2E65; margin-bottom: 4rem; }
-  .section-title-center.small { font-size: 1.5rem; margin-bottom: 3rem; }
-  .success-cases { padding: 6rem 0; }
-  .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .case-card { background: #f8f9fa; border-radius: 20px; overflow: hidden; }
-  .case-img-placeholder { height: 250px; }
-  .case-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-  .case-body { padding: 2.5rem; }
-  .case-body h3 { color: #0F2E65; margin-bottom: 1rem; }
-  .case-body p { font-size: 0.9rem; color: #4a5568; line-height: 1.6; }
-  .why-choose-us { padding: 6rem 0; }
-  .reasons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; text-align: center; }
-  .reason-icon { font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 1rem; }
-  .reason-item h3 { font-size: 0.9rem; color: #0F2E65; max-width: 120px; margin: 0 auto; }
-  @media (max-width: 992px) { .solutions-grid, .cases-grid, .reasons-grid { grid-template-columns: 1fr; } }
+  .perfil-cliente { padding: 5rem 0 2rem; }
+  .perfil-text { max-width: 800px; margin: 0 auto; text-align: center; color: #4a5568; font-size: 1.1rem; line-height: 1.7; }
+  .beneficios-luminet { padding: 6rem 0; background: #f8f9fa; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; position: relative; text-align: center; }
+  .steps-line { position: absolute; top: 50px; left: 10%; right: 10%; height: 1px; background: #cbd5e0; z-index: 0; }
+  .step-item { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+  .step-icon { width: 100px; height: 100px; background: white; border: 1px solid #cbd5e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(1.8rem, 5vw, 2.5rem); }
+  .step-item p { font-weight: 700; color: #0F2E65; font-size: 0.9rem; max-width: 200px; }
+  .diferenciadores { padding: 6rem 0; }
+  .diferenciadores-card { background: #0F2E65; border-radius: 30px; padding: clamp(2rem, 5vw, 4rem); display: flex; gap: 4rem; align-items: center; color: white; }
+  .dif-visual { flex: 1; display: flex; justify-content: center; align-items: center; }
+  .visual-placeholder { font-size: 5rem; color: #78BE20; }
+  .dif-content { flex: 1; }
+  .dif-content h3 { font-size: 2rem; margin-bottom: 2.5rem; }
+  .dif-list { list-style: none; border-left: 3px solid rgba(255, 255, 255, 0.3); padding-left: 2rem; }
+  .dif-item { margin-bottom: 2rem; }
+  .dif-item strong { font-size: 1.2rem; display: block; margin-bottom: 0.5rem; }
+  .dif-item p { font-size: 0.9rem; opacity: 0.8; }
+  .faq-section { padding: 8rem 0; }
+  .faq-list { max-width: 900px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid #e2e8f0; padding: 1.5rem 0; }
+  .faq-item summary { list-style: none; font-weight: 700; color: #0F2E65; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  .faq-answer { padding-top: 1rem; color: #4a5568; }
+  @media (max-width: 992px) { .steps-grid, .diferenciadores-card { grid-template-columns: 1fr; flex-direction: column; } .steps-line { display: none; } }
 </style>

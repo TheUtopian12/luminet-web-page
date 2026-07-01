@@ -1,20 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactSection from '../../components/home/ContactSection.astro';
-import { BarChart, Clock, Globe, Laptop, Shield, Smartphone, Zap } from 'lucide-astro';
+import { Server, Network, Boxes, ShieldCheck } from 'lucide-astro';
 
 const beneficios = [
-  { Icon: Smartphone, title: 'Multi-Tecnología de acceso' },
-  { Icon: Clock, title: 'Tiempo de implementación' },
-  { Icon: Laptop, title: 'Soporte 24/7' },
-  { Icon: BarChart, title: 'Reportes de consumo' },
+  { Icon: Server, title: 'Infraestructura certificada: estándares TIER con plantas de energía de respaldo y transferencia automática.' },
+  { Icon: Network, title: 'Transferencia libre de datos: conectividad robusta sin cobros ocultos por volumen de transferencia.' },
+  { Icon: Boxes, title: 'Espacios modulares a la medida: desde racks compartidos hasta jaulas privadas dedicadas.' },
+  { Icon: ShieldCheck, title: 'Seguridad de grado militar: accesos biométricos, CCTV perimetral y soporte técnico 24/7 los 365 días.' },
 ];
 
 const faq = [
-  { q: '¿En cuánto tiempo instalan?', a: 'Instalamos en tiempo récord una vez contratado el servicio.' },
-  { q: '¿Ofrecen soporte 24/7?', a: 'Sí, contamos con soporte técnico especializado disponible las 24 horas.' },
-  { q: '¿Pueden integrar múltiples enlaces?', a: 'Sí, podemos gestionar múltiples enlaces.' },
-  { q: '¿Como empezaron?', a: 'Luminet nació de la necesidad de ofrecer conectividad empresarial de clase mundial.' },
+  { q: '¿Dónde se alojan los datos?', a: 'En territorio nacional, con soberanía de datos y esquemas estrictos de redundancia electromecánica.' },
+  { q: '¿Qué opciones de espacio ofrecen?', a: 'Desde racks compartidos hasta jaulas privadas dedicadas, a la medida de la institución.' },
+  { q: '¿Cobran por volumen de transferencia?', a: 'No, la conectividad es robusta y sin cobros ocultos por volumen de transferencia.' },
+  { q: '¿Sirve para recuperación ante desastres (DRP)?', a: 'Sí, es ideal como centro alterno de recuperación para garantizar la continuidad de sistemas y bases de datos.' },
 ];
 ---
 
@@ -27,13 +27,25 @@ const faq = [
 
   <section class="service-subtitle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p>La solución de Alta Disponibilidad minimiza y reduce un posible corte de servicio, derivado de una falla o degradación de alguno de los proveedores de Internet conectados al equipo Alta Disponibilidad. Con esto se garantiza la continuidad operativa de forma rápida y automática.</p>
+      <p>Espacios de alojamiento tecnológico de clase mundial, con soberanía de datos en territorio nacional, protegidos bajo estrictos esquemas de redundancia electromecánica y conectividad redundante de alta disponibilidad.</p>
+    </div>
+  </section>
+
+  <section class="perfil-cliente">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title-center">Perfil de cliente (Target Gobierno)</h2>
+      <p class="perfil-text">
+        Dependencias de cualquier nivel de gobierno con servicios críticos 24/7/365; instituciones que
+        buscan externalizar servidores físicos con redundancia; organismos que requieren centros
+        alternos de recuperación ante desastres (DRP) para garantizar la continuidad de sus sistemas
+        y bases de datos.
+      </p>
     </div>
   </section>
 
   <section class="beneficios-luminet">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title-center">Beneficios de Luminet</h2>
+      <h2 class="section-title-center">Ventajas Competitivas</h2>
       <div class="steps-grid">
         <div class="steps-line"></div>
         {beneficios.map((ben) => (
@@ -50,26 +62,16 @@ const faq = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="diferenciadores-card">
         <div class="dif-visual">
-          <div class="visual-placeholder"><Shield /> <Globe /> <Zap /></div>
+          <div class="visual-placeholder"><Server /> <Network /> <ShieldCheck /></div>
         </div>
         <div class="dif-content">
           <h3>Diferenciadores Principales</h3>
           <ul class="dif-list">
-            <li>
-              <div class="dif-item">
-                <strong>Inspección Profundas</strong>
-                <p>Visión de uso de servicio de Internet. Segmentación por categorías o páginas web.</p>
-              </div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Gestion en Nube</strong></div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Monitoreo Libre</strong></div>
-            </li>
-            <li>
-              <div class="dif-item"><strong>Equipo Compatible</strong></div>
-            </li>
+            <li><div class="dif-item"><strong>Redundancia</strong><p>Ubicación e instalaciones propias.</p></div></li>
+            <li><div class="dif-item"><strong>Centro TIER</strong><p>Sin limitante en la transferencia de datos.</p></div></li>
+            <li><div class="dif-item"><strong>Escalabilidad</strong><p>Flexibilidad de crecimiento del servicio en base a las necesidades de la institución.</p></div></li>
+            <li><div class="dif-item"><strong>Conectividad</strong><p>Conectividad o redundancia con opción de proveedores Tier 1.</p></div></li>
+            <li><div class="dif-item"><strong>Diseño</strong><p>Diseño y flexibilidad de ubicación dentro del Data Center (compartida o privada con acceso 24/7).</p></div></li>
           </ul>
         </div>
       </div>
@@ -85,9 +87,7 @@ const faq = [
         {faq.map((item) => (
           <details class="faq-item">
             <summary>{item.q} <span class="plus">+</span></summary>
-            <div class="faq-answer">
-              <p>{item.a}</p>
-            </div>
+            <div class="faq-answer"><p>{item.a}</p></div>
           </details>
         ))}
       </div>
@@ -96,52 +96,32 @@ const faq = [
 </Layout>
 
 <style>
-  /* Same styles as Pyme */
-  .service-hero {
-    min-height: 400px; padding: 4rem 0;
-    background: linear-gradient(rgba(15, 46, 101, 0.7), rgba(15, 46, 101, 0.7)), url('/internet-hero.webp');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 80px;
-    color: white;
-  }
+  .service-hero { min-height: 400px; padding: 4rem 0; background: linear-gradient(rgba(15, 46, 101, 0.7), rgba(15, 46, 101, 0.7)), url('/internet-hero.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: 80px; color: white; }
   .service-hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; }
   .service-subtitle { padding: 3rem 0; text-align: center; color: #78BE20; font-weight: 600; font-size: 1.1rem; max-width: 900px; margin: 0 auto; }
   .section-title-center { text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); color: #0F2E65; margin-bottom: 4rem; }
+  .perfil-cliente { padding: 5rem 0 2rem; }
+  .perfil-text { max-width: 800px; margin: 0 auto; text-align: center; color: #4a5568; font-size: 1.1rem; line-height: 1.7; }
   .beneficios-luminet { padding: 6rem 0; background: #f8f9fa; }
   .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; position: relative; text-align: center; }
   .steps-line { position: absolute; top: 50px; left: 10%; right: 10%; height: 1px; background: #cbd5e0; z-index: 0; }
   .step-item { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
   .step-icon { width: 100px; height: 100px; background: white; border: 1px solid #cbd5e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(1.8rem, 5vw, 2.5rem); }
-  .step-item p { font-weight: 700; color: #0F2E65; font-size: 0.9rem; max-width: 150px; }
+  .step-item p { font-weight: 700; color: #0F2E65; font-size: 0.9rem; max-width: 200px; }
   .diferenciadores { padding: 6rem 0; }
   .diferenciadores-card { background: #0F2E65; border-radius: 30px; padding: clamp(2rem, 5vw, 4rem); display: flex; gap: 4rem; align-items: center; color: white; }
   .dif-visual { flex: 1; display: flex; justify-content: center; align-items: center; }
-  .visual-placeholder { font-size: 5rem; }
+  .visual-placeholder { font-size: 5rem; color: #78BE20; }
   .dif-content { flex: 1; }
   .dif-content h3 { font-size: 2rem; margin-bottom: 2.5rem; }
   .dif-list { list-style: none; border-left: 3px solid rgba(255, 255, 255, 0.3); padding-left: 2rem; }
   .dif-item { margin-bottom: 2rem; }
   .dif-item strong { font-size: 1.2rem; display: block; margin-bottom: 0.5rem; }
   .dif-item p { font-size: 0.9rem; opacity: 0.8; }
-  .success-cases { padding: 8rem 0; }
-  .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .case-card { background: #f8f9fa; border-radius: 20px; overflow: hidden; }
-  .case-img-placeholder { height: 250px; }
-  .case-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-  .case-body { padding: 2.5rem; }
-  .case-body h3 { color: #0F2E65; margin-bottom: 1rem; }
-  .case-body p { font-size: 0.9rem; color: #4a5568; line-height: 1.6; }
   .faq-section { padding: 8rem 0; }
   .faq-list { max-width: 900px; margin: 0 auto; }
   .faq-item { border-bottom: 1px solid #e2e8f0; padding: 1.5rem 0; }
   .faq-item summary { list-style: none; font-weight: 700; color: #0F2E65; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
   .faq-answer { padding-top: 1rem; color: #4a5568; }
-  @media (max-width: 992px) {
-    .steps-grid, .cases-grid, .diferenciadores-card { grid-template-columns: 1fr; flex-direction: column; }
-    .steps-line { display: none; }
-  }
+  @media (max-width: 992px) { .steps-grid, .diferenciadores-card { grid-template-columns: 1fr; flex-direction: column; } .steps-line { display: none; } }
 </style>
