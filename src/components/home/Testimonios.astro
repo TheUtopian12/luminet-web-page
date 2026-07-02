@@ -1,0 +1,72 @@
+---
+import { Star } from 'lucide-astro';
+
+const testimonios = [
+  {
+    initials: 'MR',
+    quote: 'Llevamos 3 años con Luminet en nuestra planta en Coahuila. La diferencia frente a nuestro proveedor anterior es enorme: el enlace rara vez cae y cuando hay un problema, responden en horas, no en días.',
+    role: 'Gerente de TI',
+    org: 'Empresa manufacturera · Saltillo, Coah.',
+    tag: 'Industria',
+  },
+  {
+    initials: 'CA',
+    quote: 'Para nosotros la cobertura era el problema. Operamos en zonas donde ningún otro proveedor llegaba con calidad. Luminet instaló en menos de una semana y el servicio es estable desde el primer día.',
+    role: 'Director de Operaciones',
+    org: 'Empresa agro-industrial · Norte de México',
+    tag: 'Agro',
+  },
+  {
+    initials: 'LP',
+    quote: 'Lo que más valoro es que hay un asesor que me conoce. No explico mi problema desde cero cada vez. Llamo, me atienden por nombre y ya saben qué tipo de instalación tenemos. Eso no lo da cualquier ISP.',
+    role: 'Dueño',
+    org: 'PYME logística · San Luis Potosí',
+    tag: 'PYME',
+  },
+];
+---
+
+<section class="bg-[#f6f7f9] py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="max-w-2xl mb-16">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-10 h-px bg-[#78BE20]"></span>
+        <span class="text-[#78BE20] text-sm font-semibold uppercase tracking-[0.18em]">Lo que dicen</span>
+      </div>
+      <h2 class="text-[#0F2E65] text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
+        +1,000 empresas<br />
+        <span class="italic text-[#78BE20]">ya eligieron Luminet</span>
+      </h2>
+      <p class="text-[#3f4a5f] text-lg leading-relaxed">
+        No pedimos que nos creas a nosotros. Escucha a quienes ya tomaron la decisión.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {testimonios.map((t) => (
+        <article class="flex flex-col bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+          <div class="flex gap-1 mb-6">
+            {Array.from({ length: 5 }).map(() => (
+              <Star class="w-4 h-4 text-[#78BE20]" fill="#78BE20" />
+            ))}
+          </div>
+
+          <p class="text-[#3f4a5f] text-[0.98rem] leading-relaxed italic mb-8 flex-1">"{t.quote}"</p>
+
+          <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F2E65] to-[#1e4a9e] text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+              {t.initials}
+            </div>
+            <div class="min-w-0">
+              <p class="text-[#0F2E65] text-sm font-bold leading-tight">{t.role}</p>
+              <p class="text-[#56637a] text-xs mt-0.5">{t.org}</p>
+            </div>
+            <span class="ml-auto self-start text-[0.65rem] font-bold uppercase tracking-wide text-[#0F2E65] bg-[#78BE20]/15 px-2.5 py-1 rounded-full">{t.tag}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
